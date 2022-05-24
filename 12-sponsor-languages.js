@@ -10,9 +10,17 @@ export const SponsorLanguages = (props) => {
 
   return (
     <>
-      <h5><InputLabel style={{ backgroundColor: 'black', color: 'white' }}>1. Name</InputLabel></h5>
-      <h1><InputLabel style={{ color: 'DarkGray' }}>Sponsor's name and gender</InputLabel></h1>
-      <h1><InputLabel style={{ backgroundColor: 'DarkSeaGreen', color: 'Black' }}>The sponsor is the U.S. citizen.</InputLabel></h1>
+      <h5><InputLabel style={{ backgroundColor: 'black', color: 'white' }}>15. Languages</InputLabel></h5>
+      <h1><InputLabel style={{ color: 'DarkGray' }}>All questions are about the Alien (foreign citizen).</InputLabel></h1>
+      <h1><InputLabel style={{ backgroundColor: 'DarkSeaGreen', color: 'Black' }}>Provide a List of Languages You Speak</InputLabel></h1>
+	<h1><InputLabel style={{ backgroundColor: 'DarkSeaRed', color: 'Red' }}>Please enter only one language per line!</InputLabel></h1>
+
+      <TextField variant="outlined"
+        name=""
+        label="Language 1"
+      //    value={values.applicantMiddleName}
+      //    onChange={handleInputChange}
+      />
 
     </>
   )
