@@ -10,10 +10,19 @@ export const SponsorOtherFilings = (props) => {
 
   return (
     <>
-      <h5><InputLabel style={{ backgroundColor: 'black', color: 'white' }}>1. Name</InputLabel></h5>
-      <h1><InputLabel style={{ color: 'DarkGray' }}>Sponsor's name and gender</InputLabel></h1>
-      <h1><InputLabel style={{ backgroundColor: 'DarkSeaGreen', color: 'Black' }}>The sponsor is the U.S. citizen.</InputLabel></h1>
+      <h5><InputLabel style={{ backgroundColor: 'black', color: 'white' }}>6. Other Filings</InputLabel></h5>
 
+      <FormControl>
+        <FormLabel id="">Have you ever filed Form I-129F, Petition for Alien Fiancé(e) for any other person?</FormLabel>
+        <RadioGroup
+          row
+          name=""
+        // onChange={handleInputChange}
+        >
+          <FormControlLabel value="" control={<Radio />} label="No" />
+          <FormControlLabel value="" control={<Radio />} label="Yes" />
+        </RadioGroup>
+      </FormControl>
     </>
   )
 }
