@@ -1,0 +1,11 @@
+webmail.onewits.com
+dev01@onewits.com
+q97$szF91
+-=====================================================
+https://onewits.slack.com/archives/D03FAUR0H5Z/p1652687030521629
+https://OneWits@dev.azure.com/OneWits/VisaInstantOne/_git/VisaInstantOne
+-=====================================================
+REACT_APP_API_URL=http://localhost:5000/api/
+REACT_APP_API_URL=https://visainstantapidev.onewits.com/api/
+-=====================================================
+https://visainstantapidev.onewits.com/swagger/index.html
