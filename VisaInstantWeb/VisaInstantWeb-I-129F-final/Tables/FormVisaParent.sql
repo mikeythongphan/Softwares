@@ -1,6 +1,6 @@
 CREATE TABLE [dbo].[FormVisaParent] (
-    [Id] BIGINT IDENTITY (1, 1) NOT NULL,
-    [AccountId] BIGINT NULL,
+    	[Id] BIGINT IDENTITY (1, 1) NOT NULL,
+    	[AccountId] BIGINT NULL,
 	[PetitionerContactFirstName] NVARCHAR (1000) NULL,
 	[PetitionerContactMiddleName] NVARCHAR (1000) NULL,
 	[PetitionerContactLastName] NVARCHAR (1000) NULL,
@@ -84,6 +84,6 @@ CREATE TABLE [dbo].[FormVisaParent] (
 	[InterpreterNameCountry] NVARCHAR (1000) NULL,
 	[InterpreterNameDaytimeTelephoneNumber] NVARCHAR (1000) NULL,
 	[InterpreterNameEmailAddress] NVARCHAR (1000) NULL,
-    [Deleted] BIT CONSTRAINT [DF_FormVisaParent_Deleted] DEFAULT ((0)) NOT NULL,
-    CONSTRAINT [PK_FormVisaParent] PRIMARY KEY CLUSTERED ([Id] ASC)
+    	[Deleted] BIT CONSTRAINT [DF_FormVisaParent_Deleted] DEFAULT ((0)) NOT NULL,
+    	CONSTRAINT [PK_FormVisaParent] PRIMARY KEY CLUSTERED ([Id] ASC)
 );
