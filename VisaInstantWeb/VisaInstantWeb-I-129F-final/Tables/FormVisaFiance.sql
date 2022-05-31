@@ -1,6 +1,6 @@
 CREATE TABLE [dbo].[FormVisaFiance] (
-    [Id] BIGINT IDENTITY (1, 1) NOT NULL,
-    [AccountId] BIGINT NULL,    
+    	[Id] BIGINT IDENTITY (1, 1) NOT NULL,
+    	[AccountId] BIGINT NULL,    
 	[PetitionerContactFirstName] NVARCHAR (1000) NULL,
 	[PetitionerContactMiddleName] NVARCHAR (1000) NULL,
 	[PetitionerContactLastName] NVARCHAR (1000) NULL,
@@ -205,6 +205,6 @@ CREATE TABLE [dbo].[FormVisaFiance] (
 	[InterpreterCountry] NVARCHAR (1000) NULL,
 	[InterpreterDaytimePhoneNumber] NVARCHAR (1000) NULL,
 	[InterpreterEmailAddress] NVARCHAR (1000) NULL,
-    [Deleted] BIT CONSTRAINT [DF_FormVisaFiance_Deleted] DEFAULT ((0)) NOT NULL,
-    CONSTRAINT [PK_FormVisaFiance] PRIMARY KEY CLUSTERED ([Id] ASC)
+    	[Deleted] BIT CONSTRAINT [DF_FormVisaFiance_Deleted] DEFAULT ((0)) NOT NULL,
+    	CONSTRAINT [PK_FormVisaFiance] PRIMARY KEY CLUSTERED ([Id] ASC)
 );
