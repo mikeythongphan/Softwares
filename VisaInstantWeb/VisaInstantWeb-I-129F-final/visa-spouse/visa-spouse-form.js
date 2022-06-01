@@ -65,7 +65,7 @@ const initialValues = {
 	"sponsorNameDaytimePhoneNumber": "",
 	"sponsorNameGenderMale": false,
 	"sponsorNameGenderFemale": false,
-	"sponsorNameAnotherNamesYes": false,
+	"sponsorNameAnotherNameYes": false,
 	"sponsorNameAnotherNameNo": false,
 	"sponsorContactEmailAddress": "",
 	"sponsorContactMobileNumber": "",
@@ -166,7 +166,7 @@ const initialValues = {
 	"sponsorAddressLivedAddressSince": null,
 	"sponsorAddressUSStateCountry": null,
 	"sponsorRelationshipCityFirstTime": "",
-	"sponsorRelationshipItUSCISYes": false,
+	"sponsorRelationshipUSCISYes": false,
 	"sponsorRelationshipUSCISNo": false,
 	"sponsorRelationshipIMBYes": false,
 	"sponsorRelationshipIMBNo": false,
@@ -380,7 +380,9 @@ export const FormVisaSpouse = (props) => {
 			"sponsorNameGender": {
         "sponsorNameGenderMale": false,
         "sponsorNameGenderFemale": false,
-        "sponsorNameAnotherNamesYes": false,
+			},
+			"sponsorNameAnotherName": {
+        "sponsorNameAnotherNameYes": false,
         "sponsorNameAnotherNameNo": false,
 			},
 			"sponsorContactDifferentPhysical": {
@@ -474,7 +476,7 @@ export const FormVisaSpouse = (props) => {
         "militaryAndConvictionsTrafficViolationsNo": false,
 			},
 			"sponsorRelationshipUSCIS": {
-        "sponsorRelationshipItUSCISYes": false,
+        "sponsorRelationshipUSCISYes": false,
         "sponsorRelationshipUSCISNo": false,
       },
       "sponsorRelationshipIMB": {
