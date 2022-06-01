@@ -32,6 +32,97 @@ const initialSteps = [
 const initialValues = {
   "id": 0,
   "accountId": 1,
+  "nameFirstName": "",
+  "nameMiddleName": "",
+  "nameLastName": "",
+  "nameOtherNamesYes": false,
+  "nameOtherNamesNo": false,
+  "nameDaytimePhone": "",
+  "nameEmailAddress": "",
+  "nameCityOfBirth": "",
+  "nameProvinceStateOfBirth": "",
+  "nameCountryOfBirth": "",
+  "nameAppyingForInitial": false,
+  "nameAppyingForReplacement": false,
+  "nameAppyingForRenewal": false,
+  "addressMailingStreetAddressApt": false,
+  "addressMailingStreetAddressSte": false,
+  "addressMailingStreetAddressFlr": false,
+  "addressMailingStreetAddressYes": false,
+  "addressMailingStreetAddressText": "",
+  "addressCityOrTown": "",
+  "addressState": "",
+  "addressProvince": "",
+  "addressZipCode": "",
+  "addressDifferentPhysicalYes": false,
+  "addressDifferentPhysicalNo": false,
+  "contactGenderMale": false,
+  "contactGenderFemale": false,
+  "contactDateOfBirth": null,
+  "contactCityOfBirth": "",
+  "contactProvinceOrStateOfBirth": "",
+  "contactCountryOfBirth": "",
+  "contactMaritalStatusSingle": false,
+  "contactMaritalStatusMarried": false,
+  "contactMaritalStatusDivorced": false,
+  "contactMaritalStatusWidowed": false, 
+  "contactAlienRegistrationNumber": "",
+  "contactFormI765Yes": false,
+  "contactFormI765No": false,
+  "contactSocialSecurityYes": false,
+  "contactSocialSecurityNo": false,
+  "contactSSAYes": false,
+  "contactSSANo": false,
+  "contactConsentDisclosureYes": false,
+  "contactConsentDisclosureNo": false,
+  "parentFatherFirstName": "",
+  "parentFatherLastName": "",
+  "parentMotherFirstName": "",
+  "parentMotherLastName": "",
+  "parent1Country": "",
+  "parent2Country": "",
+  "parent3Country": "",
+  "parentArrivalDeparture": "",
+  "parentDateAuthorized": "",
+  "parentPassportNumber": "",
+  "parentTravelDocumentNumber": "",
+  "parentCountryIssuance": "",
+  "parentDateLastArrival": null,
+  "parentPlaceLastArrival": "",
+  "parentImmigrationStatusLastArrival": "",
+  "parentImmigrationStatusCategory": "",
+  "parentSudentExchangeVisitor": "", 
+  "authorizationEligibilityCategory": "",
+  "authorizationDegree": "",
+  "authorizationEmployerName": "",
+  "authorizationCompanyIdentification": "",
+  "authorizationReceiptNumber": "",
+  "authorization1ArrestedYes": false,
+  "authorization1ArrestedNo": false,
+  "authorizationLawfullyYes": false,
+  "authorizationLawfullyNo": false,
+  "authorizationSecretaryYes": false,
+  "authorizationSecretaryNo": false,
+  "authorization1NoticeYes": false,
+  "authorization1NoticeNo": false,
+  "authorization2ArrestedYes": false,
+  "authorization2ArrestedNo": false,
+  "authorization2NoticeYes": false,
+  "authorization2NoticeNo": false,
+  "interpreterFirstName": "",
+  "interpreterLastName": "",
+  "interpreterBusinessName": "",
+  "interpreterMailingStreetAddressApt": false,
+  "interpreterMailingStreetAddressSte": false,
+  "interpreterMailingStreetAddressFlr": false,
+  "interpreterMailingStreetAddressNumber": false,
+  "interpreterMailingStreetAddressText": "",
+  "interpreterCityOrTown": "",
+  "interpreterProvince": "",
+  "interpreterZipCode": "",
+  "interpreterCountry": "",
+  "interpreterDaytimeTelephoneNumber": "",
+  "interpreterEmail": "",
   "deleted": false
 }
 
@@ -77,16 +168,99 @@ export const FormEmploymentAuthorization = (props) => {
   const handleInputChange = e => {
     const { name, value, type } = e.target
 
-    // if (type === 'radio') {
-    // 	handleInputRadio(name, value)
-    // } else {
-    // 	setValues({
-    // 		...values,
-    // 		[name]: value
-    // 	})
-    // }
+    if (type === 'radio') {
+    	handleInputRadio(name, value)
+    } else {
+    	setValues({
+    		...values,
+    		[name]: value
+    	})
+    }
   }
 
+  const handleInputRadio = (name, value) => {
+		let group_radio = {
+			"nameOtherNames": {
+				"nameOtherNamesYes": false,
+				"nameOtherNamesNo": false,
+			},
+			"nameAppyingFor": {
+				"nameAppyingForInitial": false,
+				"nameAppyingForReplacement": false,
+				"nameAppyingForRenewal": false,
+			},
+			"addressMailingStreetAddress": {
+				"addressMailingStreetAddressApt": false,
+				"addressMailingStreetAddressSte": false,
+				"addressMailingStreetAddressFlr": false,
+				"addressMailingStreetAddressYes": false,
+			},
+			"contactGender": {
+				"contactGenderMale": false,
+				"contactGenderFemale": false,
+			},
+			"contactMaritalStatus": {
+				"contactMaritalStatusSingle": false,
+        "contactMaritalStatusMarried": false,
+        "contactMaritalStatusDivorced": false,
+        "contactMaritalStatusWidowed": false, 
+			},
+			"contactFormI765": {
+        "contactFormI765Yes": false,
+        "contactFormI765No": false,
+			},
+			"contactSocialSecurity": {
+        "contactSocialSecurityYes": false,
+        "contactSocialSecurityNo": false,
+			},
+			"contactSSA": {
+        "contactSSAYes": false,
+        "contactSSANo": false,
+			},
+			"contactConsentDisclosure": {
+        "contactConsentDisclosureYes": false,
+        "contactConsentDisclosureNo": false,
+			},
+			"authorization1Arrested": {
+        "authorization1ArrestedYes": false,
+        "authorization1ArrestedNo": false,
+			},
+			"authorizationLawfully": {
+        "authorizationLawfullyYes": false,
+        "authorizationLawfullyNo": false,
+			},
+			"authorizationSecretary": {
+        "authorizationSecretaryYes": false,
+        "authorizationSecretaryNo": false,
+			},
+			"authorization1Notice": {
+        "authorization1NoticeYes": false,
+        "authorization1NoticeNo": false,
+			},
+			"authorization2Arrested": {
+        "authorization2ArrestedYes": false,
+        "authorization2ArrestedNo": false,
+			},
+			"authorization2Notice": {
+        "authorization2NoticeYes": false,
+        "authorization2NoticeNo": false,
+			},
+			"interpreterMailingStreetAddress": {
+        "interpreterMailingStreetAddressApt": false,
+        "interpreterMailingStreetAddressSte": false,
+        "interpreterMailingStreetAddressFlr": false,
+        "interpreterMailingStreetAddressNumber": false,
+			},
+		}
+		if (group_radio[name]) {
+			group_radio[name][value] = true;
+			setValues({
+				...values,
+				...group_radio[name]
+			})
+		}
+  }
+  
   const convertToEventParam = (name, value) => ({
     target: {
       name, value
@@ -104,6 +278,18 @@ export const FormEmploymentAuthorization = (props) => {
       }
     });
 
+    if (values.id > 0) {
+			await http.post("FormEmployment/Update", payload);
+		} else {
+			let result = await http.post("FormEmployment/Insert", payload);
+			if (result.succeeded) {
+				setValues({
+					...values,
+					id: result.data.id
+				})
+			}
+    }
+    
     if (currentStepIndex === steps.length) {
       // Reset state and back to start
       setValues(initialValues)
@@ -116,7 +302,7 @@ export const FormEmploymentAuthorization = (props) => {
   // Update query string
   useEffect(() => {
     history.push({
-      pathname: "",
+      pathname: "formemployment",
       search: "id=" + values.id + "&st=" + currentStepIndex,
     });
   }, [values.id, currentStepIndex]);
