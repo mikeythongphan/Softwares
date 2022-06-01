@@ -36,11 +36,93 @@ const initialSteps = [
 const initialValues = {
   "id": 0,
   "accountId": 1,
+  "petitionerContactFirstName": "",
+	"petitionerContactMiddleName": "",
+	"petitionerContactLastName": "",
+	"petitionerContactDaytimeTelephoneNumber": "",
+	"petitionerContactEmailAddress": "",
+	"petitionerContactDateOfBirth": null,
+	"petitionerContactAlienRegistrationNumber": "",
+	"petitionerContactCountryOfCitizenship": "",
+	"sponsorsContactMailingStreetAddressApt": false,
+	"sponsorsContactMailingStreetAddressSte": false,
+	"sponsorsContactMailingStreetAddressFlr": false,
+	"sponsorsContactMailingStreetNumber": "",
+	"sponsorsContactCityOrTown": "",
+	"sponsorsContactState": "",
+	"sponsorsContactProvince": "",
+	"sponsorsContactZipCode": "",
+	"sponsorsContactCountry": "",
+	"sponsorsContactDifferentPhysicalYes": false,
+	"sponsorsContactDifferentPhysicalNo": false,
+	"sponsorInformationEmployedAs": "",
+	"sponsorInformationNameOfEmployer1": "",
+	"sponsorInformationNameOfEmployer2": "",
+	"sponsorInformationSelfEmployed": "",
+	"sponsorInformationRetiredSince": null,
+	"sponsorInformationUnemployedSince": null,
+	"sponsorInformationAnnualIncomeIs": "",
+	"sponsorInformationAnnualHouseholdIs": "",
+	"sponsorInformationTaxYearMostRecent": "",
+	"sponsorInformation2ndMostRecent": "",
+	"sponsorInformation3rdMostRecent": "",
+	"sponsorInformationIRSRequiredLevelYes": false,
+	"sponsorInformationIRSRequiredLevelNo": false,
+	"sponsorStatusSocialSecurityNumber": "",
+	"sponsorStatusMaritalStatusUSCitizen": false,
+	"sponsorStatusMaritalStatusUSNational": false,
+	"sponsorStatusMaritalStatusGreenCard": false,
+	"sponsorStatusAlienNumber": "",
+	"sponsorStatusCountryOfDomicile": "",
+	"sponsorStatusUSArmedForcesYes": false,
+	"sponsorStatusUSArmedForcesNo": false,
+	"sponsorStatusCurrentlyMarriedYes": false,
+	"sponsorStatusCurrentlyMarriedNo": false,
+	"sponsorStatusDependentChildrenYes": false,
+	"sponsorStatusDependentChildrenNo": false,
+	"sponsorStatusPreviouslyMarriedYes": false,
+	"sponsorStatusPreviouslyMarriedNo": false,
+	"sponsorGenderPrincipalImmigrantMale": false,
+	"sponsorGenderPrincipalImmigrantFemale": false,
+	"sponsorGenderWithinSixMonthsImmigrantMale": false,
+	"sponsorGenderWithinSixMonthsImmigrantFemale": false,
+	"sponsorGenderMoreThanSixMonthsImmigrantMale": false,
+	"sponsorGenderMoreThanSixMonthsImmigrantFemale": false,
+	"sponsorAddressStreetApt": false,
+	"sponsorAddressStreetSte": false,
+	"sponsorAddressStreetFlr": false,
+	"sponsorAddressStreetNumber": "",
+	"sponsorAddressCityOrTown": "",
+	"sponsorAddressState": "",
+	"sponsorAddressProvince": "",
+	"sponsorAddressZipCode": "",
+	"sponsorAddressCountry": "",
+	"sponsorNameFirstName": "",
+	"sponsorNameMiddleName": "",
+	"sponsorNameLastName": "",
+	"sponsorName1DaytimeTelephoneNumber": "",
+	"sponsorName2DaytimeTelephoneNumber": "",
+	"sponsorNameEmailAddress": "",
+	"sponsorNameDateOfBirth": null,
+	"sponsorNameAlienRegistrationNumber": "",
+	"sponsorNameCountry": "",
+	"interpreterNameFirstName": "",
+	"interpreterNameLastName": "",
+	"interpreterNameBusinessOrOrganization": "",
+	"interpreterNameStreetApt": false,
+	"interpreterNameStreetSte": false,
+	"interpreterNameStreetFlr": false,
+	"interpreterNameStreetNumber": "",
+	"interpreterNameCityOrTown": "",
+	"interpreterNameProvince": "",
+	"interpreterNameZipCode": "",
+	"interpreterNameCountry": "",
+	"interpreterNameDaytimeTelephoneNumber": "",
+	"interpreterNameEmailAddress": "",
   "deleted": false
 }
 
 export const FormVisaParent = (props) => {
-
 
   const classes = useStyles();
   const history = useHistory();
@@ -82,16 +164,84 @@ export const FormVisaParent = (props) => {
   const handleInputChange = e => {
     const { name, value, type } = e.target
 
-    // if (type === 'radio') {
-    // 	handleInputRadio(name, value)
-    // } else {
-    // 	setValues({
-    // 		...values,
-    // 		[name]: value
-    // 	})
-    // }
+    if (type === 'radio') {
+    	handleInputRadio(name, value)
+    } else {
+    	setValues({
+    		...values,
+    		[name]: value
+    	})
+    }
   }
 
+  const handleInputRadio = (name, value) => {
+		let group_radio = {
+			"sponsorsContactMailingStreetAddress": {
+        "sponsorsContactMailingStreetAddressApt": false,
+        "sponsorsContactMailingStreetAddressSte": false,
+        "sponsorsContactMailingStreetAddressFlr": false,
+			},
+			"sponsorsContactDifferentPhysical": {
+        "sponsorsContactDifferentPhysicalYes": false,
+        "sponsorsContactDifferentPhysicalNo": false,
+			},
+			"sponsorInformationIRSRequiredLevel": {
+        "sponsorInformationIRSRequiredLevelYes": false,
+        "sponsorInformationIRSRequiredLevelNo": false,
+			},
+			"sponsorStatusMaritalStatus": {
+        "sponsorStatusMaritalStatusUSCitizen": false,
+        "sponsorStatusMaritalStatusUSNational": false,
+        "sponsorStatusMaritalStatusGreenCard": false,
+			},
+			"sponsorStatusUSArmedForces": {
+        "sponsorStatusUSArmedForcesYes": false,
+        "sponsorStatusUSArmedForcesNo": false,
+			},
+			"sponsorStatusCurrentlyMarried": {
+        "sponsorStatusCurrentlyMarriedYes": false,
+        "sponsorStatusCurrentlyMarriedNo": false,
+			},
+			"sponsorStatusDependentChildren": {
+        "sponsorStatusDependentChildrenYes": false,
+        "sponsorStatusDependentChildrenNo": false,
+			},
+			"sponsorStatusPreviouslyMarried": {
+        "sponsorStatusPreviouslyMarriedYes": false,
+        "sponsorStatusPreviouslyMarriedNo": false,
+			},
+			"sponsorGenderPrincipalImmigrant": {
+        "sponsorGenderPrincipalImmigrantMale": false,
+        "sponsorGenderPrincipalImmigrantFemale": false,
+			},
+			"sponsorGenderWithinSixMonthsImmigrant": {
+        "sponsorGenderWithinSixMonthsImmigrantMale": false,
+        "sponsorGenderWithinSixMonthsImmigrantFemale": false,
+			},
+			"sponsorGenderMoreThanSixMonthsImmigrant": {
+        "sponsorGenderMoreThanSixMonthsImmigrantMale": false,
+        "sponsorGenderMoreThanSixMonthsImmigrantFemale": false,
+			},
+			"sponsorAddressStreet": {
+        "sponsorAddressStreetApt": false,
+        "sponsorAddressStreetSte": false,
+        "sponsorAddressStreetFlr": false,
+			},
+			"interpreterNameStreet": {
+        "interpreterNameStreetApt": false,
+        "interpreterNameStreetSte": false,
+        "interpreterNameStreetFlr": false,
+			},			
+		}
+		if (group_radio[name]) {
+			group_radio[name][value] = true;
+			setValues({
+				...values,
+				...group_radio[name]
+			})
+		}
+  }
+  
   const convertToEventParam = (name, value) => ({
     target: {
       name, value
@@ -109,6 +259,18 @@ export const FormVisaParent = (props) => {
       }
     });
 
+    if (values.id > 0) {
+			await http.post("FormVisaParent/Update", payload);
+		} else {
+			let result = await http.post("FormVisaParent/Insert", payload);
+			if (result.succeeded) {
+				setValues({
+					...values,
+					id: result.data.id
+				})
+			}
+    }
+    
     if (currentStepIndex === steps.length) {
       // Reset state and back to start
       setValues(initialValues)
@@ -121,7 +283,7 @@ export const FormVisaParent = (props) => {
   // Update query string
   useEffect(() => {
     history.push({
-      pathname: "",
+      pathname: "formvisaparent",
       search: "id=" + values.id + "&st=" + currentStepIndex,
     });
   }, [values.id, currentStepIndex]);
