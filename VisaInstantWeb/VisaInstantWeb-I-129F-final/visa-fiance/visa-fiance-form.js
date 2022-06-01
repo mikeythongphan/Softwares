@@ -67,7 +67,7 @@ const initialValues = {
 	"petitionerAddress2MailingStreetAddressApt": false,
 	"petitionerAddress2MailingStreetAddressSte": false,
 	"petitionerAddress2MailingStreetAddressFlr": false,
-	"petitionerAddressMailingStreetAddressYes": false,
+	"petitionerAddress2MailingStreetAddressYes": false,
 	"petitionerAddress2State": "",
 	"petitionerAddress2Province": "",
 	"petitionerAddress2ZipCode": "",
@@ -145,7 +145,7 @@ const initialValues = {
 	"petitionerBiographicEyeColorPink": false,
 	"petitionerBiographicEyeColorOther": false,
 	"petitionerBiographicCivilCriminalYes": false,
-	"petitionerBiographicCivilCriminalNo)": false,
+	"petitionerBiographicCivilCriminalNo": false,
 	"petitionerBiographicDomesticViolenceYes": false,
 	"petitionerBiographicDomesticViolenceNo": false,
 	"petitionerBiographicHomicideYes": false,
@@ -323,7 +323,7 @@ export const FormVisaFiance = () => {
         "petitionerAddress2MailingStreetAddressApt": false,
         "petitionerAddress2MailingStreetAddressSte": false,
         "petitionerAddress2MailingStreetAddressFlr": false,
-        "petitionerAddressMailingStreetAddressYes": false,
+        "petitionerAddress2MailingStreetAddressYes": false,
 			},
 			"petitionerBackgroundGender": {
         "petitionerBackgroundGenderMale": false,
@@ -382,7 +382,7 @@ export const FormVisaFiance = () => {
 			},
 			"petitionerBiographicCivilCriminal": {
         "petitionerBiographicCivilCriminalYes": false,
-        "petitionerBiographicCivilCriminalNo)": false,
+        "petitionerBiographicCivilCriminalNo": false,
 			},
 			"petitionerBiographicDomesticViolence": {
         "petitionerBiographicDomesticViolenceYes": false,
