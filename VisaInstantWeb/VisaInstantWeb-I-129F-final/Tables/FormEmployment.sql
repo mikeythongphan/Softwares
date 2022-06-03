@@ -1,5 +1,5 @@
-﻿CREATE TABLE [dbo].[FormEmployment] (
-    [Id]                               BIGINT          IDENTITY (1, 1) NOT NULL,
+CREATE TABLE [dbo].[FormEmployment] (
+    [Id] BIGINT IDENTITY (1, 1) NOT NULL,
     [AccountId] BIGINT NULL,
     [NameFirstName] NVARCHAR (1000) NULL,
     [NameMiddleName] NVARCHAR (1000) NULL,
@@ -72,12 +72,10 @@
     [AuthorizationLawfullyNo]  BIT NULL,
     [AuthorizationSecretaryYes]  BIT NULL,
     [AuthorizationSecretaryNo]  BIT NULL,
-    [Authorization1NoticeYes]  BIT NULL,
-    [Authorization1NoticeNo]  BIT NULL,
+    [Authorization1Notice]  NVARCHAR (1000) NULL,
     [Authorization2ArrestedYes]  BIT NULL,
     [Authorization2ArrestedNo]  BIT NULL,
-    [Authorization2NoticeYes]  BIT NULL,
-    [Authorization2NoticeNo]  BIT NULL,
+    [Authorization2Notice]  NVARCHAR (1000) NULL,
     [InterpreterFirstName] NVARCHAR (1000) NULL,
     [InterpreterLastName] NVARCHAR (1000) NULL,
     [InterpreterBusinessName]  NVARCHAR (1000) NULL,
@@ -92,7 +90,6 @@
     [InterpreterCountry]  NVARCHAR (1000) NULL,
     [InterpreterDaytimeTelephoneNumber]  NVARCHAR (1000) NULL,
     [InterpreterEmail]  NVARCHAR (1000) NULL,
-    [Deleted]                          BIT             CONSTRAINT [DF_FormEmployment_Deleted] DEFAULT ((0)) NOT NULL,
+    [Deleted] BIT CONSTRAINT [DF_FormEmployment_Deleted] DEFAULT ((0)) NOT NULL,
     CONSTRAINT [PK_FormEmployment] PRIMARY KEY CLUSTERED ([Id] ASC)
 );
-
