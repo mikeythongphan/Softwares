@@ -1,6 +1,6 @@
 CREATE TABLE [dbo].[FormVisaSpouse] (
-    [Id] BIGINT IDENTITY (1, 1) NOT NULL,
-    [AccountId] BIGINT NULL,
+    	[Id] BIGINT IDENTITY (1, 1) NOT NULL,
+    	[AccountId] BIGINT NULL,
 	[SponsorNameFirstName]              NVARCHAR (1000) NULL,
 	[SponsorNameMiddleName]              NVARCHAR (1000) NULL,
 	[SponsorNameDoesNotApply]      BIT             NULL,
@@ -8,7 +8,7 @@ CREATE TABLE [dbo].[FormVisaSpouse] (
 	[SponsorNameDaytimePhoneNumber]              NVARCHAR (1000) NULL,
 	[SponsorNameGenderMale]      BIT             NULL,
 	[SponsorNameGenderFemale]      BIT             NULL,
-	[SponsorNameAnotherNamesYes]      BIT             NULL,
+	[SponsorNameAnotherNameYes]      BIT             NULL,
 	[SponsorNameAnotherNameNo]      BIT             NULL,
 	[SponsorContactEmailAddress]              NVARCHAR (1000) NULL,
 	[SponsorContactMobileNumber]              NVARCHAR (1000) NULL,
@@ -109,7 +109,7 @@ CREATE TABLE [dbo].[FormVisaSpouse] (
 	[SponsorAddressLivedAddressSince]             DATETIME2 (7)   NULL,
 	[SponsorAddressUSStateCountry]      INT NULL,
 	[SponsorRelationshipCityFirstTime]              NVARCHAR (1000) NULL,
-	[SponsorRelationshipItUSCISYes]      BIT             NULL,
+	[SponsorRelationshipUSCISYes]      BIT             NULL,
 	[SponsorRelationshipUSCISNo]      BIT             NULL,
 	[SponsorRelationshipIMBYes]      BIT             NULL,
 	[SponsorRelationshipIMBNo]      BIT             NULL,
@@ -263,6 +263,6 @@ CREATE TABLE [dbo].[FormVisaSpouse] (
 	[SponsorQuestion5SecretaryHomelandNo]      BIT             NULL,
 	[SponsorQuestion5ObtainVisaYes]      BIT             NULL,
 	[SponsorQuestion5ObtainVisaNo]      BIT             NULL,
-    [Deleted] BIT CONSTRAINT [DF_FormVisaSpouse_Deleted] DEFAULT ((0)) NOT NULL,
+    	[Deleted] BIT CONSTRAINT [DF_FormVisaSpouse_Deleted] DEFAULT ((0)) NOT NULL,
     CONSTRAINT [PK_FormVisaSpouse] PRIMARY KEY CLUSTERED ([Id] ASC)
 );
