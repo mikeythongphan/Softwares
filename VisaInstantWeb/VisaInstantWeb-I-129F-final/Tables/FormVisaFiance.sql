@@ -22,7 +22,7 @@ CREATE TABLE [dbo].[FormVisaFiance] (
 	[PetitionerAddress2MailingStreetAddressApt] BIT             NULL,
 	[PetitionerAddress2MailingStreetAddressSte] BIT             NULL,
 	[PetitionerAddress2MailingStreetAddressFlr] BIT             NULL,
-	[PetitionerAddressMailingStreetAddressYes] BIT             NULL,
+	[PetitionerAddress2MailingStreetAddressYes] BIT             NULL,
 	[PetitionerAddress2State] NVARCHAR (1000) NULL,
 	[PetitionerAddress2Province] NVARCHAR (1000) NULL,
 	[PetitionerAddress2ZipCode] NVARCHAR (1000) NULL,
@@ -100,7 +100,7 @@ CREATE TABLE [dbo].[FormVisaFiance] (
 	[PetitionerBiographicEyeColorPink] BIT             NULL,
 	[PetitionerBiographicEyeColorOther] BIT             NULL,
 	[PetitionerBiographicCivilCriminalYes] BIT             NULL,
-	[PetitionerBiographicCivilCriminalNo)] BIT             NULL,
+	[PetitionerBiographicCivilCriminalNo] BIT             NULL,
 	[PetitionerBiographicDomesticViolenceYes] BIT             NULL,
 	[PetitionerBiographicDomesticViolenceNo] BIT             NULL,
 	[PetitionerBiographicHomicideYes] BIT             NULL,
@@ -206,5 +206,5 @@ CREATE TABLE [dbo].[FormVisaFiance] (
 	[InterpreterDaytimePhoneNumber] NVARCHAR (1000) NULL,
 	[InterpreterEmailAddress] NVARCHAR (1000) NULL,
     	[Deleted] BIT CONSTRAINT [DF_FormVisaFiance_Deleted] DEFAULT ((0)) NOT NULL,
-    	CONSTRAINT [PK_FormVisaFiance] PRIMARY KEY CLUSTERED ([Id] ASC)
+    CONSTRAINT [PK_FormVisaFiance] PRIMARY KEY CLUSTERED ([Id] ASC)
 );
