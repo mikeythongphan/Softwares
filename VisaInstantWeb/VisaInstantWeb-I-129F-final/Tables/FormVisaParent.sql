@@ -85,5 +85,5 @@ CREATE TABLE [dbo].[FormVisaParent] (
 	[InterpreterNameDaytimeTelephoneNumber] NVARCHAR (1000) NULL,
 	[InterpreterNameEmailAddress] NVARCHAR (1000) NULL,
     	[Deleted] BIT CONSTRAINT [DF_FormVisaParent_Deleted] DEFAULT ((0)) NOT NULL,
-    	CONSTRAINT [PK_FormVisaParent] PRIMARY KEY CLUSTERED ([Id] ASC)
+    CONSTRAINT [PK_FormVisaParent] PRIMARY KEY CLUSTERED ([Id] ASC)
 );
