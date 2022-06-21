@@ -1,4 +1,3 @@
-
 CREATE TABLE [dbo].[FormTravelDocument] (
     [Id]			       BIGINT          IDENTITY (1, 1) NOT NULL,
     [AccountId] BIGINT NULL,
@@ -10,11 +9,11 @@ CREATE TABLE [dbo].[FormTravelDocument] (
     [PersonalInformation01BirthPlace]  NVARCHAR (1000) NULL,
     [PersonalInformation01CurrentNationality]  NVARCHAR (1000) NULL,
     [PersonalInformation01IDNumber]  NVARCHAR (1000) NULL,
-    [PersonalInformation01IssueDate] DATETIME2 (7)   NULL,
-    [PersonalInformation01PlaceOfIssue]  NVARCHAR (1000) NULL,
+    [PersonalInformation011IssueDate] DATETIME2 (7)   NULL,
+    [PersonalInformation011PlaceOfIssue]  NVARCHAR (1000) NULL,
     [PersonalInformation01PassportNumber]  NVARCHAR (1000) NULL,
-    [PersonalInformation01PlaceOfIssue]  NVARCHAR (1000) NULL,
-    [PersonalInformation01IssueDate] DATETIME2 (7)   NULL,
+    [PersonalInformation012PlaceOfIssue]  NVARCHAR (1000) NULL,
+    [PersonalInformation012IssueDate] DATETIME2 (7)   NULL,
     [PersonalInformation01ExpirationDate] DATETIME2 (7)   NULL,
     [PersonalInformation02OtherNationality]  NVARCHAR (1000) NULL,
     [PersonalInformation02PassportNumber]  NVARCHAR (1000) NULL,
