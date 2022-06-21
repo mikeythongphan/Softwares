@@ -2,178 +2,161 @@
 CREATE TABLE [dbo].[FormTravelDocument] (
     [Id]			       BIGINT          IDENTITY (1, 1) NOT NULL,
 
-PersonalInformation01 :
-PersonalInformation01 Họ tên
-PersonalInformation01 Giới tính Nam
-PersonalInformation01 Giới tính Nữ
-PersonalInformation01 Tên gọi khác (nếu có)
-PersonalInformation01 Ngày sinh
-PersonalInformation01 Nơi sinh
-PersonalInformation01 Quốc tịch hiện nay
-PersonalInformation01 Số CMND
-PersonalInformation01 Ngày cấp
-PersonalInformation01 Nơi cấp
-PersonalInformation01 Số hộ chiếu
-PersonalInformation01 Nơi cấp
-PersonalInformation01 Ngày cấp
-PersonalInformation01 Ngày hết hạn
-
-PersonalInformation02 :
-PersonalInformation02 Quốc tịch khác (nếu có)
-PersonalInformation02 Số hộ chiếu
-PersonalInformation02 Địa chỉ (hộ khẩu)
-PersonalInformation02 Địa chỉ hiện tại (liên lạc)
-PersonalInformation02 Số ĐT nhà
-PersonalInformation02 ĐTDĐ
-PersonalInformation02 Email
-PersonalInformation02 Số điện thoại và email nào khác? Không
-PersonalInformation02 Số điện thoại và email nào khác? Có
-PersonalInformation02 Bạn có sử dụng mạng xã hội không Không
-PersonalInformation02 Bạn có sử dụng mạng xã hội không Có
-PersonalInformation02 Nếu có vui long liệt kê thêm
-PersonalInformation02 Nếu có nêu tên người dùng
-
-PersonalInformation03 :
-PersonalInformation03 Tình trạng hôn nhân Độc thân
-PersonalInformation03 Tình trạng hôn nhân Kết hôn
-PersonalInformation03 Tình trạng hôn nhân Góa
-PersonalInformation03 Tình trạng hôn nhân Ly hôn
-PersonalInformation03 Tình trạng hôn nhân Ly thân
-PersonalInformation03 Họ tên chồng/vợ
-PersonalInformation03 Ngày sinh
-PersonalInformation03 Nơi sinh
-PersonalInformation03 Quốc tịch
-PersonalInformation03 Địa chỉ
-PersonalInformation03 Ngày đăng ký kết hôn
-PersonalInformation03 Ngày làm thủ tục ly hôn
-PersonalInformation03 Bạn đã từng bị mất hay bị đánh cắp hộ chiếu: Không
-PersonalInformation03 Bạn đã từng bị mất hay bị đánh cắp hộ chiếu: Có
-PersonalInformation03 Số hộ chiếu:
-
-TripInformation04 :
-TripInformation04 Mục đích chuyến đi (du lịch/ thăm thân/ công tác)
-TripInformation04 Ngày dự định đến Mỹ
-TripInformation04 Tại thành phố
-TripInformation04 Ngày dự định rời Mỹ
-TripInformation04 Tại thành phố
-TripInformation04 Các địa điểm sẽ tham quan
-TripInformation04 Địa chỉ ở khi đến Mỹ
-TripInformation04 Người bảo trợ cho chuyến đi của bạn (người thân, công ty, tổ chức) Không
-TripInformation04 Người bảo trợ cho chuyến đi của bạn (người thân, công ty, tổ chức) Có
-TripInformation04 Họ tên
-TripInformation04 Quan hệ với bạn
-TripInformation04 Địa chỉ
-TripInformation04 Số điện thoại
-
-TripInformation05 :
-TripInformation05 Bạn đã từng nhập cảnh Mỹ Không
-TripInformation05 Bạn đã từng nhập cảnh Mỹ Có
-TripInformation05 Bạn đã từng được lấy dấu vân tay Không
-TripInformation05 Bạn đã từng được lấy dấu vân tay Có
-TripInformation05 1. Loại visa (du học/ du lịch/ khác, ghi rõ là gì):
-TripInformation05 Số visa (nếu biết):
-TripInformation05 Ngày cấp:
-TripInformation05 Ngày hết hạn:
-TripInformation05 Thời gian lưu trú (ngày/tháng/năm): Từ:
-TripInformation05 Thời gian lưu trú (ngày/tháng/năm): Đến:
-TripInformation05 2. Loại visa (du học/ du lịch/ khác, ghi rõ là gì):
-TripInformation05 Số visa (nếu biết):
-TripInformation05 Ngày cấp:
-TripInformation05 Ngày hết hạn:
-TripInformation05 Thời gian lưu trú (ngày/tháng/năm): Từ:
-TripInformation05 Thời gian lưu trú (ngày/tháng/năm): Đến:
-TripInformation05 3. Loại visa (du học/ du lịch/ khác, ghi rõ là gì):
-TripInformation05 Số visa (nếu biết):
-TripInformation05 Ngày cấp:
-TripInformation05 Ngày hết hạn:
-TripInformation05 Thời gian lưu trú (ngày/tháng/năm): Từ:
-TripInformation05 Thời gian lưu trú (ngày/tháng/năm): Đến:
-
-TripInformation06 : Bạn đã từng bị từ chối visa, rút đơn xin visa, bị hủy hay thu hồi visa Mỹ Không
-TripInformation06 : Bạn đã từng bị từ chối visa, rút đơn xin visa, bị hủy hay thu hồi visa Mỹ Có
-TripInformation06 Thời gian
-TripInformation06 Lý do
-TripInformation06 Bạn đã từng bị từ chối cho phép nhập cảnh Mỹ Không
-TripInformation06 Bạn đã từng bị từ chối cho phép nhập cảnh Mỹ Có
-TripInformation06 Thời gian
-TripInformation06 Lý do
-TripInformation06 Các quốc gia đã từng đến trong 5 năm gần đây
-TripInformation06 Các ngôn ngữ bạn biết
-
-UsContactInformation07 Họ tên:
-UsContactInformation07 Thuộc tổ chức
-UsContactInformation07 Địa chỉ
-UsContactInformation07 Số điện thoại:
-UsContactInformation07 Email
-UsContactInformation07 Quan hệ với đương đơn
-
-FamilyInformation08 Họ tên cha
-FamilyInformation08 Ngày sinh
-FamilyInformation08 Địa chỉ hiện tại
-FamilyInformation08 Họ tên mẹ
-FamilyInformation08 Ngày sinh
-FamilyInformation08 Địa chỉ hiện tại
-
-FamilyInformation09 Người thân ruột thịt ở Mỹ: Không
-FamilyInformation09 Người thân ruột thịt ở Mỹ: Có
-FamilyInformation09 1. Họ tên
-FamilyInformation09 Quan hệ với bạn
-FamilyInformation09 Tình trạng: Công dân
-FamilyInformation09 Tình trạng: Thường trú nhân
-FamilyInformation09 Tình trạng: Không di dân
-FamilyInformation09 Tình trạng: Khác
-FamilyInformation09 Tình trạng Khác
-FamilyInformation09 2. Họ tên
-FamilyInformation09 Quan hệ với bạn
-FamilyInformation09 Tình trạng: Công dân
-FamilyInformation09 Tình trạng: Thường trú nhân
-FamilyInformation09 Tình trạng: Không di dân
-FamilyInformation09 Tình trạng: Khác
-FamilyInformation09 Tình trạng Khác
-
-FamilyInformation10 Họ hàng bà con khác ở Mỹ: Không
-FamilyInformation10 Họ hàng bà con khác ở Mỹ: Có
-FamilyInformation10 1. Họ tên
-FamilyInformation10 Quan hệ với bạn 
-FamilyInformation10 Tình trạng: Công dân
-FamilyInformation10 Tình trạng: Thường trú nhân
-FamilyInformation10 Tình trạng: Không di dân
-FamilyInformation10 Tình trạng: Khác
-FamilyInformation10 Tình trạng Khác
-FamilyInformation10 2. Họ tên
-FamilyInformation10 Quan hệ với bạn 
-FamilyInformation10 Tình trạng: Công dân
-FamilyInformation10 Tình trạng: Thường trú nhân
-FamilyInformation10 Tình trạng: Không di dân
-FamilyInformation10 Tình trạng: Khác
-FamilyInformation10 Tình trạng Khác
-
-JobInformation11 Đơn vị công tác/ Trường
-JobInformation11 Chức vụ/ Ngành học (viết bằng tiếng anh)
-JobInformation11 Từ ngày
-JobInformation11 Đến ngày
-JobInformation11 Mô tả công việc (viết bằng tiếng anh)
-JobInformation11 Mức thu nhập hàng tháng
-JobInformation11 Địa chỉ công ty/Trường
-JobInformation11 Số ĐT công ty/ Trường
-JobInformation11 Họ tên giám đốc công ty
-
-JobInformation12 Trong 5 năm trở lại đây, bạn có làm công việc nào khác không: Không
-JobInformation12 Trong 5 năm trở lại đây, bạn có làm công việc nào khác không: Có
-JobInformation12 Đơn vị công tác
-JobInformation12 Chức vụ
-JobInformation12 Từ ngày
-JobInformation12 Đến ngày
-JobInformation12 Mô tả công việc
-JobInformation12 Địa chỉ công ty
-JobInformation12 Số ĐT công ty
-JobInformation12 Họ tên giám đốc công ty
-
-JobInformation13 Trường
-JobInformation13 Địa chỉ
-JobInformation13 Ngành học
-JobInformation13 Từ ngày
-JobInformation13 Đến ngày
+PersonalInformation01FullName
+PersonalInformation01GenderMale
+PersonalInformation01GenderFemale
+PersonalInformation01AnotherName
+PersonalInformation01DateOfBirth
+PersonalInformation01BirthPlace
+PersonalInformation01CurrentNationality
+PersonalInformation01IDNumber
+PersonalInformation01IssueDate
+PersonalInformation01PlaceOfIssue
+PersonalInformation01PassportNumber
+PersonalInformation01PlaceOfIssue
+PersonalInformation01IssueDate
+PersonalInformation01ExpirationDate
+PersonalInformation02OtherNationality
+PersonalInformation02PassportNumber
+PersonalInformation02Address
+PersonalInformation02CurrentAddress
+PersonalInformation02HomePhone
+PersonalInformation02CellPhone
+PersonalInformation02Email
+PersonalInformation02OtherPhoneEmailNo
+PersonalInformation02OtherPhoneEmailYes
+PersonalInformation02UseSocialMediaNo
+PersonalInformation02UseSocialMediaYes
+PersonalInformation02ListMoreSocialMedia
+PersonalInformation02UserNameSocialMedia
+PersonalInformation03MaritalStatusSingle
+PersonalInformation03MaritalStatusMarried
+PersonalInformation03MaritalStatusWidow
+PersonalInformation03MaritalStatusDivorce
+PersonalInformation03MaritalStatusSeparation
+PersonalInformation03NameOfHusbandWife
+PersonalInformation03DateOfBirth
+PersonalInformation03BirthPlace
+PersonalInformation03Nationality
+PersonalInformation03Address
+PersonalInformation03MarriageRegistrationDate
+PersonalInformation03DivorceProcedureDate
+PersonalInformation03EverLostPassportNo
+PersonalInformation03EverLostPassportYes
+PersonalInformation03PassportNumber
+TripInformation04TripPurpose
+TripInformation04IntendedDateArrival
+TripInformation04IntendedArrivalCity
+TripInformation04IntendedDateLeaving
+TripInformation04IntendedLeavingCity
+TripInformation04PlacesToVisit
+TripInformation04WhereStayUS
+TripInformation04SponsorTripNo
+TripInformation04SponsorTripYes
+TripInformation04FullName
+TripInformation04Relationship
+TripInformation04Address
+TripInformation04PhoneNumber
+TripInformation05EverEnteredUSNo
+TripInformation05EverEnteredUSYes
+TripInformation05EverFingerprintedNo
+TripInformation05EverFingerprintedYes
+TripInformation051VisaType
+TripInformation051VisaNumber
+TripInformation051DateOfIssue
+TripInformation051ExpirationDate
+TripInformation051LengthStayFrom
+TripInformation051LengthStayTo
+TripInformation052VisaType
+TripInformation052VisaNumber
+TripInformation052DateOfIssue
+TripInformation052ExpirationDate
+TripInformation052LengthStayFrom
+TripInformation052LengthStayTo
+TripInformation053VisaType
+TripInformation053VisaNumber
+TripInformation053DateOfIssue
+TripInformation053ExpirationDate
+TripInformation053LengthStayFrom
+TripInformation053LengthStayTo
+TripInformation06EverRefusedVisaNo
+TripInformation06EverRefusedVisaYes
+TripInformation061Time
+TripInformation061Reason
+TripInformation06EverRefusedPermissionNo
+TripInformation06EverRefusedPermissionYes
+TripInformation062Time
+TripInformation062Reason
+TripInformation06CountriesVisited5Years
+TripInformation06LanguagesYouKnow
+UsContactInformation07FullName
+UsContactInformation07BelongsToOrganization
+UsContactInformation07Address
+UsContactInformation07PhoneNumber
+UsContactInformation07Email
+UsContactInformation07RelationshipApplicant
+FamilyInformation08FatherName
+FamilyInformation081DateOfBirth
+FamilyInformation081CurrentAddress
+FamilyInformation08MotherName
+FamilyInformation082DateOfBirth
+FamilyInformation082CurrentAddress
+FamilyInformation09BloodRelativesNo
+FamilyInformation09BloodRelativesYes
+FamilyInformation091FullName
+FamilyInformation091Relationship
+FamilyInformation091StatusCitizen
+FamilyInformation091StatusPermanentResident
+FamilyInformation091StatusNonimmigrant
+FamilyInformation091StatusOther
+FamilyInformation091OtherStatus
+FamilyInformation092FullName
+FamilyInformation092Relationship
+FamilyInformation092StatusCitizen
+FamilyInformation092StatusPermanentResident
+FamilyInformation092StatusNonimmigrant
+FamilyInformation092StatusOther
+FamilyInformation092OtherStatus
+FamilyInformation10OtherRelativesNo
+FamilyInformation10OtherRelativesYes
+FamilyInformation101FullName
+FamilyInformation101Relationship
+FamilyInformation101StatusCitizen
+FamilyInformation101StatusPermanentResident
+FamilyInformation101StatusNonimmigrant
+FamilyInformation101StatusOther
+FamilyInformation101OtherStatus
+FamilyInformation102FullName
+FamilyInformation102Relationship
+FamilyInformation102StatusCitizen
+FamilyInformation102StatusPermanentResident
+FamilyInformation102StatusNonimmigrant
+FamilyInformation102StatusOther
+FamilyInformation102OtherStatus
+JobInformation11WorkUnit
+JobInformation11Position
+JobInformation11FromDate
+JobInformation11ToDate
+JobInformation11JobDescription
+JobInformation11MonthlyIncome
+JobInformation11CompanyAddress
+JobInformation11CompanyPhone
+JobInformation11FullNameDdirector
+JobInformation12OtherJobNo
+JobInformation12OtherJobYes
+JobInformation12UnitOfWork
+JobInformation12Position
+JobInformation12FromDate
+JobInformation12ToDate
+JobInformation12JobDescription
+JobInformation12CompanyAddress
+JobInformation12CompanyPhoneN
+JobInformation12FullNameDirector
+JobInformation13School
+JobInformation13Address
+JobInformation13Courses
+JobInformation13FromDate
+JobInformation13ToDate
 
     [ApplicantFamilyName]              NVARCHAR (1000) NULL,
     [ApplicantGivenName]               NVARCHAR (1000) NULL,
