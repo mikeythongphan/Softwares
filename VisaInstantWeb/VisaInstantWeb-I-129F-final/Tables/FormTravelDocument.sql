@@ -3,132 +3,177 @@ CREATE TABLE [dbo].[FormTravelDocument] (
     [Id]			       BIGINT          IDENTITY (1, 1) NOT NULL,
 
 PersonalInformation01 :
-Họ tên
-Giới tính
-Nam
-Nữ
-Tên gọi khác (nếu có)
-Ngày sinh
-Nơi sinh
-Quốc tịch hiện nay
-Số CMND
-Ngày cấp
-Nơi cấp
-Số hộ chiếu
-Nơi cấp
-Ngày cấp
-Ngày hết hạn
+PersonalInformation01 Họ tên
+PersonalInformation01 Giới tính Nam
+PersonalInformation01 Giới tính Nữ
+PersonalInformation01 Tên gọi khác (nếu có)
+PersonalInformation01 Ngày sinh
+PersonalInformation01 Nơi sinh
+PersonalInformation01 Quốc tịch hiện nay
+PersonalInformation01 Số CMND
+PersonalInformation01 Ngày cấp
+PersonalInformation01 Nơi cấp
+PersonalInformation01 Số hộ chiếu
+PersonalInformation01 Nơi cấp
+PersonalInformation01 Ngày cấp
+PersonalInformation01 Ngày hết hạn
 
 PersonalInformation02 :
-Quốc tịch khác (nếu có)
-Số hộ chiếu
-Địa chỉ (hộ khẩu)
-Địa chỉ hiện tại (liên lạc)
-Số ĐT nhà
-ĐTDĐ
-Email
-Ngoài số điện thoại và email đã cung cấp ở trên, quý khách còn sử dụng số điện thoại và email nào khác?
-Không
-Có
-Bạn có sử dụng mạng xã hội không
-Không
-Có
-Nếu có vui long liệt kê thêm
-Nếu có nêu tên người dùng
+PersonalInformation02 Quốc tịch khác (nếu có)
+PersonalInformation02 Số hộ chiếu
+PersonalInformation02 Địa chỉ (hộ khẩu)
+PersonalInformation02 Địa chỉ hiện tại (liên lạc)
+PersonalInformation02 Số ĐT nhà
+PersonalInformation02 ĐTDĐ
+PersonalInformation02 Email
+PersonalInformation02 Số điện thoại và email nào khác? Không
+PersonalInformation02 Số điện thoại và email nào khác? Có
+PersonalInformation02 Bạn có sử dụng mạng xã hội không Không
+PersonalInformation02 Bạn có sử dụng mạng xã hội không Có
+PersonalInformation02 Nếu có vui long liệt kê thêm
+PersonalInformation02 Nếu có nêu tên người dùng
 
 PersonalInformation03 :
-Tình trạng hôn nhân
-Độc thân
-Kết hôn
-Góa
-Ly hôn
-Ly thân
-Họ tên chồng/vợ
-Ngày sinh
-Nơi sinh
-Quốc tịch
-Địa chỉ
-Ngày đăng ký kết hôn
-Ngày làm thủ tục ly hôn
-Bạn đã từng bị mất hay bị đánh cắp hộ chiếu:
-Không
-Có
-Số hộ chiếu:
+PersonalInformation03 Tình trạng hôn nhân Độc thân
+PersonalInformation03 Tình trạng hôn nhân Kết hôn
+PersonalInformation03 Tình trạng hôn nhân Góa
+PersonalInformation03 Tình trạng hôn nhân Ly hôn
+PersonalInformation03 Tình trạng hôn nhân Ly thân
+PersonalInformation03 Họ tên chồng/vợ
+PersonalInformation03 Ngày sinh
+PersonalInformation03 Nơi sinh
+PersonalInformation03 Quốc tịch
+PersonalInformation03 Địa chỉ
+PersonalInformation03 Ngày đăng ký kết hôn
+PersonalInformation03 Ngày làm thủ tục ly hôn
+PersonalInformation03 Bạn đã từng bị mất hay bị đánh cắp hộ chiếu: Không
+PersonalInformation03 Bạn đã từng bị mất hay bị đánh cắp hộ chiếu: Có
+PersonalInformation03 Số hộ chiếu:
 
 TripInformation04 :
-Mục đích chuyến đi (du lịch/ thăm thân/ công tác)
-Ngày dự định đến Mỹ
-Tại thành phố
-Ngày dự định rời Mỹ
-Tại thành phố
-Các địa điểm sẽ tham quan
-Địa chỉ ở khi đến Mỹ
-Người bảo trợ cho chuyến đi của bạn (người thân, công ty, tổ chức)
-Không
-Có
-Họ tên
-Quan hệ với bạn
-Địa chỉ
-Số điện thoại
+TripInformation04 Mục đích chuyến đi (du lịch/ thăm thân/ công tác)
+TripInformation04 Ngày dự định đến Mỹ
+TripInformation04 Tại thành phố
+TripInformation04 Ngày dự định rời Mỹ
+TripInformation04 Tại thành phố
+TripInformation04 Các địa điểm sẽ tham quan
+TripInformation04 Địa chỉ ở khi đến Mỹ
+TripInformation04 Người bảo trợ cho chuyến đi của bạn (người thân, công ty, tổ chức) Không
+TripInformation04 Người bảo trợ cho chuyến đi của bạn (người thân, công ty, tổ chức) Có
+TripInformation04 Họ tên
+TripInformation04 Quan hệ với bạn
+TripInformation04 Địa chỉ
+TripInformation04 Số điện thoại
 
 TripInformation05 :
-Bạn đã từng nhập cảnh Mỹ
-Không
-Có
-Bạn đã từng được lấy dấu vân tay
-Không
-Có
-1. Loại visa (du học/ du lịch/ khác, ghi rõ là gì):
-Số visa (nếu biết):
-Ngày cấp:
-Ngày hết hạn:
-Thời gian lưu trú (ngày/tháng/năm):
-Từ:
-Đến:
-2. Loại visa (du học/ du lịch/ khác, ghi rõ là gì):
-Số visa (nếu biết):
-Ngày cấp:
-Ngày hết hạn:
-Thời gian lưu trú (ngày/tháng/năm):
-Từ:
-Đến:
-3. Loại visa (du học/ du lịch/ khác, ghi rõ là gì):
-Số visa (nếu biết):
-Ngày cấp:
-Ngày hết hạn:
-Thời gian lưu trú (ngày/tháng/năm):
-Từ:
-Đến:
+TripInformation05 Bạn đã từng nhập cảnh Mỹ Không
+TripInformation05 Bạn đã từng nhập cảnh Mỹ Có
+TripInformation05 Bạn đã từng được lấy dấu vân tay Không
+TripInformation05 Bạn đã từng được lấy dấu vân tay Có
+TripInformation05 1. Loại visa (du học/ du lịch/ khác, ghi rõ là gì):
+TripInformation05 Số visa (nếu biết):
+TripInformation05 Ngày cấp:
+TripInformation05 Ngày hết hạn:
+TripInformation05 Thời gian lưu trú (ngày/tháng/năm): Từ:
+TripInformation05 Thời gian lưu trú (ngày/tháng/năm): Đến:
+TripInformation05 2. Loại visa (du học/ du lịch/ khác, ghi rõ là gì):
+TripInformation05 Số visa (nếu biết):
+TripInformation05 Ngày cấp:
+TripInformation05 Ngày hết hạn:
+TripInformation05 Thời gian lưu trú (ngày/tháng/năm): Từ:
+TripInformation05 Thời gian lưu trú (ngày/tháng/năm): Đến:
+TripInformation05 3. Loại visa (du học/ du lịch/ khác, ghi rõ là gì):
+TripInformation05 Số visa (nếu biết):
+TripInformation05 Ngày cấp:
+TripInformation05 Ngày hết hạn:
+TripInformation05 Thời gian lưu trú (ngày/tháng/năm): Từ:
+TripInformation05 Thời gian lưu trú (ngày/tháng/năm): Đến:
 
-TripInformation06 :
-Bạn đã từng bị từ chối visa, rút đơn xin visa, bị hủy hay thu hồi visa Mỹ
-Không
-Có
-Thời gian
-Lý do
-Bạn đã từng bị từ chối cho phép nhập cảnh Mỹ
-Không
-Có
-Thời gian
-Lý do
-Các quốc gia đã từng đến trong 5 năm gần đây
-Các ngôn ngữ bạn biết
+TripInformation06 : Bạn đã từng bị từ chối visa, rút đơn xin visa, bị hủy hay thu hồi visa Mỹ Không
+TripInformation06 : Bạn đã từng bị từ chối visa, rút đơn xin visa, bị hủy hay thu hồi visa Mỹ Có
+TripInformation06 Thời gian
+TripInformation06 Lý do
+TripInformation06 Bạn đã từng bị từ chối cho phép nhập cảnh Mỹ Không
+TripInformation06 Bạn đã từng bị từ chối cho phép nhập cảnh Mỹ Có
+TripInformation06 Thời gian
+TripInformation06 Lý do
+TripInformation06 Các quốc gia đã từng đến trong 5 năm gần đây
+TripInformation06 Các ngôn ngữ bạn biết
 
-UsContactInformation07 
-Họ tên:
-Thuộc tổ chức
-Địa chỉ
-Số điện thoại:
-Email
-Quan hệ với đương đơn
+UsContactInformation07 Họ tên:
+UsContactInformation07 Thuộc tổ chức
+UsContactInformation07 Địa chỉ
+UsContactInformation07 Số điện thoại:
+UsContactInformation07 Email
+UsContactInformation07 Quan hệ với đương đơn
 
-FamilyInformation08 
-Họ tên cha
-Ngày sinh
-Địa chỉ hiện tại
-Họ tên mẹ
-Ngày sinh
-Địa chỉ hiện tạ
+FamilyInformation08 Họ tên cha
+FamilyInformation08 Ngày sinh
+FamilyInformation08 Địa chỉ hiện tại
+FamilyInformation08 Họ tên mẹ
+FamilyInformation08 Ngày sinh
+FamilyInformation08 Địa chỉ hiện tại
+
+FamilyInformation09 Người thân ruột thịt ở Mỹ: Không
+FamilyInformation09 Người thân ruột thịt ở Mỹ: Có
+FamilyInformation09 1. Họ tên
+FamilyInformation09 Quan hệ với bạn
+FamilyInformation09 Tình trạng: Công dân
+FamilyInformation09 Tình trạng: Thường trú nhân
+FamilyInformation09 Tình trạng: Không di dân
+FamilyInformation09 Tình trạng: Khác
+FamilyInformation09 Tình trạng Khác
+FamilyInformation09 2. Họ tên
+FamilyInformation09 Quan hệ với bạn
+FamilyInformation09 Tình trạng: Công dân
+FamilyInformation09 Tình trạng: Thường trú nhân
+FamilyInformation09 Tình trạng: Không di dân
+FamilyInformation09 Tình trạng: Khác
+FamilyInformation09 Tình trạng Khác
+
+FamilyInformation10 Họ hàng bà con khác ở Mỹ: Không
+FamilyInformation10 Họ hàng bà con khác ở Mỹ: Có
+FamilyInformation10 1. Họ tên
+FamilyInformation10 Quan hệ với bạn 
+FamilyInformation10 Tình trạng: Công dân
+FamilyInformation10 Tình trạng: Thường trú nhân
+FamilyInformation10 Tình trạng: Không di dân
+FamilyInformation10 Tình trạng: Khác
+FamilyInformation10 Tình trạng Khác
+FamilyInformation10 2. Họ tên
+FamilyInformation10 Quan hệ với bạn 
+FamilyInformation10 Tình trạng: Công dân
+FamilyInformation10 Tình trạng: Thường trú nhân
+FamilyInformation10 Tình trạng: Không di dân
+FamilyInformation10 Tình trạng: Khác
+FamilyInformation10 Tình trạng Khác
+
+JobInformation11 Đơn vị công tác/ Trường
+JobInformation11 Chức vụ/ Ngành học (viết bằng tiếng anh)
+JobInformation11 Từ ngày
+JobInformation11 Đến ngày
+JobInformation11 Mô tả công việc (viết bằng tiếng anh)
+JobInformation11 Mức thu nhập hàng tháng
+JobInformation11 Địa chỉ công ty/Trường
+JobInformation11 Số ĐT công ty/ Trường
+JobInformation11 Họ tên giám đốc công ty
+
+JobInformation12 Trong 5 năm trở lại đây, bạn có làm công việc nào khác không: Không
+JobInformation12 Trong 5 năm trở lại đây, bạn có làm công việc nào khác không: Có
+JobInformation12 Đơn vị công tác
+JobInformation12 Chức vụ
+JobInformation12 Từ ngày
+JobInformation12 Đến ngày
+JobInformation12 Mô tả công việc
+JobInformation12 Địa chỉ công ty
+JobInformation12 Số ĐT công ty
+JobInformation12 Họ tên giám đốc công ty
+
+JobInformation13 Trường
+JobInformation13 Địa chỉ
+JobInformation13 Ngành học
+JobInformation13 Từ ngày
+JobInformation13 Đến ngày
 
     [ApplicantFamilyName]              NVARCHAR (1000) NULL,
     [ApplicantGivenName]               NVARCHAR (1000) NULL,
