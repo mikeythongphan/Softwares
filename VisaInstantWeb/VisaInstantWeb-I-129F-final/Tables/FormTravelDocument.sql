@@ -1,5 +1,135 @@
-﻿CREATE TABLE [dbo].[FormTravelDocument] (
-    [Id]                               BIGINT          IDENTITY (1, 1) NOT NULL,
+
+CREATE TABLE [dbo].[FormTravelDocument] (
+    [Id]			       BIGINT          IDENTITY (1, 1) NOT NULL,
+
+PersonalInformation01 :
+Họ tên
+Giới tính
+Nam
+Nữ
+Tên gọi khác (nếu có)
+Ngày sinh
+Nơi sinh
+Quốc tịch hiện nay
+Số CMND
+Ngày cấp
+Nơi cấp
+Số hộ chiếu
+Nơi cấp
+Ngày cấp
+Ngày hết hạn
+
+PersonalInformation02 :
+Quốc tịch khác (nếu có)
+Số hộ chiếu
+Địa chỉ (hộ khẩu)
+Địa chỉ hiện tại (liên lạc)
+Số ĐT nhà
+ĐTDĐ
+Email
+Ngoài số điện thoại và email đã cung cấp ở trên, quý khách còn sử dụng số điện thoại và email nào khác?
+Không
+Có
+Bạn có sử dụng mạng xã hội không
+Không
+Có
+Nếu có vui long liệt kê thêm
+Nếu có nêu tên người dùng
+
+PersonalInformation03 :
+Tình trạng hôn nhân
+Độc thân
+Kết hôn
+Góa
+Ly hôn
+Ly thân
+Họ tên chồng/vợ
+Ngày sinh
+Nơi sinh
+Quốc tịch
+Địa chỉ
+Ngày đăng ký kết hôn
+Ngày làm thủ tục ly hôn
+Bạn đã từng bị mất hay bị đánh cắp hộ chiếu:
+Không
+Có
+Số hộ chiếu:
+
+TripInformation04 :
+Mục đích chuyến đi (du lịch/ thăm thân/ công tác)
+Ngày dự định đến Mỹ
+Tại thành phố
+Ngày dự định rời Mỹ
+Tại thành phố
+Các địa điểm sẽ tham quan
+Địa chỉ ở khi đến Mỹ
+Người bảo trợ cho chuyến đi của bạn (người thân, công ty, tổ chức)
+Không
+Có
+Họ tên
+Quan hệ với bạn
+Địa chỉ
+Số điện thoại
+
+TripInformation05 :
+Bạn đã từng nhập cảnh Mỹ
+Không
+Có
+Bạn đã từng được lấy dấu vân tay
+Không
+Có
+1. Loại visa (du học/ du lịch/ khác, ghi rõ là gì):
+Số visa (nếu biết):
+Ngày cấp:
+Ngày hết hạn:
+Thời gian lưu trú (ngày/tháng/năm):
+Từ:
+Đến:
+2. Loại visa (du học/ du lịch/ khác, ghi rõ là gì):
+Số visa (nếu biết):
+Ngày cấp:
+Ngày hết hạn:
+Thời gian lưu trú (ngày/tháng/năm):
+Từ:
+Đến:
+3. Loại visa (du học/ du lịch/ khác, ghi rõ là gì):
+Số visa (nếu biết):
+Ngày cấp:
+Ngày hết hạn:
+Thời gian lưu trú (ngày/tháng/năm):
+Từ:
+Đến:
+
+TripInformation06 :
+Bạn đã từng bị từ chối visa, rút đơn xin visa, bị hủy hay thu hồi visa Mỹ
+Không
+Có
+Thời gian
+Lý do
+Bạn đã từng bị từ chối cho phép nhập cảnh Mỹ
+Không
+Có
+Thời gian
+Lý do
+Các quốc gia đã từng đến trong 5 năm gần đây
+Các ngôn ngữ bạn biết
+
+UsContactInformation07 
+Họ tên:
+Thuộc tổ chức
+Địa chỉ
+Số điện thoại:
+Email
+Quan hệ với đương đơn
+
+FamilyInformation08 
+Họ tên cha
+Ngày sinh
+Địa chỉ hiện tại
+Họ tên mẹ
+Ngày sinh
+Địa chỉ hiện tạ
+
     [ApplicantFamilyName]              NVARCHAR (1000) NULL,
     [ApplicantGivenName]               NVARCHAR (1000) NULL,
     [ApplicantMiddleName]              NVARCHAR (1000) NULL,
@@ -151,4 +281,3 @@
     [Deleted]                          BIT             CONSTRAINT [DF_FormTravelDocument_Deleted] DEFAULT ((0)) NOT NULL,
     CONSTRAINT [PK_FormTravelDocument] PRIMARY KEY CLUSTERED ([Id] ASC)
 );
-
