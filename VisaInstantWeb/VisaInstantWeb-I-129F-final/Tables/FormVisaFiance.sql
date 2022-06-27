@@ -44,71 +44,62 @@ Beneficiary14BirthDateOfExSpouse
 Beneficiary14BirthPlaceOfExSpouse
 Beneficiary14DateOfMarriage
 Beneficiary14PlaceOfMarriage
-	
-	<InputLabel> Địa chỉ của người thụ hưởng trong 5 năm qua. Liệt kê địa chỉ hiện tại trước</InputLabel>
-
-	label="1. Số nhà và tên đường hiện tại"
-        label="Thành phố"
-        label="Tiểu bang/quận"
-        label="Zip Code"
-        label="Từ Tháng/năm"
-        label="Đến Tháng/năm"
-	label="2. Số nhà và tên đường hiện tại"
-        label="Thành phố"
-        label="Tiểu bang/quận"
-        label="Zip Code"
-        label="Từ Tháng/năm"
-        label="Đến Tháng/năm"
-	label="3. Số nhà và tên đường hiện tại"
-        label="Thành phố"
-        label="Tiểu bang/quận"
-        label="Zip Code"
-        label="Từ Tháng/năm"
-        label="Đến Tháng/năm"
-	label="4. Số nhà và tên đường hiện tại"
-        label="Thành phố"
-        label="Tiểu bang/quận"
-        label="Zip Code"
-        label="Từ Tháng/năm"
-        label="Đến Tháng/năm"
-	label="5. Số nhà và tên đường hiện tại"
-        label="Thành phố"
-        label="Tiểu bang/quận"
-        label="Zip Code"
-        label="Từ Tháng/năm"
-        label="Đến Tháng/năm"
-	
-      <InputLabel>Địa chỉ cuối cùng của người thụ hưởng bên ngoài Hoa Kỳ</InputLabel>
-
-        label="Số nhà và tên đường"
-        label="Thành phố"
-        label="Tiểu bang/quận"
-        label="Zip Code"
-        label="Từ Tháng/năm"
-        label="Đến Tháng/năm"
-
-      <InputLabel>Nơi làm việc của người thụ hưởng trong vòng 5 năm qua. Liệt kê nơi làm việc hiện tại trước</InputLabel>
-
-        label="1. Tên và địa chỉ nơi làm việc hện tại"
-        label="Chức vụ"
-        label="Từ Tháng/năm"
-        label="Đến Tháng/năm"
-        label="2. Tên và địa chỉ nơi làm việc hện tại"
-        label="Chức vụ"
-        label="Từ Tháng/năm"
-        label="Đến Tháng/năm"
-	label="3. Tên và địa chỉ nơi làm việc hện tại"
-        label="Chức vụ"
-        label="Từ Tháng/năm"
-        label="Đến Tháng/năm"
-	label="4. Tên và địa chỉ nơi làm việc hện tại"
-        label="Chức vụ"
-        label="Từ Tháng/năm"
-        label="Đến Tháng/năm"
-	label="5. Tên và địa chỉ nơi làm việc hện tại"
-        label="Chức vụ"
-        label="Từ Tháng/năm"
-        label="Đến Tháng/năm"
+Beneficiary21CurrentHouseStreet
+Beneficiary21City
+Beneficiary21StateCounty
+Beneficiary21ZipCode
+Beneficiary21FromMonthYear
+Beneficiary21ToMonthYear
+Beneficiary22CurrentHouseStreet
+Beneficiary22City
+Beneficiary22StateCounty
+Beneficiary22ZipCode
+Beneficiary22FromMonthYear
+Beneficiary22ToMonthYear
+Beneficiary23CurrentHouseStreet
+Beneficiary23City
+Beneficiary23StateCounty
+Beneficiary23ZipCode
+Beneficiary23FromMonthYear
+Beneficiary23ToMonthYear
+Beneficiary24CurrentHouseStreet
+Beneficiary24City
+Beneficiary24StateCounty
+Beneficiary24ZipCode
+Beneficiary24FromMonthYear
+Beneficiary24ToMonthYear
+Beneficiary25CurrentHouseStreet
+Beneficiary25City
+Beneficiary25StateCounty
+Beneficiary25ZipCode
+Beneficiary25FromMonthYear
+Beneficiary25ToMonthYear
+Beneficiary3HouseStreetName
+Beneficiary3City
+Beneficiary3StateCounty
+Beneficiary3ZipCode
+Beneficiary3FromMonthYear
+Beneficiary3ToMonthYear
+Beneficiary41NameWorkplaceAddress
+Beneficiary41Position
+Beneficiary41FromMonthYear
+Beneficiary41ToMonthYear
+Beneficiary42NameWorkplaceAddress
+Beneficiary42Position
+Beneficiary42FromMonthYear
+Beneficiary42ToMonthYear
+Beneficiary43NameWorkplaceAddress
+Beneficiary43Position
+Beneficiary43FromMonthYear
+Beneficiary43ToMonthYear
+Beneficiary44NameWorkplaceAddress
+Beneficiary44Position
+Beneficiary44FromMonthYear
+Beneficiary44ToMonthYear
+Beneficiary45NameWorkplaceAddress
+Beneficiary45Position
+Beneficiary45FromMonthYear
+Beneficiary45ToMonthYear
 	
       <InputLabel>Chức vụ công việc ở nước ngoài nếu không có ở trên</InputLabel>
 
