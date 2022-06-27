@@ -100,29 +100,31 @@ Beneficiary45NameWorkplaceAddress
 Beneficiary45Position
 Beneficiary45FromMonthYear
 Beneficiary45ToMonthYear
-	
-      <InputLabel>Chức vụ công việc ở nước ngoài nếu không có ở trên</InputLabel>
-
-        label="Tên và địa chỉ nơi làm việc"
-        label="Chức vụ"
-        label="Từ Tháng/năm"
-        label="Đến Tháng/năm"
-        label="Liệt kê tất cả những lần bị từ chối Visa trước đây"
-        <FormLabel id="petitionerAddressDifferentPhysicalAddress">Người thụ hưởng đã từng nộp đơn xin giấy phép lao động trước đây?</FormLabel>
-        label="Tên các tổ chức hoặc câu lạc bộ mà người thụ hưởng đã và đang tham gia"
-        label="Mô tả quá trình hai người gặp nhau"
-        <FormLabel id="">Có được mai mối hay không?</FormLabel>
-        <FormLabel id="petitionerContactRelatedFiance">Một trong hai người đã từng vi phạm các quy định về di trú hay không?</FormLabel>
-        <FormLabel id="petitionerBackgroundPreviouslyMarried">Một trong hai người có từng bị các chứng về thần kinh hoặc các bệnh liên quan đến sử dụng chất kích thích?</FormLabel>
-        <FormLabel id="petitionerBiographicCivilCriminal">Người thụ hưởng đã từng làm việc trong quân đội?</FormLabel>
-
-        label="Nếu có, đã khi nào và ở đâu?"
-        <FormLabel id=""> Đã được chấp thuận không?</FormLabel>
-        label="Nếu có, cung cấp thông tin chi tiết"
-        label="Nếu có, cung cấp thông tin chi tiết"
-        label="Nếu có, tên của tổ chức đó"
-        label={"Ngày nhập ngũ"}
-        label="Nơi nhập ngũ"
+Beneficiary5NameAddressWork
+Beneficiary5Position
+Beneficiary5FromMonthYear
+Beneficiary5ToMonthYear
+Beneficiary5AllPreviousVisaRefusals
+Beneficiary5HasAppliedWorkPermitYes
+Beneficiary5HasAppliedWorkPermitNo
+Beneficiary5WhenAndWhere
+Beneficiary5ApprovedYes
+Beneficiary5ApprovedNo
+Beneficiary5NamesOrganizationsMember
+Beneficiary5DescribePeopleMet
+Beneficiary5CanMatchmakingYes
+Beneficiary5CanMatchmakingNo
+Beneficiary5HaveEverViolatedYes
+Beneficiary5HaveEverViolatedNo
+Beneficiary5ViolatedProvideDetails
+Beneficiary5HasEverSufferedYes
+Beneficiary5HasEverSufferedNo
+Beneficiary5SufferedProvideDetails
+Beneficiary5HasInMilitaryYes
+Beneficiary5HasInMilitaryNo
+Beneficiary5NameOfOrganization
+Beneficiary5EnlistmentDate
+Beneficiary5WhereToEnlist
 
       <h5><InputLabel style={{ textDecorationLine: 'underline', fontWeight: 'bold', color: 'blue' }}>Phần B - Đương đơn</InputLabel></h5>
 
