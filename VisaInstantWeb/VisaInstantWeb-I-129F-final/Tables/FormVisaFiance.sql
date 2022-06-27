@@ -1,210 +1,147 @@
 CREATE TABLE [dbo].[FormVisaFiance] (
     	[Id] BIGINT IDENTITY (1, 1) NOT NULL,
     	[AccountId] BIGINT NULL,    
-	[PetitionerContactFirstName] NVARCHAR (1000) NULL,
-	[PetitionerContactMiddleName] NVARCHAR (1000) NULL,
-	[PetitionerContactLastName] NVARCHAR (1000) NULL,
-	[PetitionerContactOtherNamesUsedYes] BIT             NULL,
-	[PetitionerContactOtherNamesUsedNo] BIT             NULL,
-	[PetitionerContactEmailAddress] NVARCHAR (1000) NULL,
-	[PetitionerContactRelatedFianceYes] BIT             NULL,
-	[PetitionerContactRelatedFianceNo] BIT             NULL,
-	[PetitionerAddress1MailingStreetAddressApt] BIT             NULL,
-	[PetitionerAddress1MailingStreetAddressSte] BIT             NULL,
-	[PetitionerAddress1MailingStreetAddressFlr] BIT             NULL,
-	[PetitionerAddressCityOrTown] NVARCHAR (1000) NULL,
-	[PetitionerAddress1State] NVARCHAR (1000) NULL,
-	[PetitionerAddress1Province] NVARCHAR (1000) NULL,
-	[PetitionerAddress1ZipCode] NVARCHAR (1000) NULL,
-	[PetitionerAddress1Country] NVARCHAR (1000) NULL,
-	[PetitionerAddressDifferentPhysicalAddressYes] BIT             NULL,
-	[PetitionerAddressDifferentPhysicalAddressNo] BIT             NULL,
-	[PetitionerAddress2MailingStreetAddressApt] BIT             NULL,
-	[PetitionerAddress2MailingStreetAddressSte] BIT             NULL,
-	[PetitionerAddress2MailingStreetAddressFlr] BIT             NULL,
-	[PetitionerAddress2MailingStreetAddressYes] BIT             NULL,
-	[PetitionerAddress2State] NVARCHAR (1000) NULL,
-	[PetitionerAddress2Province] NVARCHAR (1000) NULL,
-	[PetitionerAddress2ZipCode] NVARCHAR (1000) NULL,
-	[PetitionerAddress2Country] NVARCHAR (1000) NULL,
-	[PetitionerAddressResidence1State] NVARCHAR (1000) NULL,
-	[PetitionerAddressResidence1Country] NVARCHAR (1000) NULL,
-	[PetitionerAddressResidence2State] NVARCHAR (1000) NULL,
-	[PetitionerAddressResidence2Country] NVARCHAR (1000) NULL,
-	[PetitionerEmploymentNameOfEmployer] NVARCHAR (1000) NULL,
-	[PetitionerEmploymentStreetAddress] NVARCHAR (1000) NULL,
-	[PetitionerEmploymentCityOrTown] NVARCHAR (1000) NULL,
-	[PetitionerEmploymentState] NVARCHAR (1000) NULL,
-	[PetitionerEmploymentProvince] NVARCHAR (1000) NULL,
-	[PetitionerEmploymentZipCode] NVARCHAR (1000) NULL,
-	[PetitionerEmploymentCountry] NVARCHAR (1000) NULL,
-	[PetitionerEmploymentOccupationName] NVARCHAR (1000) NULL,
-	[PetitionerEmploymentStartDate] DATETIME2 (7)   NULL,
-	[PetitionerEmploymentEndDate] DATETIME2 (7)   NULL,
-	[PetitionerBackgroundGenderMale] BIT             NULL,
-	[PetitionerBackgroundGenderFemale] BIT             NULL,
-	[PetitionerBackgroundDateOfBirth] DATETIME2 (7)   NULL,
-	[PetitionerBackgroundMaritalStatusSingle] BIT             NULL,
-	[PetitionerBackgroundMaritalStatusMarried] BIT             NULL,
-	[PetitionerBackgroundMaritalStatusDivorced] BIT             NULL,
-	[PetitionerBackgroundMaritalStatusWidowed] BIT             NULL,
-	[PetitionerBackgroundCityOfBirth] NVARCHAR (1000) NULL,
-	[PetitionerBackgroundStateOfBirth] NVARCHAR (1000) NULL,
-	[PetitionerBackgroundCountryOfBirth] NVARCHAR (1000) NULL,
-	[PetitionerBackgroundPreviouslyMarriedYes] BIT             NULL,
-	[PetitionerBackgroundPreviouslyMarriedNo] BIT             NULL,
-	[PetitionerParent1FirstName] NVARCHAR (1000) NULL,
-	[PetitionerParent1MiddleName] NVARCHAR (1000) NULL,
-	[PetitionerParent1LastName] NVARCHAR (1000) NULL,
-	[PetitionerParent1DateOfBirth] DATETIME2 (7)   NULL,
-	[PetitionerParent1GenderMale] BIT             NULL,
-	[PetitionerParent1GenderFemale] BIT             NULL,
-	[PetitionerParent1CountryOfBirth] INT             NULL,
-	[PetitionerParent1CityOfBirth] NVARCHAR (1000) NULL,
-	[PetitionerParent1CountryOfResidence] NVARCHAR (1000) NULL,
-	[PetitionerParent2FirstName] NVARCHAR (1000) NULL,
-	[PetitionerParent2MiddleName] NVARCHAR (1000) NULL,
-	[PetitionerParent2LastName] NVARCHAR (1000) NULL,
-	[PetitionerParent2DateOfBirth] DATETIME2 (7)   NULL,
-	[PetitionerParent2GenderMale] BIT             NULL,
-	[PetitionerParent2GenderFemale] BIT             NULL,
-	[PetitionerParent2CountryOfBirth] INT             NULL,
-	[PetitionerParent2CityOfBirth] NVARCHAR (1000) NULL,
-	[PetitionerParent2CountryOfResidence] NVARCHAR (1000) NULL,
-	[PetitionerBiographicEthnicityNotHispanic] BIT             NULL,
-	[PetitionerBiographicEthnicityHispanic] BIT             NULL,
-	[PetitionerBiographicRaceWhite] BIT             NULL,
-	[PetitionerBiographicRaceAsian] BIT             NULL,
-	[PetitionerBiographicRaceBlack] BIT             NULL,
-	[PetitionerBiographicRaceIndian] BIT             NULL,
-	[PetitionerBiographicRaceHawaiian] BIT             NULL,
-	[PetitionerBiographicFeet] NVARCHAR (1000) NULL,
-	[PetitionerBiographicInches] NVARCHAR (1000) NULL,
-	[PetitionerBiographicPound] NVARCHAR (1000) NULL,
-	[PetitionerBiographicHairColorBlack] BIT             NULL,
-	[PetitionerBiographicHairColorBrown] BIT             NULL,
-	[PetitionerBiographicHairColorBlond] BIT             NULL,
-	[PetitionerBiographicHairColorGray] BIT             NULL,
-	[PetitionerBiographicHairColorWhite] BIT             NULL,
-	[PetitionerBiographicHairColorRed] BIT             NULL,
-	[PetitionerBiographicHairColorSandy] BIT             NULL,
-	[PetitionerBiographicHairColorBald] BIT             NULL,
-	[PetitionerBiographicHairColorOther] BIT             NULL,
-	[PetitionerBiographicEyeColorBlack] BIT             NULL,
-	[PetitionerBiographicEyeColorBlue] BIT             NULL,
-	[PetitionerBiographicEyeColorBrown] BIT             NULL,
-	[PetitionerBiographicEyeColorGray] BIT             NULL,
-	[PetitionerBiographicEyeColorGreen] BIT             NULL,
-	[PetitionerBiographicEyeColorHazel] BIT             NULL,
-	[PetitionerBiographicEyeColorMaroon] BIT             NULL,
-	[PetitionerBiographicEyeColorPink] BIT             NULL,
-	[PetitionerBiographicEyeColorOther] BIT             NULL,
-	[PetitionerBiographicCivilCriminalYes] BIT             NULL,
-	[PetitionerBiographicCivilCriminalNo] BIT             NULL,
-	[PetitionerBiographicDomesticViolenceYes] BIT             NULL,
-	[PetitionerBiographicDomesticViolenceNo] BIT             NULL,
-	[PetitionerBiographicHomicideYes] BIT             NULL,
-	[PetitionerBiographicHomicideNo] BIT             NULL,
-	[PetitionerBiographicConvictionsYes] BIT             NULL,
-	[PetitionerBiographicConvictionsNo] BIT             NULL,
-	[PetitionerStatusSocialSecurityNumber] NVARCHAR (1000) NULL,
-	[PetitionerStatusThroughBirthUS] BIT             NULL,
-	[PetitionerStatusThroughUSCitizenParents] BIT             NULL,
-	[PetitionerStatusThroughNaturalization] BIT             NULL,
-	[PetitionerStatusCitizenshipYes] BIT             NULL,
-	[PetitionerStatusCitizenshipNo] BIT             NULL,
-	[PetitionerStatusI129FYes] BIT             NULL,
-	[PetitionerStatusI129FNo] BIT             NULL,
-	[PetitionerStatusIMBYes] BIT             NULL,
-	[PetitionerStatusIMBNo] BIT             NULL,
-	[PetitionerStatusCity] NVARCHAR (1000) NULL,
-	[PetitionerStatusCountry] NVARCHAR (1000) NULL,
-	[BeneficiaryContactFirstName] NVARCHAR (1000) NULL,
-	[BeneficiaryContactMiddleName] NVARCHAR (1000) NULL,
-	[BeneficiaryContactLastName] NVARCHAR (1000) NULL,
-	[BeneficiaryContactOtherNamesUsedYes] BIT             NULL,
-	[BeneficiaryContactOtherNamesUsedNo] BIT             NULL,
-	[BeneficiaryContactDaytimePhoneNumber] NVARCHAR (1000) NULL,
-	[BeneficiaryContactEmailAddress] NVARCHAR (1000) NULL,
-	[BeneficiaryAddress1MailingStreetAddressApt] BIT             NULL,
-	[BeneficiaryAddress1MailingStreetAddressSte] BIT             NULL,
-	[BeneficiaryAddress1MailingStreetAddressFlr] BIT             NULL,
-	[BeneficiaryAddress1MailingStreetAddressYes] BIT             NULL,
-	[BeneficiaryAddress1CityOrTown] NVARCHAR (1000) NULL,
-	[BeneficiaryAddress1State] NVARCHAR (1000) NULL,
-	[BeneficiaryAddress1Province] NVARCHAR (1000) NULL,
-	[BeneficiaryAddress1ZipCode] NVARCHAR (1000) NULL,
-	[BeneficiaryAddress1Country] NVARCHAR (1000) NULL,
-	[BeneficiaryAddressDifferentPhysicalYes] BIT             NULL,
-	[BeneficiaryAddressDifferentPhysicalNo] BIT             NULL,
-	[BeneficiaryAddress2MailingStreetAddressApt] BIT             NULL,
-	[BeneficiaryAddress2MailingStreetAddressSte] BIT             NULL,
-	[BeneficiaryAddress2MailingStreetAddressFlr] BIT             NULL,
-	[BeneficiaryAddress2MailingStreetAddressYes] BIT             NULL,
-	[BeneficiaryAddress2CityOrTown] NVARCHAR (1000) NULL,
-	[BeneficiaryAddress2State] NVARCHAR (1000) NULL,
-	[BeneficiaryAddress2Province] NVARCHAR (1000) NULL,
-	[BeneficiaryAddress2ZipCode] NVARCHAR (1000) NULL,
-	[BeneficiaryAddress2Country] NVARCHAR (1000) NULL,
-	[BeneficiaryAddressResidence1State] NVARCHAR (1000) NULL,
-	[BeneficiaryAddressResidence1Country] NVARCHAR (1000) NULL,
-	[BeneficiaryAddressResidence2State] NVARCHAR (1000) NULL,
-	[BeneficiaryAddressResidence2Country] NVARCHAR (1000) NULL,
-	[BeneficiaryEmploymentNameOfEmployer] NVARCHAR (1000) NULL,
-	[BeneficiaryEmploymentStreetAddress] NVARCHAR (1000) NULL,
-	[BeneficiaryEmploymentCityOrTown] NVARCHAR (1000) NULL,
-	[BeneficiaryEmploymentState] NVARCHAR (1000) NULL,
-	[BeneficiaryEmploymentProvince] NVARCHAR (1000) NULL,
-	[BeneficiaryEmploymentZipCode] NVARCHAR (1000) NULL,
-	[BeneficiaryEmploymentCountry] NVARCHAR (1000) NULL,
-	[BeneficiaryEmploymentOccupationName] NVARCHAR (1000) NULL,
-	[BeneficiaryEmploymentStartDate] DATETIME2 (7)   NULL,
-	[BeneficiaryEmploymentEndDate] DATETIME2 (7)   NULL,
-	[BeneficiaryBackgroundGenderMale] BIT             NULL,
-	[BeneficiaryBackgroundGenderFemale] BIT             NULL,
-	[BeneficiaryBackgroundDateOfBirth] DATETIME2 (7)   NULL,
-	[BeneficiaryBackgroundMaritalStatusSingle] BIT             NULL,
-	[BeneficiaryBackgroundMaritalStatusMarried] BIT             NULL,
-	[BeneficiaryBackgroundMaritalStatusDivorced] BIT             NULL,
-	[BeneficiaryBackgroundMaritalStatusWidowed] BIT             NULL,
-	[BeneficiaryBackgroundCityOfBirth] NVARCHAR (1000) NULL,
-	[BeneficiaryBackgroundProvinceOfBirth] NVARCHAR (1000) NULL,
-	[BeneficiaryBackgroundCountryOfBirth] NVARCHAR (1000) NULL,
-	[BeneficiaryBackgroundPreviouslyMarriedYes] BIT             NULL,
-	[BeneficiaryBackgroundPreviouslyMarriedNo] BIT             NULL,
-	[BeneficiaryBackgroundEverBeenInTheUSYes] BIT             NULL,
-	[BeneficiaryBackgroundEverBeenInTheUSNo] BIT             NULL,
-	[BeneficiaryBackgroundCurrentlyInUSYes] BIT             NULL,
-	[BeneficiaryBackgroundCurrentlyInUSNo] BIT             NULL,
-	[BeneficiaryAbroadStreetAddressApt] BIT             NULL,
-	[BeneficiaryAbroadStreetAddressSte] BIT             NULL,
-	[BeneficiaryAbroadStreetAddressFlo] BIT             NULL,
-	[BeneficiaryAbroadStreetAddressNumber] BIT             NULL,
-	[BeneficiaryAbroadStreetAddressText] NVARCHAR (1000) NULL,
-	[BeneficiaryAbroadCityOrTown] NVARCHAR (1000) NULL,
-	[BeneficiaryAbroadState] NVARCHAR (1000) NULL,
-	[BeneficiaryAbroadProvince] NVARCHAR (1000) NULL,
-	[BeneficiaryAbroadZipCode] NVARCHAR (1000) NULL,
-	[BeneficiaryAbroadCountry] NVARCHAR (1000) NULL,
-	[BeneficiaryAbroadDaytimePhoneNumber] NVARCHAR (1000) NULL,
-	[BeneficiaryAbroadLatinAlphabetYes] BIT             NULL,
-	[BeneficiaryAbroadLatinAlphabetNo] BIT             NULL,
-	[BeneficiaryAbroadOtherNamesUsedYes] BIT             NULL,
-	[BeneficiaryAbroadOtherNamesUsedNo] BIT             NULL,
-	[InterpreterFirstName] NVARCHAR (1000) NULL,
-	[InterpreterLastName] NVARCHAR (1000) NULL,
-	[InterpreterBusinessName] NVARCHAR (1000) NULL,
-	[InterpreterStreetAddressApt] BIT             NULL,
-	[InterpreterStreetAddressSte] BIT             NULL,
-	[InterpreterStreetAddressFlo] BIT             NULL,
-	[InterpreterStreetAddressNumber] BIT             NULL,
-	[InterpreterStreetAddressText] NVARCHAR (1000) NULL,
-	[InterpreterCityOrTown] NVARCHAR (1000) NULL,
-	[InterpreterProvince] NVARCHAR (1000) NULL,
-	[InterpreterZipCode] NVARCHAR (1000) NULL,
-	[InterpreterCountry] NVARCHAR (1000) NULL,
-	[InterpreterDaytimePhoneNumber] NVARCHAR (1000) NULL,
-	[InterpreterEmailAddress] NVARCHAR (1000) NULL,
+	
+	Họ tên
+	Nơi sinh
+	Người được bảo lãnh từng ở Mỹ chưa?
+	label="Tất cả tên đã sử dụng (kể cả tên trước hôn nhân)"
+        label="Số thẻ xanh (nếu có)"
+        label="Số an sinh xã hội (nếu có)"
+        label="Văn phòng lãnh sự mong muốn"
+        label="Tên và địa chỉ bằng ngôn ngữ chính (Nếu ngôn ngữ chính không có ký tự alphabet"
+        label="Số điện thoại nhà"
+        label="Di động"
+        label="Điện thoại văn phòng"
+        label="Số Fax"
+        label="Địa chỉ E-mail"
+        label="Tên cha"
+        label={"Ngày sinh, nơi sinh của cha"}
+        label="Thành phố hoặc quốc gia cư trú"
+        label="Tên Mẹ (tên trước hôn nhân)"
+        label={"Ngày sinh, nơi sinh của mẹ"}
+        label="Thành phố hoặc quốc gia cư trú"
+        label="1. Tên của vợ/chồng cũ"
+        label={"Ngày sinh của vợ/chồng cũ"}
+        label="Nơi sinh của vợ/chồng cũ"
+        label={"Ngày kết hôn"}
+        label="Nơi kết hôn"
+        label="2. Tên của vợ/chồng cũ"
+        label={"Ngày sinh của vợ/chồng cũ"}
+	label="Nơi sinh của vợ/chồng cũ"
+        label={"Ngày kết hôn"}
+        label="Nơi kết hôn"
+        label="3. Tên của vợ/chồng cũ"
+        label={"Ngày sinh của vợ/chồng cũ"}
+	label="Nơi sinh của vợ/chồng cũ"
+        label={"Ngày kết hôn"}
+        label="Nơi kết hôn"
+	label="4. Tên của vợ/chồng cũ"
+        label={"Ngày sinh của vợ/chồng cũ"}
+	label="Nơi sinh của vợ/chồng cũ"
+        label={"Ngày kết hôn"}
+        label="Nơi kết hôn"
+	
+	<InputLabel> Địa chỉ của người thụ hưởng trong 5 năm qua. Liệt kê địa chỉ hiện tại trước</InputLabel>
+
+	label="1. Số nhà và tên đường hiện tại"
+        label="Thành phố"
+        label="Tiểu bang/quận"
+        label="Zip Code"
+        label="Từ Tháng/năm"
+        label="Đến Tháng/năm"
+	label="2. Số nhà và tên đường hiện tại"
+        label="Thành phố"
+        label="Tiểu bang/quận"
+        label="Zip Code"
+        label="Từ Tháng/năm"
+        label="Đến Tháng/năm"
+	label="3. Số nhà và tên đường hiện tại"
+        label="Thành phố"
+        label="Tiểu bang/quận"
+        label="Zip Code"
+        label="Từ Tháng/năm"
+        label="Đến Tháng/năm"
+	label="4. Số nhà và tên đường hiện tại"
+        label="Thành phố"
+        label="Tiểu bang/quận"
+        label="Zip Code"
+        label="Từ Tháng/năm"
+        label="Đến Tháng/năm"
+	label="5. Số nhà và tên đường hiện tại"
+        label="Thành phố"
+        label="Tiểu bang/quận"
+        label="Zip Code"
+        label="Từ Tháng/năm"
+        label="Đến Tháng/năm"
+	
+      <InputLabel>Địa chỉ cuối cùng của người thụ hưởng bên ngoài Hoa Kỳ</InputLabel>
+
+        label="Số nhà và tên đường"
+        label="Thành phố"
+        label="Tiểu bang/quận"
+        label="Zip Code"
+        label="Từ Tháng/năm"
+        label="Đến Tháng/năm"
+
+      <InputLabel>Nơi làm việc của người thụ hưởng trong vòng 5 năm qua. Liệt kê nơi làm việc hiện tại trước</InputLabel>
+
+        label="1. Tên và địa chỉ nơi làm việc hện tại"
+        label="Chức vụ"
+        label="Từ Tháng/năm"
+        label="Đến Tháng/năm"
+        label="2. Tên và địa chỉ nơi làm việc hện tại"
+        label="Chức vụ"
+        label="Từ Tháng/năm"
+        label="Đến Tháng/năm"
+	label="3. Tên và địa chỉ nơi làm việc hện tại"
+        label="Chức vụ"
+        label="Từ Tháng/năm"
+        label="Đến Tháng/năm"
+	label="4. Tên và địa chỉ nơi làm việc hện tại"
+        label="Chức vụ"
+        label="Từ Tháng/năm"
+        label="Đến Tháng/năm"
+	label="5. Tên và địa chỉ nơi làm việc hện tại"
+        label="Chức vụ"
+        label="Từ Tháng/năm"
+        label="Đến Tháng/năm"
+	
+      <InputLabel>Chức vụ công việc ở nước ngoài nếu không có ở trên</InputLabel>
+
+        label="Tên và địa chỉ nơi làm việc"
+        label="Chức vụ"
+        label="Từ Tháng/năm"
+        label="Đến Tháng/năm"
+        label="Liệt kê tất cả những lần bị từ chối Visa trước đây"
+        <FormLabel id="petitionerAddressDifferentPhysicalAddress">Người thụ hưởng đã từng nộp đơn xin giấy phép lao động trước đây?</FormLabel>
+        label="Tên các tổ chức hoặc câu lạc bộ mà người thụ hưởng đã và đang tham gia"
+        label="Mô tả quá trình hai người gặp nhau"
+        <FormLabel id="">Có được mai mối hay không?</FormLabel>
+        <FormLabel id="petitionerContactRelatedFiance">Một trong hai người đã từng vi phạm các quy định về di trú hay không?</FormLabel>
+        <FormLabel id="petitionerBackgroundPreviouslyMarried">Một trong hai người có từng bị các chứng về thần kinh hoặc các bệnh liên quan đến sử dụng chất kích thích?</FormLabel>
+        <FormLabel id="petitionerBiographicCivilCriminal">Người thụ hưởng đã từng làm việc trong quân đội?</FormLabel>
+
+      <h5><InputLabel style={{ textDecorationLine: 'underline', fontWeight: 'bold', color: 'blue' }}>Phần B - Đương đơn</InputLabel></h5>
+
+        label="Họ tên:"
+        label="Nơi sinh:"
+        <FormLabel id=""> Có phải là hôn phu/hôn thê?</FormLabel>
+        label="Các tên đã sử dụng (bao gồm cả tên trước hôn nhân)"
+        label="Số thẻ xanh (nếu có)"
+        label="Số an sinh xã hội"
+        label="Số điện thoại nhà"
+        label="Di động"
+        label="Điện thoại văn phòng"
+        label="Số Fax"
+        label="Địa chỉ E-mail"
+        label="Tên cha"
+        label={"Ngày sinh của cha"}
+        label="Nơi sinh của cha"
+        label="Thành phố và quốc gia cư trú"
+        label="Tên mẹ (tên trước hôn nhân)"
+        label={"Ngày sinh của mẹ"}
+
     	[Deleted] BIT CONSTRAINT [DF_FormVisaFiance_Deleted] DEFAULT ((0)) NOT NULL,
     CONSTRAINT [PK_FormVisaFiance] PRIMARY KEY CLUSTERED ([Id] ASC)
 );
