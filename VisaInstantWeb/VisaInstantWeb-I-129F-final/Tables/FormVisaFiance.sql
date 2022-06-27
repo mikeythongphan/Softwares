@@ -2,45 +2,48 @@ CREATE TABLE [dbo].[FormVisaFiance] (
     	[Id] BIGINT IDENTITY (1, 1) NOT NULL,
     	[AccountId] BIGINT NULL,    
 	
-	Họ tên
-	Nơi sinh
-	Người được bảo lãnh từng ở Mỹ chưa?
-	label="Tất cả tên đã sử dụng (kể cả tên trước hôn nhân)"
-        label="Số thẻ xanh (nếu có)"
-        label="Số an sinh xã hội (nếu có)"
-        label="Văn phòng lãnh sự mong muốn"
-        label="Tên và địa chỉ bằng ngôn ngữ chính (Nếu ngôn ngữ chính không có ký tự alphabet"
-        label="Số điện thoại nhà"
-        label="Di động"
-        label="Điện thoại văn phòng"
-        label="Số Fax"
-        label="Địa chỉ E-mail"
-        label="Tên cha"
-        label={"Ngày sinh, nơi sinh của cha"}
-        label="Thành phố hoặc quốc gia cư trú"
-        label="Tên Mẹ (tên trước hôn nhân)"
-        label={"Ngày sinh, nơi sinh của mẹ"}
-        label="Thành phố hoặc quốc gia cư trú"
-        label="1. Tên của vợ/chồng cũ"
-        label={"Ngày sinh của vợ/chồng cũ"}
-        label="Nơi sinh của vợ/chồng cũ"
-        label={"Ngày kết hôn"}
-        label="Nơi kết hôn"
-        label="2. Tên của vợ/chồng cũ"
-        label={"Ngày sinh của vợ/chồng cũ"}
-	label="Nơi sinh của vợ/chồng cũ"
-        label={"Ngày kết hôn"}
-        label="Nơi kết hôn"
-        label="3. Tên của vợ/chồng cũ"
-        label={"Ngày sinh của vợ/chồng cũ"}
-	label="Nơi sinh của vợ/chồng cũ"
-        label={"Ngày kết hôn"}
-        label="Nơi kết hôn"
-	label="4. Tên của vợ/chồng cũ"
-        label={"Ngày sinh của vợ/chồng cũ"}
-	label="Nơi sinh của vợ/chồng cũ"
-        label={"Ngày kết hôn"}
-        label="Nơi kết hôn"
+Beneficiary1FullName
+Beneficiary1PlaceOfBirth
+Beneficiary1HasBeenUSYes
+Beneficiary1HasBeenUSNo
+Beneficiary1NamesUsed
+Beneficiary1GreenCardNumber
+Beneficiary1SocialSecurityNumber
+Beneficiary1ConsularOfficeWishes
+Beneficiary1NameAddressPrimaryLanguage
+Beneficiary1HomePhoneNumber
+Beneficiary1Mobile
+Beneficiary1OfficeTelephone
+Beneficiary1FaxNumber
+Beneficiary1EmailAddress
+Beneficiary1FatherName
+Beneficiary1FatherDateOfBirth
+Beneficiary1FatherPlaceOfBirth
+Beneficiary1FatherCityCountryResidence
+Beneficiary1MotherName
+Beneficiary1MotherDateOfBirth
+Beneficiary1MotherPlaceOfBirth
+Beneficiary1MotherCityCountryResidence
+Beneficiary11NameOfExSpouse
+Beneficiary11BirthDateOfExSpouse
+Beneficiary11BirthPlaceOfExSpouse
+Beneficiary11DateOfMarriage
+Beneficiary11PlaceOfMarriage
+Beneficiary12NameOfExSpouse
+Beneficiary12BirthDateOfExSpouse
+Beneficiary12BirthPlaceOfExSpouse
+Beneficiary12DateOfMarriage
+Beneficiary12PlaceOfMarriage
+Beneficiary13NameOfExSpouse
+Beneficiary13BirthDateOfExSpouse
+Beneficiary13BirthPlaceOfExSpouse
+Beneficiary13DateOfMarriage
+Beneficiary13PlaceOfMarriage
+Beneficiary14NameOfExSpouse
+Beneficiary14BirthDateOfExSpouse
+Beneficiary14BirthPlaceOfExSpouse
+Beneficiary14DateOfMarriage
+Beneficiary14PlaceOfMarriage
 	
 	<InputLabel> Địa chỉ của người thụ hưởng trong 5 năm qua. Liệt kê địa chỉ hiện tại trước</InputLabel>
 
