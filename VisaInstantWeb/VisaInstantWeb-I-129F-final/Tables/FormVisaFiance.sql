@@ -122,6 +122,14 @@ CREATE TABLE [dbo].[FormVisaFiance] (
         <FormLabel id="petitionerBackgroundPreviouslyMarried">Một trong hai người có từng bị các chứng về thần kinh hoặc các bệnh liên quan đến sử dụng chất kích thích?</FormLabel>
         <FormLabel id="petitionerBiographicCivilCriminal">Người thụ hưởng đã từng làm việc trong quân đội?</FormLabel>
 
+        label="Nếu có, đã khi nào và ở đâu?"
+        <FormLabel id=""> Đã được chấp thuận không?</FormLabel>
+        label="Nếu có, cung cấp thông tin chi tiết"
+        label="Nếu có, cung cấp thông tin chi tiết"
+        label="Nếu có, tên của tổ chức đó"
+        label={"Ngày nhập ngũ"}
+        label="Nơi nhập ngũ"
+
       <h5><InputLabel style={{ textDecorationLine: 'underline', fontWeight: 'bold', color: 'blue' }}>Phần B - Đương đơn</InputLabel></h5>
 
         label="Họ tên:"
