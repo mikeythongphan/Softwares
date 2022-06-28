@@ -125,115 +125,101 @@ Beneficiary5HasInMilitaryNo
 Beneficiary5NameOfOrganization
 Beneficiary5EnlistmentDate
 Beneficiary5WhereToEnlist
-
-      <h5><InputLabel style={{ textDecorationLine: 'underline', fontWeight: 'bold', color: 'blue' }}>Phần B - Đương đơn</InputLabel></h5>
-
-        label="Họ tên:"
-        label="Nơi sinh:"
-        <FormLabel id=""> Có phải là hôn phu/hôn thê?</FormLabel>
-        label="Các tên đã sử dụng (bao gồm cả tên trước hôn nhân)"
-        label="Số thẻ xanh (nếu có)"
-        label="Số an sinh xã hội"
-        label="Số điện thoại nhà"
-        label="Di động"
-        label="Điện thoại văn phòng"
-        label="Số Fax"
-        label="Địa chỉ E-mail"
-        label="Tên cha"
-        label={"Ngày sinh của cha"}
-        label="Nơi sinh của cha"
-        label="Thành phố và quốc gia cư trú"
-        label="Tên mẹ (tên trước hôn nhân)"
-        label={"Ngày sinh của mẹ"}
-        label="Nơi sinh của mẹ"
-        label="Thành phố và quốc gia cư trú"
-        label="1. Tên của vợ/chồng cũ"
-        label={"Ngày sinh của vợ/chồng cũ"}
-        label="Nơi sinh của vợ/chồng cũ"
-        label={"Ngày kết hôn"}
-        label="Nơi kết hôn"
-        label="2. Tên của vợ/chồng cũ"
-        label={"Ngày sinh của vợ/chồng cũ"}
-        label="Nơi sinh của vợ/chồng cũ"
-        label={"Ngày kết hôn"}
-        label="Nơi kết hôn"
-	label="3. Tên của vợ/chồng cũ"
-        label={"Ngày sinh của vợ/chồng cũ"}
-        label="Nơi sinh của vợ/chồng cũ"
-        label={"Ngày kết hôn"}
-        label="Nơi kết hôn"
-	
-      <InputLabel> Địa chỉ của đương đơn trong 5 năm qua. Liệt kê địa chỉ hiện tại trước</InputLabel>
-
-        label="1. Số nhà và tên đường hiện tại"
-        label="Thành phố"
-        label="Tiểu bang/quận"
-        label="Zip Code"
-        label="Từ Tháng/năm"
-        label="Đến Tháng/năm"
-        label="2. Số nhà và tên đường hiện tại"
-        label="Thành phố"
-        label="Tiểu bang/quận"
-        label="Zip Code"
-        label="Từ Tháng/năm"
-        label="Đến Tháng/năm"
-	label="3. Số nhà và tên đường hiện tại"
-        label="Thành phố"
-        label="Tiểu bang/quận"
-        label="Zip Code"
-        label="Từ Tháng/năm"
-        label="Đến Tháng/năm"
-	label="4. Số nhà và tên đường hiện tại"
-        label="Thành phố"
-        label="Tiểu bang/quận"
-        label="Zip Code"
-        label="Từ Tháng/năm"
-        label="Đến Tháng/năm"
-	label="5. Số nhà và tên đường hiện tại"
-        label="Thành phố"
-        label="Tiểu bang/quận"
-        label="Zip Code"
-        label="Từ Tháng/năm"
-        label="Đến Tháng/năm"
-	
-      <InputLabel>Địa chỉ của đương đơn bên ngoài Hoa Kỳ trên một năm</InputLabel>
-
-        label="Số nhà và tên đường"
-        label="Thành phố"
-        label="Tiểu bang/quận"
-        label="Zip Code"
-        label="Từ Tháng/năm"
-        label="Đến Tháng/năm"
-
-      <InputLabel>Nơi làm việc của đương đơn trong vòng 5 năm qua. Liệt kê nơi làm việc hiện tại trước</InputLabel>
-
-        label="1. Tên và địa chỉ nơi làm việc hện tại"
-        label="Chức vụ"
-        label="Từ Tháng/năm"
-        label="Đến Tháng/năm"
-        label="2. Tên và địa chỉ nơi làm việc hện tại"
-        label="Chức vụ"
-        label="Từ Tháng/năm"
-        label="Đến Tháng/năm"
-	label="3. Tên và địa chỉ nơi làm việc hện tại"
-        label="Chức vụ"
-        label="Từ Tháng/năm"
-        label="Đến Tháng/năm"
-	label="4. Tên và địa chỉ nơi làm việc hện tại"
-        label="Chức vụ"
-        label="Từ Tháng/năm"
-        label="Đến Tháng/năm"
-	label="5. Tên và địa chỉ nơi làm việc hện tại"
-        label="Chức vụ"
-        label="Từ Tháng/năm"
-        label="Đến Tháng/năm"
-	
-      <InputLabel>Chức vụ công việc ở nước ngoài nếu không có ở trên</InputLabel>
-
-        label="Tên và địa chỉ nơi làm việc"
-        label="Chức vụ"
-        label="Từ Tháng/năm"
-        label="Đến Tháng/năm"
+Sponsor1Name
+Sponsor1BirthPlace
+Sponsor1IsFianceYes
+Sponsor1IsFianceNo
+Sponsor1NamesUsed
+Sponsor1GreenCardNumber
+Sponsor1SocialSecurityNumber
+Sponsor1HomePhoneNumber
+Sponsor1Mobile
+Sponsor1OfficePhone
+Sponsor1FaxNumber
+Sponsor1EmailAddress
+Sponsor1FatherName
+Sponsor1FatherBirthDate
+Sponsor1FatherBirthPlace
+Sponsor1FatherCityCountry
+Sponsor1MotherName
+Sponsor1MotherBirthDate
+Sponsor1MotherBirthPlace
+Sponsor1MotherCityCountry
+Sponsor11NameExSpouse
+Sponsor11BirthdateExSpouse
+Sponsor11BirthplaceExSpouse
+Sponsor11MarriageDate
+Sponsor11MarriagePlace
+Sponsor12NameExSpouse
+Sponsor12BirthdateExSpouse
+Sponsor12BirthplaceExSpouse
+Sponsor12MarriageDate
+Sponsor12MarriagePlace
+Sponsor13NameExSpouse
+Sponsor13BirthdateExSpouse
+Sponsor13BirthplaceExSpouse
+Sponsor13MarriageDate
+Sponsor13MarriagePlace
+Sponsor21CurrentHouseStreet
+Sponsor21City
+Sponsor21StateCounty
+Sponsor21ZipCode
+Sponsor21FromMonthYear
+Sponsor21ToMonthYear
+Sponsor22CurrentHouseStreet
+Sponsor22City
+Sponsor22StateCounty
+Sponsor22ZipCode
+Sponsor22FromMonthYear
+Sponsor22ToMonthYear
+Sponsor23CurrentHouseStreet
+Sponsor23City
+Sponsor23StateCounty
+Sponsor23ZipCode
+Sponsor23FromMonthYear
+Sponsor23ToMonthYear
+Sponsor24CurrentHouseStreet
+Sponsor24City
+Sponsor24StateCounty
+Sponsor24ZipCode
+Sponsor24FromMonthYear
+Sponsor24ToMonthYear
+Sponsor25CurrentHouseStreet
+Sponsor25City
+Sponsor25StateCounty
+Sponsor25ZipCode
+Sponsor25FromMonthYear
+Sponsor25ToMonthYear
+Sponsor3HouseStreetName
+Sponsor3City
+Sponsor3StateCounty
+Sponsor3ZipCode
+Sponsor3FromMonthYear
+Sponsor3ToMonthYear
+Sponsor41NameWorkplaceAddress
+Sponsor41Position
+Sponsor41FromMonthYear
+Sponsor41ToMonthYear
+Sponsor42NameWorkplaceAddress
+Sponsor42Position
+Sponsor42FromMonthYear
+Sponsor42ToMonthYear
+Sponsor43NameWorkplaceAddress
+Sponsor43Position
+Sponsor43FromMonthYear
+Sponsor43ToMonthYear
+Sponsor44NameWorkplaceAddress
+Sponsor44Position
+Sponsor44FromMonthYear
+Sponsor44ToMonthYear
+Sponsor45NameWorkplaceAddress
+Sponsor45Position
+Sponsor45FromMonthYear
+Sponsor45ToMonthYear
+Sponsor5NameAddressWork
+Sponsor5Position
+Sponsor5FromMonthYear
+Sponsor5ToMonthYear
 
       <h5><InputLabel style={{ textDecorationLine: 'underline', fontWeight: 'bold', color: 'blue' }}>Part C - Hồ sơ cần thiết:</InputLabel></h5>
 
