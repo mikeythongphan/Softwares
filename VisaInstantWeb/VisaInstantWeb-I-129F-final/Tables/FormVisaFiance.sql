@@ -2,31 +2,31 @@ CREATE TABLE [dbo].[FormVisaFiance] (
     	[Id] BIGINT IDENTITY (1, 1) NOT NULL,
     	[AccountId] BIGINT NULL,    
 	
-Beneficiary1FullName
-Beneficiary1PlaceOfBirth
+Beneficiary1FullName  NVARCHAR (1000) NULL,
+Beneficiary1PlaceOfBirth  NVARCHAR (1000) NULL,
 Beneficiary1HasBeenUSYes
 Beneficiary1HasBeenUSNo
-Beneficiary1NamesUsed
-Beneficiary1GreenCardNumber
-Beneficiary1SocialSecurityNumber
-Beneficiary1ConsularOfficeWishes
-Beneficiary1NameAddressPrimaryLanguage
-Beneficiary1HomePhoneNumber
-Beneficiary1Mobile
-Beneficiary1OfficeTelephone
-Beneficiary1FaxNumber
-Beneficiary1EmailAddress
-Beneficiary1FatherName
+Beneficiary1NamesUsed  NVARCHAR (1000) NULL,
+Beneficiary1GreenCardNumber  NVARCHAR (1000) NULL,
+Beneficiary1SocialSecurityNumber  NVARCHAR (1000) NULL,
+Beneficiary1ConsularOfficeWishes  NVARCHAR (1000) NULL,
+Beneficiary1PrimaryLanguage  NVARCHAR (1000) NULL,
+Beneficiary1HomePhoneNumber  NVARCHAR (1000) NULL,
+Beneficiary1Mobile  NVARCHAR (1000) NULL,
+Beneficiary1OfficeTelephone  NVARCHAR (1000) NULL,
+Beneficiary1FaxNumber  NVARCHAR (1000) NULL,
+Beneficiary1EmailAddress  NVARCHAR (1000) NULL,
+Beneficiary1FatherName  NVARCHAR (1000) NULL,
 Beneficiary1FatherDateOfBirth
-Beneficiary1FatherPlaceOfBirth
-Beneficiary1FatherCityCountryResidence
-Beneficiary1MotherName
+Beneficiary1FatherPlaceOfBirth  NVARCHAR (1000) NULL,
+Beneficiary1FatherCityCountryResidence  NVARCHAR (1000) NULL,
+Beneficiary1MotherName  NVARCHAR (1000) NULL,
 Beneficiary1MotherDateOfBirth
-Beneficiary1MotherPlaceOfBirth
-Beneficiary1MotherCityCountryResidence
-Beneficiary11NameOfExSpouse
+Beneficiary1MotherPlaceOfBirth  NVARCHAR (1000) NULL,
+Beneficiary1MotherCityCountryResidence  NVARCHAR (1000) NULL,
+Beneficiary11NameOfExSpouse  NVARCHAR (1000) NULL,
 Beneficiary11BirthDateOfExSpouse
-Beneficiary11BirthPlaceOfExSpouse
+Beneficiary11BirthPlaceOfExSpouse  NVARCHAR (1000) NULL,
 Beneficiary11DateOfMarriage
 Beneficiary11PlaceOfMarriage
 Beneficiary12NameOfExSpouse
