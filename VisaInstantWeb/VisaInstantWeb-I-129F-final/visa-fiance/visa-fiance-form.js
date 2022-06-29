@@ -4,19 +4,7 @@ import { Button, Container, Stack } from "@mui/material";
 import { makeStyles, ThemeProvider } from '@material-ui/core/styles';
 import http from "../../../../@onewits/http";
 import { useHistory, useLocation } from "react-router-dom";
-import { PetitionerContact } from "./01-petitioner-contact";
-import { PetitionerAddress } from "./02-petitioner-address";
-import { PetitionerEmployment } from "./03-petitioner-employment";
-import { PetitionerBackground } from "./04-petitioner-background";
-import { PetitionerParent } from "./05-petitioner-parent";
-import { PetitionerBiographic } from "./06-petitioner-biographic";
-import { PetitionerStatus } from "./07-petitioner-status";
-import { BeneficiaryContact } from "./08-beneficiary-contact";
-import { BeneficiaryAddress } from "./09-beneficiary-address";
-import { BeneficiaryEmployment } from "./10-beneficiary-employment";
-import { BeneficiaryBackground } from "./11-beneficiary-background";
-import { BeneficiaryAbroad } from "./12-beneficiary-abroad";
-import { Interpreter } from "./13-interpreter";
+import { BeneficiaryInformation01 } from "./beneficiary-sponsor-profile";
 
 const useStyles = makeStyles(theme => ({
 	root: {
@@ -28,228 +16,244 @@ const useStyles = makeStyles(theme => ({
 }));
 
 const initialSteps = [
-	{ active: true, component: PetitionerContact, stepIndex: 1 },
-	{ active: false, component: PetitionerAddress, stepIndex: 2 },
-	{ active: false, component: PetitionerEmployment, stepIndex: 3 },
-	{ active: false, component: PetitionerBackground, stepIndex: 4 },
-	{ active: false, component: PetitionerParent, stepIndex: 5 },
-	{ active: false, component: PetitionerBiographic, stepIndex: 6 },
-	{ active: false, component: PetitionerStatus, stepIndex: 7 },
-	{ active: false, component: BeneficiaryContact, stepIndex: 8 },
-	{ active: false, component: BeneficiaryAddress, stepIndex: 9 },
-	{ active: false, component: BeneficiaryEmployment, stepIndex: 10 },
-	{ active: false, component: BeneficiaryBackground, stepIndex: 11 },
-	{ active: false, component: BeneficiaryAbroad, stepIndex: 12 },
-	{ active: false, component: Interpreter, stepIndex: 13 }
+	{ active: true, component: BeneficiaryInformation01, stepIndex: 1 }
 ]
 
 const initialValues = {
 	"id": 0,
-  "accountId": 1,    
-	"petitionerContactFirstName": "",
-	"petitionerContactMiddleName": "",
-	"petitionerContactLastName": "",
-	"petitionerContactOtherNamesUsedYes": false,
-	"petitionerContactOtherNamesUsedNo": false,
-	"petitionerContactEmailAddress": "",
-	"petitionerContactRelatedFianceYes": false,
-	"petitionerContactRelatedFianceNo": false,
-	"petitionerAddress1MailingStreetAddressApt": false,
-	"petitionerAddress1MailingStreetAddressSte": false,
-	"petitionerAddress1MailingStreetAddressFlr": false,
-	"petitionerAddressCityOrTown": "",
-	"petitionerAddress1State": "",
-	"petitionerAddress1Province": "",
-	"petitionerAddress1ZipCode": "",
-	"petitionerAddress1Country": "",
-	"petitionerAddressDifferentPhysicalAddressYes": false,
-	"petitionerAddressDifferentPhysicalAddressNo": false,
-	"petitionerAddress2MailingStreetAddressApt": false,
-	"petitionerAddress2MailingStreetAddressSte": false,
-	"petitionerAddress2MailingStreetAddressFlr": false,
-	"petitionerAddress2MailingStreetAddressYes": false,
-	"petitionerAddress2State": "",
-	"petitionerAddress2Province": "",
-	"petitionerAddress2ZipCode": "",
-	"petitionerAddress2Country": "",
-	"petitionerAddressResidence1State": "",
-	"petitionerAddressResidence1Country": "",
-	"petitionerAddressResidence2State": "",
-	"petitionerAddressResidence2Country": "",
-	"petitionerEmploymentNameOfEmployer": "",
-	"petitionerEmploymentStreetAddress": "",
-	"petitionerEmploymentCityOrTown": "",
-	"petitionerEmploymentState": "",
-	"petitionerEmploymentProvince": "",
-	"petitionerEmploymentZipCode": "",
-	"petitionerEmploymentCountry": "",
-	"petitionerEmploymentOccupationName": "",
-	"petitionerEmploymentStartDate": null,
-	"petitionerEmploymentEndDate": null,
-	"petitionerBackgroundGenderMale": false,
-	"petitionerBackgroundGenderFemale": false,
-	"petitionerBackgroundDateOfBirth": null,
-	"petitionerBackgroundMaritalStatusSingle": false,
-	"petitionerBackgroundMaritalStatusMarried": false,
-	"petitionerBackgroundMaritalStatusDivorced": false,
-	"petitionerBackgroundMaritalStatusWidowed": false,
-	"petitionerBackgroundCityOfBirth": "",
-	"petitionerBackgroundStateOfBirth": "",
-	"petitionerBackgroundCountryOfBirth": "",
-	"petitionerBackgroundPreviouslyMarriedYes": false,
-	"petitionerBackgroundPreviouslyMarriedNo": false,
-	"petitionerParent1FirstName": "",
-	"petitionerParent1MiddleName": "",
-	"petitionerParent1LastName": "",
-	"petitionerParent1DateOfBirth": null,
-	"petitionerParent1GenderMale": false,
-	"petitionerParent1GenderFemale": false,
-	"petitionerParent1CountryOfBirth": null,
-	"petitionerParent1CityOfBirth": "",
-	"petitionerParent1CountryOfResidence": "",
-	"petitionerParent2FirstName": "",
-	"petitionerParent2MiddleName": "",
-	"petitionerParent2LastName": "",
-	"petitionerParent2DateOfBirth": null,
-	"petitionerParent2GenderMale": false,
-	"petitionerParent2GenderFemale": false,
-	"petitionerParent2CountryOfBirth": null,
-	"petitionerParent2CityOfBirth": "",
-	"petitionerParent2CountryOfResidence": "",
-	"petitionerBiographicEthnicityNotHispanic": false,
-	"petitionerBiographicEthnicityHispanic": false,
-	"petitionerBiographicRaceWhite": false,
-	"petitionerBiographicRaceAsian": false,
-	"petitionerBiographicRaceBlack": false,
-	"petitionerBiographicRaceIndian": false,
-	"petitionerBiographicRaceHawaiian": false,
-	"petitionerBiographicFeet": "",
-	"petitionerBiographicInches": "",
-	"petitionerBiographicPound": "",
-	"petitionerBiographicHairColorBlack": false,
-	"petitionerBiographicHairColorBrown": false,
-	"petitionerBiographicHairColorBlond": false,
-	"petitionerBiographicHairColorGray": false,
-	"petitionerBiographicHairColorWhite": false,
-	"petitionerBiographicHairColorRed": false,
-	"petitionerBiographicHairColorSandy": false,
-	"petitionerBiographicHairColorBald": false,
-	"petitionerBiographicHairColorOther": false,
-	"petitionerBiographicEyeColorBlack": false,
-	"petitionerBiographicEyeColorBlue": false,
-	"petitionerBiographicEyeColorBrown": false,
-	"petitionerBiographicEyeColorGray": false,
-	"petitionerBiographicEyeColorGreen": false,
-	"petitionerBiographicEyeColorHazel": false,
-	"petitionerBiographicEyeColorMaroon": false,
-	"petitionerBiographicEyeColorPink": false,
-	"petitionerBiographicEyeColorOther": false,
-	"petitionerBiographicCivilCriminalYes": false,
-	"petitionerBiographicCivilCriminalNo": false,
-	"petitionerBiographicDomesticViolenceYes": false,
-	"petitionerBiographicDomesticViolenceNo": false,
-	"petitionerBiographicHomicideYes": false,
-	"petitionerBiographicHomicideNo": false,
-	"petitionerBiographicConvictionsYes": false,
-	"petitionerBiographicConvictionsNo": false,
-	"petitionerStatusSocialSecurityNumber": "",
-	"petitionerStatusThroughBirthUS": false,
-	"petitionerStatusThroughUSCitizenParents": false,
-	"petitionerStatusThroughNaturalization": false,
-	"petitionerStatusCitizenshipYes": false,
-	"petitionerStatusCitizenshipNo": false,
-	"petitionerStatusI129FYes": false,
-	"petitionerStatusI129FNo": false,
-	"petitionerStatusIMBYes": false,
-	"petitionerStatusIMBNo": false,
-	"petitionerStatusCity": "",
-	"petitionerStatusCountry": "",
-	"beneficiaryContactFirstName": "",
-	"beneficiaryContactMiddleName": "",
-	"beneficiaryContactLastName": "",
-	"beneficiaryContactOtherNamesUsedYes": false,
-	"beneficiaryContactOtherNamesUsedNo": false,
-	"beneficiaryContactDaytimePhoneNumber": "",
-	"beneficiaryContactEmailAddress": "",
-	"beneficiaryAddress1MailingStreetAddressApt": false,
-	"beneficiaryAddress1MailingStreetAddressSte": false,
-	"beneficiaryAddress1MailingStreetAddressFlr": false,
-	"beneficiaryAddress1MailingStreetAddressYes": false,
-	"beneficiaryAddress1CityOrTown": "",
-	"beneficiaryAddress1State": "",
-	"beneficiaryAddress1Province": "",
-	"beneficiaryAddress1ZipCode": "",
-	"beneficiaryAddress1Country": "",
-	"beneficiaryAddressDifferentPhysicalYes": false,
-	"beneficiaryAddressDifferentPhysicalNo": false,
-	"beneficiaryAddress2MailingStreetAddressApt": false,
-	"beneficiaryAddress2MailingStreetAddressSte": false,
-	"beneficiaryAddress2MailingStreetAddressFlr": false,
-	"beneficiaryAddress2MailingStreetAddressYes": false,
-	"beneficiaryAddress2CityOrTown": "",
-	"beneficiaryAddress2State": "",
-	"beneficiaryAddress2Province": "",
-	"beneficiaryAddress2ZipCode": "",
-	"beneficiaryAddress2Country": "",
-	"beneficiaryAddressResidence1State": "",
-	"beneficiaryAddressResidence1Country": "",
-	"beneficiaryAddressResidence2State": "",
-	"beneficiaryAddressResidence2Country": "",
-	"beneficiaryEmploymentNameOfEmployer": "",
-	"beneficiaryEmploymentStreetAddress": "",
-	"beneficiaryEmploymentCityOrTown": "",
-	"beneficiaryEmploymentState": "",
-	"beneficiaryEmploymentProvince": "",
-	"beneficiaryEmploymentZipCode": "",
-	"beneficiaryEmploymentCountry": "",
-	"beneficiaryEmploymentOccupationName": "",
-	"beneficiaryEmploymentStartDate": null,
-	"beneficiaryEmploymentEndDate": null,
-	"beneficiaryBackgroundGenderMale": false,
-	"beneficiaryBackgroundGenderFemale": false,
-	"beneficiaryBackgroundDateOfBirth": null,
-	"beneficiaryBackgroundMaritalStatusSingle": false,
-	"beneficiaryBackgroundMaritalStatusMarried": false,
-	"beneficiaryBackgroundMaritalStatusDivorced": false,
-	"beneficiaryBackgroundMaritalStatusWidowed": false,
-	"beneficiaryBackgroundCityOfBirth": "",
-	"beneficiaryBackgroundProvinceOfBirth": "",
-	"beneficiaryBackgroundCountryOfBirth": "",
-	"beneficiaryBackgroundPreviouslyMarriedYes": false,
-	"beneficiaryBackgroundPreviouslyMarriedNo": false,
-	"beneficiaryBackgroundEverBeenInTheUSYes": false,
-	"beneficiaryBackgroundEverBeenInTheUSNo": false,
-	"beneficiaryBackgroundCurrentlyInUSYes": false,
-	"beneficiaryBackgroundCurrentlyInUSNo": false,
-	"beneficiaryAbroadStreetAddressApt": false,
-	"beneficiaryAbroadStreetAddressSte": false,
-	"beneficiaryAbroadStreetAddressFlo": false,
-	"beneficiaryAbroadStreetAddressNumber": false,
-	"beneficiaryAbroadStreetAddressText": "",
-	"beneficiaryAbroadCityOrTown": "",
-	"beneficiaryAbroadState": "",
-	"beneficiaryAbroadProvince": "",
-	"beneficiaryAbroadZipCode": "",
-	"beneficiaryAbroadCountry": "",
-	"beneficiaryAbroadDaytimePhoneNumber": "",
-	"beneficiaryAbroadLatinAlphabetYes": false,
-	"beneficiaryAbroadLatinAlphabetNo": false,
-	"beneficiaryAbroadOtherNamesUsedYes": false,
-	"beneficiaryAbroadOtherNamesUsedNo": false,
-	"interpreterFirstName": "",
-	"interpreterLastName": "",
-	"interpreterBusinessName": "",
-	"interpreterStreetAddressApt": false,
-	"interpreterStreetAddressSte": false,
-	"interpreterStreetAddressFlo": false,
-	"interpreterStreetAddressNumber": false,
-	"interpreterStreetAddressText": "",
-	"interpreterCityOrTown": "",
-	"interpreterProvince": "",
-	"interpreterZipCode": "",
-	"interpreterCountry": "",
-	"interpreterDaytimePhoneNumber": "",
-	"interpreterEmailAddress": "",
+  "accountId": null,
+  "beneficiary1FullName": "",
+  "beneficiary1PlaceOfBirth": "",
+  "beneficiary1HasBeenUSYes": false,
+  "beneficiary1HasBeenUSNo": false,
+  "beneficiary1NamesUsed": "",
+  "beneficiary1GreenCardNumber": "",
+  "beneficiary1SocialSecurityNumber": "",
+  "beneficiary1ConsularOfficeWishes": "",
+  "beneficiary1PrimaryLanguage": "",
+  "beneficiary1HomePhoneNumber": "",
+  "beneficiary1Mobile": "",
+  "beneficiary1OfficeTelephone": "",
+  "beneficiary1FaxNumber": "",
+  "beneficiary1EmailAddress": "",
+  "beneficiary1FatherName": "",
+  "beneficiary1FatherDateOfBirth": null,
+  "beneficiary1FatherPlaceOfBirth": "",
+  "beneficiary1FatherCityCountryResidence": "",
+  "beneficiary1MotherName": "",
+  "beneficiary1MotherDateOfBirth": null,
+  "beneficiary1MotherPlaceOfBirth": "",
+  "beneficiary1MotherCityCountryResidence": "",
+  "beneficiary11NameOfExSpouse": "",
+  "beneficiary11BirthDateOfExSpouse": null,
+  "beneficiary11BirthPlaceOfExSpouse": "",
+  "beneficiary11DateOfMarriage": null,
+  "beneficiary11PlaceOfMarriage": "",
+  "beneficiary12NameOfExSpouse": "",
+  "beneficiary12BirthDateOfExSpouse": null,
+  "beneficiary12BirthPlaceOfExSpouse": "",
+  "beneficiary12DateOfMarriage": null,
+  "beneficiary12PlaceOfMarriage": "",
+  "beneficiary13NameOfExSpouse": "",
+  "beneficiary13BirthDateOfExSpouse": null,
+  "beneficiary13BirthPlaceOfExSpouse": "",
+  "beneficiary13DateOfMarriage": null,
+  "beneficiary13PlaceOfMarriage": "",
+  "beneficiary14NameOfExSpouse": "",
+  "beneficiary14BirthDateOfExSpouse": null,
+  "beneficiary14BirthPlaceOfExSpouse": "",
+  "beneficiary14DateOfMarriage": null,
+  "beneficiary14PlaceOfMarriage": "",
+  "beneficiary21CurrentHouseStreet": "",
+  "beneficiary21City": "",
+  "beneficiary21StateCounty": "",
+  "beneficiary21ZipCode": "",
+  "beneficiary21FromMonthYear": "",
+  "beneficiary21ToMonthYear": "",
+  "beneficiary22CurrentHouseStreet": "",
+  "beneficiary22City": "",
+  "beneficiary22StateCounty": "",
+  "beneficiary22ZipCode": "",
+  "beneficiary22FromMonthYear": "",
+  "beneficiary22ToMonthYear": "",
+  "beneficiary23CurrentHouseStreet": "",
+  "beneficiary23City": "",
+  "beneficiary23StateCounty": "",
+  "beneficiary23ZipCode": "",
+  "beneficiary23FromMonthYear": "",
+  "beneficiary23ToMonthYear": "",
+  "beneficiary24CurrentHouseStreet": "",
+  "beneficiary24City": "",
+  "beneficiary24StateCounty": "",
+  "beneficiary24ZipCode": "",
+  "beneficiary24FromMonthYear": "",
+  "beneficiary24ToMonthYear": "",
+  "beneficiary25CurrentHouseStreet": "",
+  "beneficiary25City": "",
+  "beneficiary25StateCounty": "",
+  "beneficiary25ZipCode": "",
+  "beneficiary25FromMonthYear": "",
+  "beneficiary25ToMonthYear": "",
+  "beneficiary3HouseStreetName": "",
+  "beneficiary3City": "",
+  "beneficiary3StateCounty": "",
+  "beneficiary3ZipCode": "",
+  "beneficiary3FromMonthYear": "",
+  "beneficiary3ToMonthYear": "",
+  "beneficiary41NameWorkplaceAddress": "",
+  "beneficiary41Position": "",
+  "beneficiary41FromMonthYear": "",
+  "beneficiary41ToMonthYear": "",
+  "beneficiary42NameWorkplaceAddress": "",
+  "beneficiary42Position": "",
+  "beneficiary42FromMonthYear": "",
+  "beneficiary42ToMonthYear": "",
+  "beneficiary43NameWorkplaceAddress": "",
+  "beneficiary43Position": "",
+  "beneficiary43FromMonthYear": "",
+  "beneficiary43ToMonthYear": "",
+  "beneficiary44NameWorkplaceAddress": "",
+  "beneficiary44Position": "",
+  "beneficiary44FromMonthYear": "",
+  "beneficiary44ToMonthYear": "",
+  "beneficiary45NameWorkplaceAddress": "",
+  "beneficiary45Position": "",
+  "beneficiary45FromMonthYear": "",
+  "beneficiary45ToMonthYear": "",
+  "beneficiary5NameAddressWork": "",
+  "beneficiary5Position": "",
+  "beneficiary5FromMonthYear": "",
+  "beneficiary5ToMonthYear": "",
+  "beneficiary5AllPreviousVisaRefusals": "",
+  "beneficiary5HasAppliedWorkPermitYes": false,
+  "beneficiary5HasAppliedWorkPermitNo": false,
+  "beneficiary5WhenAndWhere": "",
+  "beneficiary5ApprovedYes": false,
+  "beneficiary5ApprovedNo": false,
+  "beneficiary5NamesOrganizationsMember": "",
+  "beneficiary5DescribePeopleMet": "",
+  "beneficiary5CanMatchmakingYes": false,
+  "beneficiary5CanMatchmakingNo": false,
+  "beneficiary5HaveEverViolatedYes": false,
+  "beneficiary5HaveEverViolatedNo": false,
+  "beneficiary5ViolatedProvideDetails": "",
+  "beneficiary5HasEverSufferedYes": false,
+  "beneficiary5HasEverSufferedNo": false,
+  "beneficiary5SufferedProvideDetails": "",
+  "beneficiary5HasInMilitaryYes": false,
+  "beneficiary5HasInMilitaryNo": false,
+  "beneficiary5NameOfOrganization": "",
+  "beneficiary5EnlistmentDate": null,
+  "beneficiary5WhereToEnlist": "",
+  "sponsor1Name": "",
+  "sponsor1BirthPlace": "",
+  "sponsor1IsFianceYes": false,
+  "sponsor1IsFianceNo": false,
+  "sponsor1NamesUsed": "",
+  "sponsor1GreenCardNumber": "",
+  "sponsor1SocialSecurityNumber": "",
+  "sponsor1HomePhoneNumber": "",
+  "sponsor1Mobile": "",
+  "sponsor1OfficePhone": "",
+  "sponsor1FaxNumber": "",
+  "sponsor1EmailAddress": "",
+  "sponsor1FatherName": "",
+  "sponsor1FatherBirthDate": null,
+  "sponsor1FatherBirthPlace": "",
+  "sponsor1FatherCityCountry": "",
+  "sponsor1MotherName": "",
+  "sponsor1MotherBirthDate": null,
+  "sponsor1MotherBirthPlace": "",
+  "sponsor1MotherCityCountry": "",
+  "sponsor11NameExSpouse": "",
+  "sponsor11BirthDateExSpouse": null,
+  "sponsor11BirthplaceExSpouse": "",
+  "sponsor11MarriageDate": null,
+  "sponsor11MarriagePlace": "",
+  "sponsor12NameExSpouse": "",
+  "sponsor12BirthDateExSpouse": null,
+  "sponsor12BirthPlaceExSpouse": "",
+  "sponsor12MarriageDate": null,
+  "sponsor12MarriagePlace": "",
+  "sponsor13NameExSpouse": "",
+  "sponsor13BirthDateExSpouse": null,
+  "sponsor13BirthPlaceExSpouse": "",
+  "sponsor13MarriageDate": null,
+  "sponsor13MarriagePlace": "",
+  "sponsor21CurrentHouseStreet": "",
+  "sponsor21City": "",
+  "sponsor21StateCounty": "",
+  "sponsor21ZipCode": "",
+  "sponsor21FromMonthYear": "",
+  "sponsor21ToMonthYear": "",
+  "sponsor22CurrentHouseStreet": "",
+  "sponsor22City": "",
+  "sponsor22StateCounty": "",
+  "sponsor22ZipCode": "",
+  "sponsor22FromMonthYear": "",
+  "sponsor22ToMonthYear": "",
+  "sponsor23CurrentHouseStreet": "",
+  "sponsor23City": "",
+  "sponsor23StateCounty": "",
+  "sponsor23ZipCode": "",
+  "sponsor23FromMonthYear": "",
+  "sponsor23ToMonthYear": "",
+  "sponsor24CurrentHouseStreet": "",
+  "sponsor24City": "",
+  "sponsor24StateCounty": "",
+  "sponsor24ZipCode": "",
+  "sponsor24FromMonthYear": "",
+  "sponsor24ToMonthYear": "",
+  "sponsor25CurrentHouseStreet": "",
+  "sponsor25City": "",
+  "sponsor25StateCounty": "",
+  "sponsor25ZipCode": "",
+  "sponsor25FromMonthYear": "",
+  "sponsor25ToMonthYear": "",
+  "sponsor3HouseStreetName": "",
+  "sponsor3City": "",
+  "sponsor3StateCounty": "",
+  "sponsor3ZipCode": "",
+  "sponsor3FromMonthYear": "",
+  "sponsor3ToMonthYear": "",
+  "sponsor41NameWorkplaceAddress": "",
+  "sponsor41Position": "",
+  "sponsor41FromMonthYear": "",
+  "sponsor41ToMonthYear": "",
+  "sponsor42NameWorkplaceAddress": "",
+  "sponsor42Position": "",
+  "sponsor42FromMonthYear": "",
+  "sponsor42ToMonthYear": "",
+  "sponsor43NameWorkplaceAddress": "",
+  "sponsor43Position": "",
+  "sponsor43FromMonthYear": "",
+  "sponsor43ToMonthYear": "",
+  "sponsor44NameWorkplaceAddress": "",
+  "sponsor44Position": "",
+  "sponsor44FromMonthYear": "",
+  "sponsor44ToMonthYear": "",
+  "sponsor45NameWorkplaceAddress": "",
+  "sponsor45Position": "",
+  "sponsor45FromMonthYear": "",
+  "sponsor45ToMonthYear": "",
+  "sponsor5NameAddressWork": "",
+  "sponsor5Position": "",
+  "sponsor5FromMonthYear": "",
+  "sponsor5ToMonthYear": "",
+  "beneficiaryProfileFormI94": false,
+  "beneficiaryProfileBirthCertificate": false,
+  "beneficiaryProfileI20Documents": false,
+  "beneficiaryProfileCriminalRecord": false,
+  "beneficiaryProfilePassportPhotos": false,
+  "beneficiaryProfilePreviousDivorce": false,
+  "beneficiaryProfilePapersRelated": false,
+  "sponsorProfileLetterConfirmation": false,
+  "sponsorProfileBankStatement": false,
+  "sponsorProfileTaxReturns": false,
+  "sponsorProfileW2PaystubsChecks": false,
+  "sponsorProfileDocumentsShowing": false,
+  "sponsorProfilePassportPhotos": false,
+  "sponsorProfilePreviousDivorce": false,	  
 	"deleted": false
 }
 
@@ -281,6 +285,11 @@ export const FormVisaFiance = () => {
 		updateStepActive(1);  // Set first step active
 	}
 
+	const backToPrevious = () => {
+		setCurrentStepIndex(currentStepIndex - 1);
+		updateStepActive(currentStepIndex - 1);  // Set previous step active
+	}
+
 	const updateStepActive = (index) => {
 		initialSteps.map((val) => {
 			val.active = val.stepIndex === index;
@@ -296,7 +305,8 @@ export const FormVisaFiance = () => {
 
 		if (type === 'radio') {
 			handleInputRadio(name, value)
-		} else {
+		}
+		else {
 			setValues({
 				...values,
 				[name]: value
@@ -304,175 +314,40 @@ export const FormVisaFiance = () => {
 		}
 	}
 
-  const handleInputRadio = (name, value) => {
+	const handleInputRadio = (name, value) => {
 		let group_radio = {
-			"petitionerContactOtherNamesUsed": {
-        "petitionerContactOtherNamesUsedYes": false,
-        "petitionerContactOtherNamesUsedNo": false,
+			"beneficiary1HasBeenUS": {
+        "beneficiary1HasBeenUSYes": false,
+        "beneficiary1HasBeenUSNo": false,
 			},
-			"petitionerContactRelatedFiance": {
-        "petitionerContactRelatedFianceYes": false,
-        "petitionerContactRelatedFianceNo": false,
+			"beneficiary5HasAppliedWorkPermit": {
+        "beneficiary5HasAppliedWorkPermitYes": false,
+        "beneficiary5HasAppliedWorkPermitNo": false,
 			},
-			"petitionerAddress1MailingStreetAddress": {
-        "petitionerAddress1MailingStreetAddressApt": false,
-        "petitionerAddress1MailingStreetAddressSte": false,
-        "petitionerAddress1MailingStreetAddressFlr": false,
-			},
-			"petitionerAddress2MailingStreetAddress": {
-        "petitionerAddress2MailingStreetAddressApt": false,
-        "petitionerAddress2MailingStreetAddressSte": false,
-        "petitionerAddress2MailingStreetAddressFlr": false,
-        "petitionerAddress2MailingStreetAddressYes": false,
-			},
-			"petitionerBackgroundGender": {
-        "petitionerBackgroundGenderMale": false,
-        "petitionerBackgroundGenderFemale": false,
-			},
-			"petitionerBackgroundMaritalStatus": {
-        "petitionerBackgroundMaritalStatusSingle": false,
-        "petitionerBackgroundMaritalStatusMarried": false,
-        "petitionerBackgroundMaritalStatusDivorced": false,
-        "petitionerBackgroundMaritalStatusWidowed": false,
-			},
-			"petitionerBackgroundPreviouslyMarried": {
-        "petitionerBackgroundPreviouslyMarriedYes": false,
-        "petitionerBackgroundPreviouslyMarriedNo": false,
-			},
-			"petitionerParent1Gender": {
-        "petitionerParent1GenderMale": false,
-        "petitionerParent1GenderFemale": false,
-			},
-			"petitionerParent2Gender": {
-        "petitionerParent2GenderMale": false,
-        "petitionerParent2GenderFemale": false,
-			},
-			"petitionerBiographicEthnicity": {
-        "petitionerBiographicEthnicityNotHispanic": false,
-        "petitionerBiographicEthnicityHispanic": false,
-			},
-			"petitionerBiographicRace": {
-        "petitionerBiographicRaceWhite": false,
-        "petitionerBiographicRaceAsian": false,
-        "petitionerBiographicRaceBlack": false,
-        "petitionerBiographicRaceIndian": false,
-        "petitionerBiographicRaceHawaiian": false,
-			},
-			"petitionerBiographicHairColor": {
-        "petitionerBiographicHairColorBlack": false,
-        "petitionerBiographicHairColorBrown": false,
-        "petitionerBiographicHairColorBlond": false,
-        "petitionerBiographicHairColorGray": false,
-        "petitionerBiographicHairColorWhite": false,
-        "petitionerBiographicHairColorRed": false,
-        "petitionerBiographicHairColorSandy": false,
-        "petitionerBiographicHairColorBald": false,
-        "petitionerBiographicHairColorOther": false,
-			},
-			"petitionerBiographicEyeColor": {
-        "petitionerBiographicEyeColorBlack": false,
-        "petitionerBiographicEyeColorBlue": false,
-        "petitionerBiographicEyeColorBrown": false,
-        "petitionerBiographicEyeColorGray": false,
-        "petitionerBiographicEyeColorGreen": false,
-        "petitionerBiographicEyeColorHazel": false,
-        "petitionerBiographicEyeColorMaroon": false,
-        "petitionerBiographicEyeColorPink": false,
-        "petitionerBiographicEyeColorOther": false,
-			},
-			"petitionerBiographicCivilCriminal": {
-        "petitionerBiographicCivilCriminalYes": false,
-        "petitionerBiographicCivilCriminalNo": false,
-			},
-			"petitionerBiographicDomesticViolence": {
-        "petitionerBiographicDomesticViolenceYes": false,
-        "petitionerBiographicDomesticViolenceNo": false,
-			},
-			"petitionerBiographicHomicide": {
-        "petitionerBiographicHomicideYes": false,
-        "petitionerBiographicHomicideNo": false,
-			},
-			"petitionerBiographicConvictions": {
-        "petitionerBiographicConvictionsYes": false,
-        "petitionerBiographicConvictionsNo": false,
-			},
-			"petitionerStatusThrough": {
-        "petitionerStatusThroughBirthUS": false,
-        "petitionerStatusThroughUSCitizenParents": false,
-        "petitionerStatusThroughNaturalization": false,
-			},
-			"petitionerStatusCitizenship": {
-        "petitionerStatusCitizenshipYes": false,
-        "petitionerStatusCitizenshipNo": false,
+      "beneficiary5Approved": {
+        "beneficiary5ApprovedYes": false,
+        "beneficiary5ApprovedNo": false,
       },
-      "petitionerStatusI129F": {
-        "petitionerStatusI129FYes": false,
-        "petitionerStatusI129FNo": false,
+      "beneficiary5CanMatchmaking": {
+        "beneficiary5CanMatchmakingYes": false,
+        "beneficiary5CanMatchmakingNo": false,
       },
-      "petitionerStatusIMB": {
-        "petitionerStatusIMBYes": false,
-        "petitionerStatusIMBNo": false,
+      "beneficiary5HaveEverViolated": {
+        "beneficiary5HaveEverViolatedYes": false,
+        "beneficiary5HaveEverViolatedNo": false,
       },
-      "beneficiaryContactOtherNamesUsed": {
-        "beneficiaryContactOtherNamesUsedYes": false,
-        "beneficiaryContactOtherNamesUsedNo": false,
+      "beneficiary5HasEverSuffered": {
+        "beneficiary5HasEverSufferedYes": false,
+        "beneficiary5HasEverSufferedNo": false,
       },
-      "beneficiaryAddress1MailingStreetAddress": {
-        "beneficiaryAddress1MailingStreetAddressApt": false,
-        "beneficiaryAddress1MailingStreetAddressSte": false,
-        "beneficiaryAddress1MailingStreetAddressFlr": false,
-        "beneficiaryAddress1MailingStreetAddressYes": false,
+      "beneficiary5HasInMilitary": {
+        "beneficiary5HasInMilitaryYes": false,
+        "beneficiary5HasInMilitaryNo": false,
       },
-      "beneficiaryAddressDifferentPhysical": {
-        "beneficiaryAddressDifferentPhysicalYes": false,
-        "beneficiaryAddressDifferentPhysicalNo": false,
-      },
-      "beneficiaryAddress2MailingStreetAddress": {
-        "beneficiaryAddress2MailingStreetAddressApt": false,
-        "beneficiaryAddress2MailingStreetAddressSte": false,
-        "beneficiaryAddress2MailingStreetAddressFlr": false,
-        "beneficiaryAddress2MailingStreetAddressYes": false,
-      },
-      "beneficiaryBackgroundGender": {
-        "beneficiaryBackgroundGenderMale": false,
-        "beneficiaryBackgroundGenderFemale": false,
-      },
-      "beneficiaryBackgroundMaritalStatus": {
-        "beneficiaryBackgroundMaritalStatusSingle": false,
-        "beneficiaryBackgroundMaritalStatusMarried": false,
-        "beneficiaryBackgroundMaritalStatusDivorced": false,
-        "beneficiaryBackgroundMaritalStatusWidowed": false,
-      },
-      "beneficiaryBackgroundPreviouslyMarried": {
-        "beneficiaryBackgroundPreviouslyMarriedYes": false,
-        "beneficiaryBackgroundPreviouslyMarriedNo": false,
-      },
-      "beneficiaryBackgroundEverBeenInTheUS": {
-        "beneficiaryBackgroundEverBeenInTheUSYes": false,
-        "beneficiaryBackgroundEverBeenInTheUSNo": false,
-      },
-      "beneficiaryBackgroundCurrentlyInUS": {
-        "beneficiaryBackgroundCurrentlyInUSYes": false,
-        "beneficiaryBackgroundCurrentlyInUSNo": false,
-      },
-      "beneficiaryAbroadStreetAddress": {
-        "beneficiaryAbroadStreetAddressApt": false,
-        "beneficiaryAbroadStreetAddressSte": false,
-        "beneficiaryAbroadStreetAddressFlo": false,
-        "beneficiaryAbroadStreetAddressNumber": false,
-      },
-      "beneficiaryAbroadLatinAlphabet": {
-        "beneficiaryAbroadLatinAlphabetYes": false,
-        "beneficiaryAbroadLatinAlphabetNo": false,
-        "beneficiaryAbroadOtherNamesUsedYes": false,
-        "beneficiaryAbroadOtherNamesUsedNo": false,
-      },
-      "interpreterStreetAddress": {
-        "interpreterStreetAddressApt": false,
-        "interpreterStreetAddressSte": false,
-        "interpreterStreetAddressFlo": false,
-        "interpreterStreetAddressNumber": false,
-      },
+      "sponsor1IsFiance": {
+        "sponsor1IsFianceYes": false,
+        "sponsor1IsFianceNo": false,
+			},
 		}
 		if (group_radio[name]) {
 			group_radio[name][value] = true;
@@ -481,8 +356,8 @@ export const FormVisaFiance = () => {
 				...group_radio[name]
 			})
 		}
-  }
-  
+	}
+
 	const convertToEventParam = (name, value) => ({
 		target: {
 			name, value
@@ -500,22 +375,22 @@ export const FormVisaFiance = () => {
 			}
 		});
 
-    if (values.id > 0) {
-			await http.post("FormVisaFiance/Update", payload);
-		} else {
-			let result = await http.post("FormVisaFiance/Insert", payload);
-			if (result.succeeded) {
-				setValues({
-					...values,
-					id: result.data.id
-				})
-			}
-    }
-    
+		// if (values.id > 0) {
+		// 	await http.post("FormVisaFiance/Update", payload);
+		// } else {
+		// 	let result = await http.post("FormVisaFiance/Insert", payload);
+		// 	if (result.succeeded) {
+		// 		setValues({
+		// 			...values,
+		// 			id: result.data.id
+		// 		})
+		// 	}
+		// }
+
 		if (currentStepIndex === steps.length) {
 			// Reset state and back to start
-			setValues(initialValues)
-			backToStart();
+			// setValues(initialValues)
+			// backToStart();
 		} else {
 			nextStep();
 		}
@@ -524,7 +399,7 @@ export const FormVisaFiance = () => {
 	// Update query string
 	useEffect(() => {
 		history.push({
-			pathname: "formvisafiance",
+			pathname: "formfiance",
 			search: "id=" + values.id + "&st=" + currentStepIndex,
 		});
 	}, [values.id, currentStepIndex]);
@@ -554,6 +429,10 @@ export const FormVisaFiance = () => {
 								currentStepIndex > 1 &&
 								<Button variant="contained" onClick={backToStart}>Back To Start</Button>
 							}
+							{
+								currentStepIndex > 1 &&
+								<Button variant="contained" onClick={backToPrevious}>Back</Button>
+							}
 							<Button variant="contained"
 								type="submit">{currentStepIndex === steps.length ? "Submit" : "Save & Continue"}</Button>
 							{
@@ -561,6 +440,9 @@ export const FormVisaFiance = () => {
 								<Button variant="contained" onClick={nextStep}>Skip & Continue</Button>
 							}
 						</Stack>
+						<br />
+						<br />
+						<br />
 					</form>
 				</ThemeProvider>
 			</Container>
