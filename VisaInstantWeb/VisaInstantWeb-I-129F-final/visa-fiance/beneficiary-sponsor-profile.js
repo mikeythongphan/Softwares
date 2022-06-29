@@ -21,6 +21,18 @@ import { color } from "@mui/system";
 export const BeneficiaryInformation01 = (props) => {
   const { values, handleInputChange, convertToEventParam } = props;
 
+  const [checkedBeneficiaryProfileFormI94, setCheckedBeneficiaryProfileFormI94] = React.useState(values.beneficiaryProfileFormI94);
+
+  const handleBeneficiaryProfileFormI94 = (event) => {
+    setCheckedBeneficiaryProfileFormI94(event.target.checked);
+  };
+
+  const [checkedBeneficiaryProfileBirthCertificate, setCheckedBeneficiaryProfileBirthCertificate] = React.useState(values.beneficiaryProfileBirthCertificate);
+
+  const handleBeneficiaryProfileBirthCertificate = (event) => {
+    setCheckedBeneficiaryProfileBirthCertificate(event.target.checked);
+  };
+  
   const extent_option_1 = (
     <Box>
       <TextField
