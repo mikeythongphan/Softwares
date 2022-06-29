@@ -21,18 +21,90 @@ import { color } from "@mui/system";
 export const BeneficiaryInformation01 = (props) => {
   const { values, handleInputChange, convertToEventParam } = props;
 
-  const [checkedBeneficiaryProfileFormI94, setCheckedBeneficiaryProfileFormI94] = React.useState(values.beneficiaryProfileFormI94);
-
+  const [checkedBeneficiaryProfileFormI94, setCheckedBeneficiaryProfileFormI94] 
+  = React.useState(values.beneficiaryProfileFormI94);
   const handleBeneficiaryProfileFormI94 = (event) => {
     setCheckedBeneficiaryProfileFormI94(event.target.checked);
   };
 
-  const [checkedBeneficiaryProfileBirthCertificate, setCheckedBeneficiaryProfileBirthCertificate] = React.useState(values.beneficiaryProfileBirthCertificate);
-
+  const [checkedBeneficiaryProfileBirthCertificate, setCheckedBeneficiaryProfileBirthCertificate] 
+  = React.useState(values.beneficiaryProfileBirthCertificate);
   const handleBeneficiaryProfileBirthCertificate = (event) => {
     setCheckedBeneficiaryProfileBirthCertificate(event.target.checked);
   };
   
+  const [checkedBeneficiaryProfileI20Documents, setCheckedBeneficiaryProfileI20Documents] 
+  = React.useState(values.beneficiaryProfileI20Documents);
+  const handleBeneficiaryProfileI20Documents = (event) => {
+    setCheckedBeneficiaryProfileI20Documents(event.target.checked);
+  };
+
+  const [checkedBeneficiaryProfileCriminalRecord, setCheckedBeneficiaryProfileCriminalRecord] 
+  = React.useState(values.beneficiaryProfileCriminalRecord);
+  const handleBeneficiaryProfileCriminalRecord = (event) => {
+    setCheckedBeneficiaryProfileCriminalRecord(event.target.checked);
+  };
+
+  const [checkedBeneficiaryProfilePassportPhotos, setCheckedBeneficiaryProfilePassportPhotos] 
+  = React.useState(values.beneficiaryProfilePassportPhotos);
+  const handleBeneficiaryProfilePassportPhotos = (event) => {
+    setCheckedBeneficiaryProfilePassportPhotos(event.target.checked);
+  };
+
+  const [checkedBeneficiaryProfilePreviousDivorce, setCheckedBeneficiaryProfilePreviousDivorce] 
+  = React.useState(values.beneficiaryProfilePreviousDivorce);
+  const handleBeneficiaryProfilePreviousDivorce = (event) => {
+    setCheckedBeneficiaryProfilePreviousDivorce(event.target.checked);
+  };
+
+  const [checkedBeneficiaryProfilePapersRelated, setCheckedBeneficiaryProfilePapersRelated] 
+  = React.useState(values.beneficiaryProfilePapersRelated);
+  const handleBeneficiaryProfilePapersRelated = (event) => {
+    setCheckedBeneficiaryProfilePapersRelated(event.target.checked);
+  };
+
+  const [checkedSponsorProfileLetterConfirmation, setCheckedSponsorProfileLetterConfirmation] 
+  = React.useState(values.sponsorProfileLetterConfirmation);
+  const handleSponsorProfileLetterConfirmation = (event) => {
+    setCheckedSponsorProfileLetterConfirmation(event.target.checked);
+  };
+
+  const [checkedSponsorProfileBankStatement, setCheckedSponsorProfileBankStatement] 
+  = React.useState(values.sponsorProfileBankStatement);
+  const handleSponsorProfileBankStatement = (event) => {
+    setCheckedSponsorProfileBankStatement(event.target.checked);
+  };
+
+  const [checkedSponsorProfileTaxReturns, setCheckedSponsorProfileTaxReturns] 
+  = React.useState(values.sponsorProfileTaxReturns);
+  const handleSponsorProfileTaxReturns = (event) => {
+    setCheckedSponsorProfileTaxReturns(event.target.checked);
+  };
+
+  const [checkedSponsorProfileW2PaystubsChecks, setCheckedSponsorProfileW2PaystubsChecks] 
+  = React.useState(values.sponsorProfileW2PaystubsChecks);
+  const handleSponsorProfileW2PaystubsChecks = (event) => {
+    setCheckedSponsorProfileW2PaystubsChecks(event.target.checked);
+  };
+
+  const [checkedSponsorProfileDocumentsShowing, setCheckedSponsorProfileDocumentsShowing] 
+  = React.useState(values.sponsorProfileDocumentsShowing);
+  const handleSponsorProfileDocumentsShowing = (event) => {
+    setCheckedSponsorProfileDocumentsShowing(event.target.checked);
+  };
+
+  const [checkedSponsorProfilePassportPhotos, setCheckedSponsorProfilePassportPhotos] 
+  = React.useState(values.sponsorProfilePassportPhotos);
+  const handleSponsorProfilePassportPhotos = (event) => {
+    setCheckedSponsorProfilePassportPhotos(event.target.checked);
+  };
+
+  const [checkedSponsorProfilePreviousDivorce, setCheckedSponsorProfilePreviousDivorce] 
+  = React.useState(values.sponsorProfilePreviousDivorce);
+  const handleSponsorProfilePreviousDivorce = (event) => {
+    setCheckedSponsorProfilePreviousDivorce(event.target.checked);
+  };
+
   const extent_option_1 = (
     <Box>
       <TextField
@@ -1992,44 +2064,51 @@ export const BeneficiaryInformation01 = (props) => {
         </FormLabel>
         <FormGroup>
           <FormControlLabel
+            onChange={handleBeneficiaryProfileFormI94}
             value="beneficiaryProfileFormI94"
-            checked={true}
+            checked={checkedBeneficiaryProfileFormI94}
             control={<Checkbox />}
             label="1. Form I-94 và bản sao hộ chiếu của từng người"
           />
           <FormControlLabel
+            onChange={handleBeneficiaryProfileBirthCertificate}
             value="beneficiaryProfileBirthCertificate"
-            checked={true}
+            checked={checkedBeneficiaryProfileBirthCertificate}
             control={<Checkbox />}
             label="2. Giấy khai sinh (hoặc bất kỳ giấy tờ nào thay thế) của từng người"
           />
           <FormControlLabel
+            onChange={handleBeneficiaryProfileI20Documents}
             value="beneficiaryProfileI20Documents"
-            checked={true}
+            checked={checkedBeneficiaryProfileI20Documents}
             control={<Checkbox />}
             label="3. Tất cả những biên nhận, quyết định từ chối hồ sơ, giấy tờ i-20… trước đây của từng người"
           />
           <FormControlLabel
+            onChange={handleBeneficiaryProfileCriminalRecord}
             value="beneficiaryProfileCriminalRecord"
-            checked={true}
+            checked={checkedBeneficiaryProfileCriminalRecord}
             control={<Checkbox />}
             label="4. Hồ sơ phạm tội (nếu có) của từng người"
           />
           <FormControlLabel
+            onChange={handleBeneficiaryProfilePassportPhotos}
             value="beneficiaryProfilePassportPhotos"
-            checked={true}
+            checked={checkedBeneficiaryProfilePassportPhotos}
             control={<Checkbox />}
             label="5. 02 tấm hình passport của từng người"
           />
           <FormControlLabel
+            onChange={handleBeneficiaryProfilePreviousDivorce}
             value="beneficiaryProfilePreviousDivorce"
-            checked={true}
+            checked={checkedBeneficiaryProfilePreviousDivorce}
             control={<Checkbox />}
             label="6. Giấy tờ ly hôn trước đây của người thụ hưởng"
           />
           <FormControlLabel
+            onChange={handleBeneficiaryProfilePapersRelated}
             value="beneficiaryProfilePapersRelated"
-            checked={true}
+            checked={checkedBeneficiaryProfilePapersRelated}
             control={<Checkbox />}
             label="7. Giấy tờ liên quan đến việc đổi tên (nếu có)"
           />
@@ -2040,44 +2119,51 @@ export const BeneficiaryInformation01 = (props) => {
         <FormLabel id="sponsorProfileLetter">Đương đơn:</FormLabel>
         <FormGroup>
           <FormControlLabel
+            onChange={handleSponsorProfileLetterConfirmation}
             value="sponsorProfileLetterConfirmation"
-            checked={true}
+            checked={checkedSponsorProfileLetterConfirmation}
             control={<Checkbox />}
             label="8. Thư xác nhận của nơi làm việc về việc đương đơn đang làm việc"
           />
           <FormControlLabel
+            onChange={handleSponsorProfileBankStatement}
             value="sponsorProfileBankStatement"
-            checked={true}
+            checked={checkedSponsorProfileBankStatement}
             control={<Checkbox />}
             label="9. Sao kê tài khoản ngân hàng trong 3 năm gần nhất"
           />
           <FormControlLabel
+            onChange={handleSponsorProfileTaxReturns}
             value="sponsorProfileTaxReturns"
-            checked={true}
+            checked={checkedSponsorProfileTaxReturns}
             control={<Checkbox />}
             label="10. Giấy tờ khai thuế trong 3 năm gần nhất"
           />
           <FormControlLabel
+            onChange={handleSponsorProfileW2PaystubsChecks}
             value="sponsorProfileW2PaystubsChecks"
-            checked={true}
+            checked={checkedSponsorProfileW2PaystubsChecks}
             control={<Checkbox />}
             label="11. W-2, Paystubs, và Checks trong vòng 3 tháng"
           />
           <FormControlLabel
+            onChange={handleSponsorProfileDocumentsShowing}
             value="sponsorProfileDocumentsShowing"
-            checked={true}
+            checked={checkedSponsorProfileDocumentsShowing}
             control={<Checkbox />}
             label="12. Giấy tờ thể hiện là công dân Mỹ (hộ chiếu Mỹ, giấy chứng nhận quốc tịch)"
           />
           <FormControlLabel
+            onChange={handleSponsorProfilePassportPhotos}
             value="sponsorProfilePassportPhotos"
-            checked={true}
+            checked={checkedSponsorProfilePassportPhotos}
             control={<Checkbox />}
             label="13. 02 tấm hình hộ chiếu"
           />
           <FormControlLabel
+            onChange={handleSponsorProfilePreviousDivorce}
             value="sponsorProfilePreviousDivorce"
-            checked={true}
+            checked={checkedSponsorProfilePreviousDivorce}
             control={<Checkbox />}
             label="14. Giấy tờ ly hôn trước đây"
           />
