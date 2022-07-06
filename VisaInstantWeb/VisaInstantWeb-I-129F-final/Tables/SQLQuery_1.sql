@@ -3,46 +3,42 @@ GO
 SET QUOTED_IDENTIFIER ON
 GO
 
-CREATE TABLE [dbo].[Page](
+CREATE TABLE [dbo].[Language](
 	[Id] [int] IDENTITY(1,1) NOT NULL,
     [Code] [nvarchar](1000) NULL,
 	[Name] [nvarchar](1000) NULL,
 	[Deleted] [bit] NOT NULL
 ) ON [PRIMARY]
 GO
-ALTER TABLE [dbo].[Page] ADD  CONSTRAINT [PK_Page] PRIMARY KEY CLUSTERED 
+ALTER TABLE [dbo].[Language] ADD  CONSTRAINT [PK_Language] PRIMARY KEY CLUSTERED 
 (
 	[Id] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, IGNORE_DUP_KEY = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 GO
-ALTER TABLE [dbo].[Page] ADD  CONSTRAINT [DF_Page_Deleted]  DEFAULT ((0)) FOR [Deleted]
+ALTER TABLE [dbo].[Language] ADD  CONSTRAINT [DF_Language_Deleted]  DEFAULT ((0)) FOR [Deleted]
 GO
 
-CREATE TABLE [dbo].[Languages](
+CREATE TABLE [dbo].[Keyword](
 	[Id] [int] IDENTITY(1,1) NOT NULL,
-    [Code] [nvarchar](1000) NULL,
+    [Code] [nvarchar](100) NOT NULL,
 	[Name] [nvarchar](1000) NULL,
-    [Default] [bit] NOT NULL,
 	[Deleted] [bit] NOT NULL
 ) ON [PRIMARY]
 GO
-ALTER TABLE [dbo].[Languages] ADD  CONSTRAINT [PK_Languages] PRIMARY KEY CLUSTERED 
+ALTER TABLE [dbo].[Keyword] ADD  CONSTRAINT [PK_Keyword] PRIMARY KEY CLUSTERED 
 (
-	[Id] ASC
+	[Code] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, IGNORE_DUP_KEY = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 GO
-ALTER TABLE [dbo].[Languages] ADD  CONSTRAINT [DF_Languages_Default]  DEFAULT ((0)) FOR [Default]
-GO
-ALTER TABLE [dbo].[Languages] ADD  CONSTRAINT [DF_Languages_Deleted]  DEFAULT ((0)) FOR [Deleted]
+ALTER TABLE [dbo].[Keyword] ADD  CONSTRAINT [DF_Keyword_Deleted]  DEFAULT ((0)) FOR [Deleted]
 GO
 
 CREATE TABLE [dbo].[Dictionary](
     [Id] [int] IDENTITY(1,1) NOT NULL,
-	[PageId] [int] NULL,
-	[LanguagesId] [int] NULL,
-    [Code] [nvarchar](1000) NOT NULL,
-	[Name] [nvarchar](1000) NOT NULL,
-	[Value] [nvarchar](max) NULL,
+	[LanguageId] [int] NOT NULL,
+    [Keyword] [nvarchar](100) NOT NULL,
+	[Name] [nvarchar](1000) NULL,
+	[Value] [ntext] NULL,
     [Deleted] [bit] NOT NULL
 ) ON [PRIMARY] 
 GO
@@ -56,16 +52,16 @@ GO
 ALTER TABLE [dbo].[Dictionary] ADD  CONSTRAINT [DF_Dictionary_Deleted]  DEFAULT ((0)) FOR [Deleted]
 GO
 
-ALTER TABLE [dbo].[Dictionary]  WITH CHECK ADD  CONSTRAINT [FK_Dictionary_Page_PageId] FOREIGN KEY([PageId])
-REFERENCES [dbo].[Page] ([Id])
+ALTER TABLE [dbo].[Dictionary]  WITH CHECK ADD  CONSTRAINT [FK_Dictionary_Language_LanguageId] FOREIGN KEY([LanguageId])
+REFERENCES [dbo].[Language] ([Id])
 ON DELETE CASCADE
 GO
-ALTER TABLE [dbo].[Dictionary] CHECK CONSTRAINT [FK_Dictionary_Page_PageId]
+ALTER TABLE [dbo].[Dictionary] CHECK CONSTRAINT [FK_Dictionary_Language_LanguageId]
 GO
 
-ALTER TABLE [dbo].[Dictionary]  WITH CHECK ADD  CONSTRAINT [FK_Dictionary_Languages_PageId] FOREIGN KEY([LanguagesId])
-REFERENCES [dbo].[Languages] ([Id])
+ALTER TABLE [dbo].[Dictionary]  WITH CHECK ADD  CONSTRAINT [FK_Dictionary_Keyword_Keyword] FOREIGN KEY([Keyword])
+REFERENCES [dbo].[Keyword] ([Code])
 ON DELETE CASCADE
 GO
-ALTER TABLE [dbo].[Dictionary] CHECK CONSTRAINT [FK_Dictionary_Languages_PageId]
+ALTER TABLE [dbo].[Dictionary] CHECK CONSTRAINT [FK_Dictionary_Keyword_Keyword]
 GO
