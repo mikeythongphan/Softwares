@@ -7,103 +7,23 @@ import {
   FormControl,
   FormControlLabel,
   FormLabel,
-  TextareaAutosize,
   FormGroup,
   InputLabel,
   Radio,
   RadioGroup,
   TextField,
-  Check,
   Checkbox
 } from "@mui/material";
-import { color } from "@mui/system";
 
 export const BeneficiaryInformation01 = (props) => {
   const { values, handleInputChange, convertToEventParam } = props;
 
-  const [checkedBeneficiaryProfileFormI94, setCheckedBeneficiaryProfileFormI94] 
-  = React.useState(values.beneficiaryProfileFormI94);
-  const handleBeneficiaryProfileFormI94 = (event) => {
-    setCheckedBeneficiaryProfileFormI94(event.target.checked);
-  };
-
-  const [checkedBeneficiaryProfileBirthCertificate, setCheckedBeneficiaryProfileBirthCertificate] 
-  = React.useState(values.beneficiaryProfileBirthCertificate);
-  const handleBeneficiaryProfileBirthCertificate = (event) => {
-    setCheckedBeneficiaryProfileBirthCertificate(event.target.checked);
-  };
-  
-  const [checkedBeneficiaryProfileI20Documents, setCheckedBeneficiaryProfileI20Documents] 
-  = React.useState(values.beneficiaryProfileI20Documents);
-  const handleBeneficiaryProfileI20Documents = (event) => {
-    setCheckedBeneficiaryProfileI20Documents(event.target.checked);
-  };
-
-  const [checkedBeneficiaryProfileCriminalRecord, setCheckedBeneficiaryProfileCriminalRecord] 
-  = React.useState(values.beneficiaryProfileCriminalRecord);
-  const handleBeneficiaryProfileCriminalRecord = (event) => {
-    setCheckedBeneficiaryProfileCriminalRecord(event.target.checked);
-  };
-
-  const [checkedBeneficiaryProfilePassportPhotos, setCheckedBeneficiaryProfilePassportPhotos] 
-  = React.useState(values.beneficiaryProfilePassportPhotos);
-  const handleBeneficiaryProfilePassportPhotos = (event) => {
-    setCheckedBeneficiaryProfilePassportPhotos(event.target.checked);
-  };
-
-  const [checkedBeneficiaryProfilePreviousDivorce, setCheckedBeneficiaryProfilePreviousDivorce] 
-  = React.useState(values.beneficiaryProfilePreviousDivorce);
-  const handleBeneficiaryProfilePreviousDivorce = (event) => {
-    setCheckedBeneficiaryProfilePreviousDivorce(event.target.checked);
-  };
-
-  const [checkedBeneficiaryProfilePapersRelated, setCheckedBeneficiaryProfilePapersRelated] 
-  = React.useState(values.beneficiaryProfilePapersRelated);
-  const handleBeneficiaryProfilePapersRelated = (event) => {
-    setCheckedBeneficiaryProfilePapersRelated(event.target.checked);
-  };
-
-  const [checkedSponsorProfileLetterConfirmation, setCheckedSponsorProfileLetterConfirmation] 
-  = React.useState(values.sponsorProfileLetterConfirmation);
-  const handleSponsorProfileLetterConfirmation = (event) => {
-    setCheckedSponsorProfileLetterConfirmation(event.target.checked);
-  };
-
-  const [checkedSponsorProfileBankStatement, setCheckedSponsorProfileBankStatement] 
-  = React.useState(values.sponsorProfileBankStatement);
-  const handleSponsorProfileBankStatement = (event) => {
-    setCheckedSponsorProfileBankStatement(event.target.checked);
-  };
-
-  const [checkedSponsorProfileTaxReturns, setCheckedSponsorProfileTaxReturns] 
-  = React.useState(values.sponsorProfileTaxReturns);
-  const handleSponsorProfileTaxReturns = (event) => {
-    setCheckedSponsorProfileTaxReturns(event.target.checked);
-  };
-
-  const [checkedSponsorProfileW2PaystubsChecks, setCheckedSponsorProfileW2PaystubsChecks] 
-  = React.useState(values.sponsorProfileW2PaystubsChecks);
-  const handleSponsorProfileW2PaystubsChecks = (event) => {
-    setCheckedSponsorProfileW2PaystubsChecks(event.target.checked);
-  };
-
-  const [checkedSponsorProfileDocumentsShowing, setCheckedSponsorProfileDocumentsShowing] 
-  = React.useState(values.sponsorProfileDocumentsShowing);
-  const handleSponsorProfileDocumentsShowing = (event) => {
-    setCheckedSponsorProfileDocumentsShowing(event.target.checked);
-  };
-
-  const [checkedSponsorProfilePassportPhotos, setCheckedSponsorProfilePassportPhotos] 
-  = React.useState(values.sponsorProfilePassportPhotos);
-  const handleSponsorProfilePassportPhotos = (event) => {
-    setCheckedSponsorProfilePassportPhotos(event.target.checked);
-  };
-
-  const [checkedSponsorProfilePreviousDivorce, setCheckedSponsorProfilePreviousDivorce] 
-  = React.useState(values.sponsorProfilePreviousDivorce);
-  const handleSponsorProfilePreviousDivorce = (event) => {
-    setCheckedSponsorProfilePreviousDivorce(event.target.checked);
-  };
+  const convertToDefEventParameter = (name, value) => ({
+    target: {
+      name,
+      value
+    }
+  });
 
   const extent_option_1 = (
     <Box>
@@ -117,7 +37,6 @@ export const BeneficiaryInformation01 = (props) => {
 
       <FormControl>
         <FormLabel id="beneficiary5Approved">
-          {" "}
           Đã được chấp thuận không?
         </FormLabel>
         <RadioGroup
@@ -180,7 +99,11 @@ export const BeneficiaryInformation01 = (props) => {
         <MobileDatePicker
           label={"Ngày nhập ngũ"}
           value={values.beneficiary5EnlistmentDate}
-          onChange={(date) => handleInputChange(convertToEventParam("", date))}
+          onChange={(date) =>
+            handleInputChange(
+              convertToEventParam("beneficiary5EnlistmentDate", date)
+            )
+          }
           renderInput={(params) => <TextField {...params} />}
         />
       </LocalizationProvider>
@@ -211,38 +134,54 @@ export const BeneficiaryInformation01 = (props) => {
 
       <TextField
         variant="outlined"
-        name="beneficiary1FullName"
-        label="Họ tên:"
-        value={values.beneficiary1FullName}
+        name="beneficiary01LastName"
+        label="Họ:"
+        value={values.beneficiary01LastName}
         onChange={handleInputChange}
       />
 
       <TextField
         variant="outlined"
-        name="beneficiary1PlaceOfBirth"
+        name="beneficiary01FirstName"
+        label="Tên:"
+        value={values.beneficiary01FirstName}
+        onChange={handleInputChange}
+      />
+
+      <TextField
+        variant="outlined"
+        name="beneficiary01MiddleName"
+        label="Tên đệm:"
+        value={values.beneficiary01MiddleName}
+        onChange={handleInputChange}
+      />
+
+      <TextField
+        variant="outlined"
+        name="beneficiary01PlaceOfBirth"
         label="Nơi sinh:"
-        value={values.beneficiary1PlaceOfBirth}
+        value={values.beneficiary01PlaceOfBirth}
         onChange={handleInputChange}
       />
 
       <FormControl>
-        <FormLabel id="beneficiary1HasBeenUS">
+        <FormLabel id="beneficiary01HasBeenUS">
           Người được bảo lãnh từng ở Mỹ chưa?
         </FormLabel>
         <RadioGroup
           row
-          name="beneficiary1HasBeenUS"
+          name="beneficiary01HasBeenUS"
           onChange={handleInputChange}
         >
           <FormControlLabel
-            value="beneficiary1HasBeenUSNo"
-            checked={values.beneficiary1HasBeenUSNo}
+            value="beneficiary01HasBeenUSNo"
+            checked={values.beneficiary01HasBeenUSNo}
             control={<Radio />}
             label="Không"
           />
           <FormControlLabel
-            value="beneficiary1HasBeenUSYes"
-            checked={values.beneficiary1HasBeenUSYes}
+            value="beneficiary01HasBeenUSYes"
+            checked={values.beneficiary01HasBeenUSYes}
             control={<Radio />}
             label="Có"
           />
@@ -251,155 +190,227 @@ export const BeneficiaryInformation01 = (props) => {
 
       <TextField
         variant="outlined"
-        name="beneficiary1NamesUsed"
+        name="beneficiary01FirstNamesUsed"
         label="Tất cả tên đã sử dụng (kể cả tên trước hôn nhân)"
-        value={values.beneficiary1NamesUsed}
+        value={values.beneficiary01FirstNamesUsed}
         onChange={handleInputChange}
       />
 
       <TextField
         variant="outlined"
-        name="beneficiary1GreenCardNumber"
+        name="beneficiary01GreenCardNumber"
         label="Số thẻ xanh (nếu có)"
-        value={values.beneficiary1GreenCardNumber}
+        value={values.beneficiary01GreenCardNumber}
         onChange={handleInputChange}
       />
 
       <TextField
         variant="outlined"
-        name="beneficiary1SocialSecurityNumber"
+        name="beneficiary01SocialSecurityNumber"
         label="Số an sinh xã hội (nếu có)"
-        value={values.beneficiary1SocialSecurityNumber}
+        value={values.beneficiary01SocialSecurityNumber}
         onChange={handleInputChange}
       />
 
       <TextField
         variant="outlined"
-        name="beneficiary1ConsularOfficeWishes"
+        name="beneficiary01ConsularOfficeWishes"
         label="Văn phòng lãnh sự mong muốn"
-        value={values.beneficiary1ConsularOfficeWishes}
+        value={values.beneficiary01ConsularOfficeWishes}
         onChange={handleInputChange}
       />
 
       <TextField
         variant="outlined"
-        name="beneficiary1PrimaryLanguage"
+        name="beneficiary01PrimaryLanguage"
         label="Tên và địa chỉ bằng ngôn ngữ chính (Nếu ngôn ngữ chính không có ký tự alphabet"
-        value={values.beneficiary1PrimaryLanguage}
+        value={values.beneficiary01PrimaryLanguage}
         onChange={handleInputChange}
       />
 
       <TextField
         variant="outlined"
-        name="beneficiary1HomePhoneNumber"
+        name="beneficiary01HomePhoneNumber"
         label="Số điện thoại nhà"
-        value={values.beneficiary1HomePhoneNumber}
+        value={values.beneficiary01HomePhoneNumber}
         onChange={handleInputChange}
       />
 
       <TextField
         variant="outlined"
-        name="beneficiary1Mobile"
+        name="beneficiary01Mobile"
         label="Di động"
-        value={values.beneficiary1Mobile}
+        value={values.beneficiary01Mobile}
         onChange={handleInputChange}
       />
 
       <TextField
         variant="outlined"
-        name="beneficiary1OfficeTelephone"
+        name="beneficiary01OfficeTelephone"
         label="Điện thoại văn phòng"
-        value={values.beneficiary1OfficeTelephone}
+        value={values.beneficiary01OfficeTelephone}
         onChange={handleInputChange}
       />
 
       <TextField
         variant="outlined"
-        name="beneficiary1FaxNumber"
+        name="beneficiary01FaxNumber"
         label="Số Fax"
-        value={values.beneficiary1FaxNumber}
+        value={values.beneficiary01FaxNumber}
         onChange={handleInputChange}
       />
 
       <TextField
         variant="outlined"
-        name="beneficiary1EmailAddress"
+        name="beneficiary01EmailAddress"
         label="Địa chỉ E-mail"
-        value={values.beneficiary1EmailAddress}
+        value={values.beneficiary01EmailAddress}
         onChange={handleInputChange}
       />
 
       <TextField
         variant="outlined"
-        name="beneficiary1FatherName"
-        label="Tên cha"
-        value={values.beneficiary1FatherName}
+        name="beneficiary01FatherLastName"
+        label="Họ của cha"
+        value={values.beneficiary01FatherLastName}
+        onChange={handleInputChange}
+      />
+
+      <TextField
+        variant="outlined"
+        name="beneficiary01FatherFirstName"
+        label="Tên của cha"
+        value={values.beneficiary01FatherFirstName}
+        onChange={handleInputChange}
+      />
+
+      <TextField
+        variant="outlined"
+        name="beneficiary01FatherMiddleName"
+        label="Tên đệm của cha"
+        value={values.beneficiary01FatherMiddleName}
         onChange={handleInputChange}
       />
 
       <LocalizationProvider dateAdapter={DateAdapter}>
         <MobileDatePicker
           label={"Ngày sinh của cha"}
-          value={values.beneficiary1FatherDateOfBirth}
-          onChange={(date) => handleInputChange(convertToEventParam("", date))}
+          value={values.beneficiary01FatherDateOfBirth}
+          onChange={(date) =>
+            handleInputChange(
+              convertToEventParam("beneficiary01FatherDateOfBirth", date)
+            )
+          }
           renderInput={(params) => <TextField {...params} />}
         />
       </LocalizationProvider>
 
       <TextField
         variant="outlined"
-        name="beneficiary1FatherPlaceOfBirth"
+        name="beneficiary01FatherPlaceOfBirth"
         label="Nơi sinh của cha"
-        value={values.beneficiary1FatherPlaceOfBirth}
+        value={values.beneficiary01FatherPlaceOfBirth}
         onChange={handleInputChange}
       />
 
       <TextField
         variant="outlined"
-        name="beneficiary1FatherCityCountryResidence"
-        label="Thành phố hoặc quốc gia cư trú"
-        value={values.beneficiary1FatherCityCountryResidence}
+        name="beneficiary01FatherCityResidence"
+        label="Thành phố cư trú"
+        value={values.beneficiary01FatherCityResidence}
         onChange={handleInputChange}
       />
 
       <TextField
         variant="outlined"
-        name="beneficiary1MotherName"
-        label="Tên Mẹ (tên trước hôn nhân)"
-        value={values.beneficiary1MotherName}
+        name="beneficiary01FatherCountryResidence"
+        label="Quốc gia cư trú"
+        value={values.beneficiary01FatherCountryResidence}
+        onChange={handleInputChange}
+      />
+
+      <TextField
+        variant="outlined"
+        name="beneficiary01MotherLastName"
+        label="Họ của Mẹ"
+        value={values.beneficiary01MotherLastName}
+        onChange={handleInputChange}
+      />
+
+      <TextField
+        variant="outlined"
+        name="beneficiary01MotherFirstName"
+        label="Tên của Mẹ"
+        value={values.beneficiary01MotherFirstName}
+        onChange={handleInputChange}
+      />
+
+      <TextField
+        variant="outlined"
+        name="beneficiary01MotherMiddleName"
+        label="Tên đệm của Mẹ"
+        value={values.beneficiary01MotherMiddleName}
         onChange={handleInputChange}
       />
 
       <LocalizationProvider dateAdapter={DateAdapter}>
         <MobileDatePicker
           label={"Ngày sinh của mẹ"}
-          value={values.beneficiary1MotherDateOfBirth}
-          onChange={(date) => handleInputChange(convertToEventParam("", date))}
+          value={values.beneficiary01MotherDateOfBirth}
+          onChange={(date) =>
+            handleInputChange(
+              convertToEventParam("beneficiary01MotherDateOfBirth", date)
+            )
+          }
           renderInput={(params) => <TextField {...params} />}
         />
       </LocalizationProvider>
 
       <TextField
         variant="outlined"
-        name="beneficiary1MotherPlaceOfBirth"
+        name="beneficiary01MotherPlaceOfBirth"
         label="Nơi sinh của mẹ"
-        value={values.beneficiary1MotherPlaceOfBirth}
+        value={values.beneficiary01MotherPlaceOfBirth}
         onChange={handleInputChange}
       />
 
       <TextField
         variant="outlined"
-        name="beneficiary1MotherCityCountryResidence"
-        label="Thành phố hoặc quốc gia cư trú"
-        value={values.beneficiary1MotherCityCountryResidence}
+        name="beneficiary01MotherCityResidence"
+        label="Thành phố cư trú"
+        value={values.beneficiary01MotherCityResidence}
         onChange={handleInputChange}
       />
 
       <TextField
         variant="outlined"
-        name="beneficiary11NameOfExSpouse"
-        label="1. Tên của vợ/chồng cũ"
-        value={values.beneficiary11NameOfExSpouse}
+        name="beneficiary01MotherCountryResidence"
+        label="Quốc gia cư trú"
+        value={values.beneficiary01MotherCountryResidence}
+        onChange={handleInputChange}
+      />
+
+      <TextField
+        variant="outlined"
+        name="beneficiary11ExSpouseLastName"
+        label="1. Họ của vợ/chồng cũ"
+        value={values.beneficiary11ExSpouseLastName}
+        onChange={handleInputChange}
+      />
+
+      <TextField
+        variant="outlined"
+        name="beneficiary11ExSpouseFirstName"
+        label="Tên của vợ/chồng cũ"
+        value={values.beneficiary11ExSpouseFirstName}
+        onChange={handleInputChange}
+      />
+
+      <TextField
+        variant="outlined"
+        name="beneficiary11ExSpouseMiddleName"
+        label="Tên đệm của vợ/chồng cũ"
+        value={values.beneficiary11ExSpouseMiddleName}
         onChange={handleInputChange}
       />
 
@@ -407,7 +418,11 @@ export const BeneficiaryInformation01 = (props) => {
         <MobileDatePicker
           label={"Ngày sinh của vợ/chồng cũ"}
           value={values.beneficiary11BirthDateOfExSpouse}
-          onChange={(date) => handleInputChange(convertToEventParam("", date))}
+          onChange={(date) =>
+            handleInputChange(
+              convertToEventParam("beneficiary11BirthDateOfExSpouse", date)
+            )
+          }
           renderInput={(params) => <TextField {...params} />}
         />
       </LocalizationProvider>
@@ -424,7 +439,11 @@ export const BeneficiaryInformation01 = (props) => {
         <MobileDatePicker
           label={"Ngày kết hôn"}
           value={values.beneficiary11DateOfMarriage}
-          onChange={(date) => handleInputChange(convertToEventParam("", date))}
+          onChange={(date) =>
+            handleInputChange(
+              convertToEventParam("beneficiary11DateOfMarriage", date)
+            )
+          }
           renderInput={(params) => <TextField {...params} />}
         />
       </LocalizationProvider>
@@ -439,9 +458,25 @@ export const BeneficiaryInformation01 = (props) => {
 
       <TextField
         variant="outlined"
-        name="beneficiary12NameOfExSpouse"
-        label="2. Tên của vợ/chồng cũ"
-        value={values.beneficiary12NameOfExSpouse}
+        name="beneficiary12ExSpouseLastName"
+        label="2. Họ của vợ/chồng cũ"
+        value={values.beneficiary12ExSpouseLastName}
+        onChange={handleInputChange}
+      />
+
+      <TextField
+        variant="outlined"
+        name="beneficiary12ExSpouseFirstName"
+        label="Tên của vợ/chồng cũ"
+        value={values.beneficiary12ExSpouseFirstName}
+        onChange={handleInputChange}
+      />
+
+      <TextField
+        variant="outlined"
+        name="beneficiary12ExSpouseMiddleName"
+        label="Tên đệm của vợ/chồng cũ"
+        value={values.beneficiary12ExSpouseMiddleName}
         onChange={handleInputChange}
       />
 
@@ -449,7 +484,11 @@ export const BeneficiaryInformation01 = (props) => {
         <MobileDatePicker
           label={"Ngày sinh của vợ/chồng cũ"}
           value={values.beneficiary12BirthDateOfExSpouse}
-          onChange={(date) => handleInputChange(convertToEventParam("", date))}
+          onChange={(date) =>
+            handleInputChange(
+              convertToEventParam("beneficiary12BirthDateOfExSpouse", date)
+            )
+          }
           renderInput={(params) => <TextField {...params} />}
         />
       </LocalizationProvider>
@@ -466,7 +505,11 @@ export const BeneficiaryInformation01 = (props) => {
         <MobileDatePicker
           label={"Ngày kết hôn"}
           value={values.beneficiary12DateOfMarriage}
-          onChange={(date) => handleInputChange(convertToEventParam("", date))}
+          onChange={(date) =>
+            handleInputChange(
+              convertToEventParam("beneficiary12DateOfMarriage", date)
+            )
+          }
           renderInput={(params) => <TextField {...params} />}
         />
       </LocalizationProvider>
@@ -481,9 +524,25 @@ export const BeneficiaryInformation01 = (props) => {
 
       <TextField
         variant="outlined"
-        name="beneficiary13NameOfExSpouse"
-        label="3. Tên của vợ/chồng cũ"
-        value={values.beneficiary13NameOfExSpouse}
+        name="beneficiary13ExSpouseLastName"
+        label="3. Họ của vợ/chồng cũ"
+        value={values.beneficiary13ExSpouseLastName}
+        onChange={handleInputChange}
+      />
+
+      <TextField
+        variant="outlined"
+        name="beneficiary13ExSpouseFirstName"
+        label="Tên của vợ/chồng cũ"
+        value={values.beneficiary13ExSpouseFirstName}
+        onChange={handleInputChange}
+      />
+
+      <TextField
+        variant="outlined"
+        name="beneficiary13ExSpouseMiddleName"
+        label="Tên đệm của vợ/chồng cũ"
+        value={values.beneficiary13ExSpouseMiddleName}
         onChange={handleInputChange}
       />
 
@@ -491,7 +550,11 @@ export const BeneficiaryInformation01 = (props) => {
         <MobileDatePicker
           label={"Ngày sinh của vợ/chồng cũ"}
           value={values.beneficiary13BirthDateOfExSpouse}
-          onChange={(date) => handleInputChange(convertToEventParam("", date))}
+          onChange={(date) =>
+            handleInputChange(
+              convertToEventParam("beneficiary13BirthDateOfExSpouse", date)
+            )
+          }
           renderInput={(params) => <TextField {...params} />}
         />
       </LocalizationProvider>
@@ -508,7 +571,11 @@ export const BeneficiaryInformation01 = (props) => {
         <MobileDatePicker
           label={"Ngày kết hôn"}
           value={values.beneficiary13DateOfMarriage}
-          onChange={(date) => handleInputChange(convertToEventParam("", date))}
+          onChange={(date) =>
+            handleInputChange(
+              convertToEventParam("beneficiary13DateOfMarriage", date)
+            )
+          }
           renderInput={(params) => <TextField {...params} />}
         />
       </LocalizationProvider>
@@ -523,9 +590,25 @@ export const BeneficiaryInformation01 = (props) => {
 
       <TextField
         variant="outlined"
-        name="beneficiary14NameOfExSpouse"
-        label="4. Tên của vợ/chồng cũ"
-        value={values.beneficiary14NameOfExSpouse}
+        name="beneficiary14ExSpouseLastName"
+        label="4. Họ của vợ/chồng cũ"
+        value={values.beneficiary14ExSpouseLastName}
+        onChange={handleInputChange}
+      />
+
+      <TextField
+        variant="outlined"
+        name="beneficiary14ExSpouseFirstName"
+        label="Tên của vợ/chồng cũ"
+        value={values.beneficiary14ExSpouseFirstName}
+        onChange={handleInputChange}
+      />
+
+      <TextField
+        variant="outlined"
+        name="beneficiary14ExSpouseMiddleName"
+        label="Tên đệm của vợ/chồng cũ"
+        value={values.beneficiary14ExSpouseMiddleName}
         onChange={handleInputChange}
       />
 
@@ -533,7 +616,11 @@ export const BeneficiaryInformation01 = (props) => {
         <MobileDatePicker
           label={"Ngày sinh của vợ/chồng cũ"}
           value={values.beneficiary14BirthDateOfExSpouse}
-          onChange={(date) => handleInputChange(convertToEventParam("", date))}
+          onChange={(date) =>
+            handleInputChange(
+              convertToEventParam("beneficiary14BirthDateOfExSpouse", date)
+            )
+          }
           renderInput={(params) => <TextField {...params} />}
         />
       </LocalizationProvider>
@@ -550,7 +637,11 @@ export const BeneficiaryInformation01 = (props) => {
         <MobileDatePicker
           label={"Ngày kết hôn"}
           value={values.beneficiary14DateOfMarriage}
-          onChange={(date) => handleInputChange(convertToEventParam("", date))}
+          onChange={(date) =>
+            handleInputChange(
+              convertToEventParam("beneficiary14DateOfMarriage", date)
+            )
+          }
           renderInput={(params) => <TextField {...params} />}
         />
       </LocalizationProvider>
@@ -564,7 +655,8 @@ export const BeneficiaryInformation01 = (props) => {
       />
 
       <InputLabel>
-        Địa chỉ của người thụ hưởng trong 5 năm qua. Liệt kê địa chỉ hiện tại trước
+        Địa chỉ của người thụ hưởng trong 5 năm qua. Liệt kê địa chỉ hiện tại
+        trước
       </InputLabel>
 
       <TextField
@@ -1368,7 +1460,11 @@ export const BeneficiaryInformation01 = (props) => {
         <MobileDatePicker
           label={"Ngày sinh của cha"}
           value={values.sponsor1FatherBirthDate}
-          onChange={(date) => handleInputChange(convertToEventParam("", date))}
+          onChange={(date) =>
+            handleInputChange(
+              convertToEventParam("sponsor1FatherBirthDate", date)
+            )
+          }
           renderInput={(params) => <TextField {...params} />}
         />
       </LocalizationProvider>
@@ -1401,7 +1497,11 @@ export const BeneficiaryInformation01 = (props) => {
         <MobileDatePicker
           label={"Ngày sinh của mẹ"}
           value={values.sponsor1MotherBirthDate}
-          onChange={(date) => handleInputChange(convertToEventParam("", date))}
+          onChange={(date) =>
+            handleInputChange(
+              convertToEventParam("sponsor1MotherBirthDate", date)
+            )
+          }
           renderInput={(params) => <TextField {...params} />}
         />
       </LocalizationProvider>
@@ -1434,7 +1534,11 @@ export const BeneficiaryInformation01 = (props) => {
         <MobileDatePicker
           label={"Ngày sinh của vợ/chồng cũ"}
           value={values.sponsor11BirthDateExSpouse}
-          onChange={(date) => handleInputChange(convertToEventParam("", date))}
+          onChange={(date) =>
+            handleInputChange(
+              convertToEventParam("sponsor11BirthDateExSpouse", date)
+            )
+          }
           renderInput={(params) => <TextField {...params} />}
         />
       </LocalizationProvider>
@@ -1451,7 +1555,11 @@ export const BeneficiaryInformation01 = (props) => {
         <MobileDatePicker
           label={"Ngày kết hôn"}
           value={values.sponsor11MarriageDate}
-          onChange={(date) => handleInputChange(convertToEventParam("", date))}
+          onChange={(date) =>
+            handleInputChange(
+              convertToEventParam("sponsor11MarriageDate", date)
+            )
+          }
           renderInput={(params) => <TextField {...params} />}
         />
       </LocalizationProvider>
@@ -1476,7 +1584,11 @@ export const BeneficiaryInformation01 = (props) => {
         <MobileDatePicker
           label={"Ngày sinh của vợ/chồng cũ"}
           value={values.sponsor12BirthDateExSpouse}
-          onChange={(date) => handleInputChange(convertToEventParam("", date))}
+          onChange={(date) =>
+            handleInputChange(
+              convertToEventParam("sponsor12BirthDateExSpouse", date)
+            )
+          }
           renderInput={(params) => <TextField {...params} />}
         />
       </LocalizationProvider>
@@ -1493,7 +1605,11 @@ export const BeneficiaryInformation01 = (props) => {
         <MobileDatePicker
           label={"Ngày kết hôn"}
           value={values.sponsor12MarriageDate}
-          onChange={(date) => handleInputChange(convertToEventParam("", date))}
+          onChange={(date) =>
+            handleInputChange(
+              convertToEventParam("sponsor12MarriageDate", date)
+            )
+          }
           renderInput={(params) => <TextField {...params} />}
         />
       </LocalizationProvider>
@@ -1518,7 +1634,11 @@ export const BeneficiaryInformation01 = (props) => {
         <MobileDatePicker
           label={"Ngày sinh của vợ/chồng cũ"}
           value={values.sponsor13BirthDateExSpouse}
-          onChange={(date) => handleInputChange(convertToEventParam("", date))}
+          onChange={(date) =>
+            handleInputChange(
+              convertToEventParam("sponsor13BirthDateExSpouse", date)
+            )
+          }
           renderInput={(params) => <TextField {...params} />}
         />
       </LocalizationProvider>
@@ -1535,7 +1655,11 @@ export const BeneficiaryInformation01 = (props) => {
         <MobileDatePicker
           label={"Ngày kết hôn"}
           value={values.sponsor13MarriageDate}
-          onChange={(date) => handleInputChange(convertToEventParam("", date))}
+          onChange={(date) =>
+            handleInputChange(
+              convertToEventParam("sponsor13MarriageDate", date)
+            )
+          }
           renderInput={(params) => <TextField {...params} />}
         />
       </LocalizationProvider>
@@ -2064,53 +2188,127 @@ export const BeneficiaryInformation01 = (props) => {
         </FormLabel>
         <FormGroup>
           <FormControlLabel
-            onChange={handleBeneficiaryProfileFormI94}
-            value="beneficiaryProfileFormI94"
-            checked={checkedBeneficiaryProfileFormI94}
-            control={<Checkbox />}
-            label="1. Form I-94 và bản sao hộ chiếu của từng người"
+            control={
+              <Checkbox
+                name="beneficiaryProfileFormI94"
+                checked={values.beneficiaryProfileFormI94}
+                onChange={(e) =>
+                  handleInputChange(
+                    convertToDefEventParameter(
+                      "beneficiaryProfileFormI94",
+                      e.target.checked
+                    )
+                  )
+                }
+              />
+            }
+            label={"1. Form I-94 và bản sao hộ chiếu của từng người"}
           />
           <FormControlLabel
-            onChange={handleBeneficiaryProfileBirthCertificate}
-            value="beneficiaryProfileBirthCertificate"
-            checked={checkedBeneficiaryProfileBirthCertificate}
-            control={<Checkbox />}
-            label="2. Giấy khai sinh (hoặc bất kỳ giấy tờ nào thay thế) của từng người"
+            control={
+              <Checkbox
+                name="beneficiaryProfileBirthCertificate"
+                checked={values.beneficiaryProfileBirthCertificate}
+                onChange={(e) =>
+                  handleInputChange(
+                    convertToDefEventParameter(
+                      "beneficiaryProfileBirthCertificate",
+                      e.target.checked
+                    )
+                  )
+                }
+              />
+            }
+            label={
+              "2. Giấy khai sinh (hoặc bất kỳ giấy tờ nào thay thế) của từng người"
+            }
           />
           <FormControlLabel
-            onChange={handleBeneficiaryProfileI20Documents}
-            value="beneficiaryProfileI20Documents"
-            checked={checkedBeneficiaryProfileI20Documents}
-            control={<Checkbox />}
-            label="3. Tất cả những biên nhận, quyết định từ chối hồ sơ, giấy tờ i-20… trước đây của từng người"
+            control={
+              <Checkbox
+                name="beneficiaryProfileI20Documents"
+                checked={values.beneficiaryProfileI20Documents}
+                onChange={(e) =>
+                  handleInputChange(
+                    convertToDefEventParameter(
+                      "beneficiaryProfileI20Documents",
+                      e.target.checked
+                    )
+                  )
+                }
+              />
+            }
+            label={
+              "3. Tất cả những biên nhận, quyết định từ chối hồ sơ, giấy tờ i-20… trước đây của từng người"
+            }
           />
           <FormControlLabel
-            onChange={handleBeneficiaryProfileCriminalRecord}
-            value="beneficiaryProfileCriminalRecord"
-            checked={checkedBeneficiaryProfileCriminalRecord}
-            control={<Checkbox />}
-            label="4. Hồ sơ phạm tội (nếu có) của từng người"
+            control={
+              <Checkbox
+                name="beneficiaryProfileCriminalRecord"
+                checked={values.beneficiaryProfileCriminalRecord}
+                onChange={(e) =>
+                  handleInputChange(
+                    convertToDefEventParameter(
+                      "beneficiaryProfileCriminalRecord",
+                      e.target.checked
+                    )
+                  )
+                }
+              />
+            }
+            label={"4. Hồ sơ phạm tội (nếu có) của từng người"}
           />
           <FormControlLabel
-            onChange={handleBeneficiaryProfilePassportPhotos}
-            value="beneficiaryProfilePassportPhotos"
-            checked={checkedBeneficiaryProfilePassportPhotos}
-            control={<Checkbox />}
-            label="5. 02 tấm hình passport của từng người"
+            control={
+              <Checkbox
+                name="beneficiaryProfilePassportPhotos"
+                checked={values.beneficiaryProfilePassportPhotos}
+                onChange={(e) =>
+                  handleInputChange(
+                    convertToDefEventParameter(
+                      "beneficiaryProfilePassportPhotos",
+                      e.target.checked
+                    )
+                  )
+                }
+              />
+            }
+            label={"5. 02 tấm hình passport của từng người"}
           />
           <FormControlLabel
-            onChange={handleBeneficiaryProfilePreviousDivorce}
-            value="beneficiaryProfilePreviousDivorce"
-            checked={checkedBeneficiaryProfilePreviousDivorce}
-            control={<Checkbox />}
-            label="6. Giấy tờ ly hôn trước đây của người thụ hưởng"
+            control={
+              <Checkbox
+                name="beneficiaryProfilePreviousDivorce"
+                checked={values.beneficiaryProfilePreviousDivorce}
+                onChange={(e) =>
+                  handleInputChange(
+                    convertToDefEventParameter(
+                      "beneficiaryProfilePreviousDivorce",
+                      e.target.checked
+                    )
+                  )
+                }
+              />
+            }
+            label={"6. Giấy tờ ly hôn trước đây của người thụ hưởng"}
           />
           <FormControlLabel
-            onChange={handleBeneficiaryProfilePapersRelated}
-            value="beneficiaryProfilePapersRelated"
-            checked={checkedBeneficiaryProfilePapersRelated}
-            control={<Checkbox />}
-            label="7. Giấy tờ liên quan đến việc đổi tên (nếu có)"
+            control={
+              <Checkbox
+                name="beneficiaryProfilePapersRelated"
+                checked={values.beneficiaryProfilePapersRelated}
+                onChange={(e) =>
+                  handleInputChange(
+                    convertToDefEventParameter(
+                      "beneficiaryProfilePapersRelated",
+                      e.target.checked
+                    )
+                  )
+                }
+              />
+            }
+            label={"7. Giấy tờ liên quan đến việc đổi tên (nếu có)"}
           />
         </FormGroup>
       </FormControl>
@@ -2119,53 +2317,127 @@ export const BeneficiaryInformation01 = (props) => {
         <FormLabel id="sponsorProfileLetter">Đương đơn:</FormLabel>
         <FormGroup>
           <FormControlLabel
-            onChange={handleSponsorProfileLetterConfirmation}
-            value="sponsorProfileLetterConfirmation"
-            checked={checkedSponsorProfileLetterConfirmation}
-            control={<Checkbox />}
-            label="8. Thư xác nhận của nơi làm việc về việc đương đơn đang làm việc"
+            control={
+              <Checkbox
+                name="sponsorProfileLetterConfirmation"
+                checked={values.sponsorProfileLetterConfirmation}
+                onChange={(e) =>
+                  handleInputChange(
+                    convertToDefEventParameter(
+                      "sponsorProfileLetterConfirmation",
+                      e.target.checked
+                    )
+                  )
+                }
+              />
+            }
+            label={
+              "8. Thư xác nhận của nơi làm việc về việc đương đơn đang làm việc"
+            }
           />
           <FormControlLabel
-            onChange={handleSponsorProfileBankStatement}
-            value="sponsorProfileBankStatement"
-            checked={checkedSponsorProfileBankStatement}
-            control={<Checkbox />}
-            label="9. Sao kê tài khoản ngân hàng trong 3 năm gần nhất"
+            control={
+              <Checkbox
+                name="sponsorProfileBankStatement"
+                checked={values.sponsorProfileBankStatement}
+                onChange={(e) =>
+                  handleInputChange(
+                    convertToDefEventParameter(
+                      "sponsorProfileBankStatement",
+                      e.target.checked
+                    )
+                  )
+                }
+              />
+            }
+            label={"9. Sao kê tài khoản ngân hàng trong 3 năm gần nhất"}
           />
           <FormControlLabel
-            onChange={handleSponsorProfileTaxReturns}
-            value="sponsorProfileTaxReturns"
-            checked={checkedSponsorProfileTaxReturns}
-            control={<Checkbox />}
-            label="10. Giấy tờ khai thuế trong 3 năm gần nhất"
+            control={
+              <Checkbox
+                name="sponsorProfileTaxReturns"
+                checked={values.sponsorProfileTaxReturns}
+                onChange={(e) =>
+                  handleInputChange(
+                    convertToDefEventParameter(
+                      "sponsorProfileTaxReturns",
+                      e.target.checked
+                    )
+                  )
+                }
+              />
+            }
+            label={"10. Giấy tờ khai thuế trong 3 năm gần nhất"}
           />
           <FormControlLabel
-            onChange={handleSponsorProfileW2PaystubsChecks}
-            value="sponsorProfileW2PaystubsChecks"
-            checked={checkedSponsorProfileW2PaystubsChecks}
-            control={<Checkbox />}
-            label="11. W-2, Paystubs, và Checks trong vòng 3 tháng"
+            control={
+              <Checkbox
+                name="sponsorProfileW2PaystubsChecks"
+                checked={values.sponsorProfileW2PaystubsChecks}
+                onChange={(e) =>
+                  handleInputChange(
+                    convertToDefEventParameter(
+                      "sponsorProfileW2PaystubsChecks",
+                      e.target.checked
+                    )
+                  )
+                }
+              />
+            }
+            label={"11. W-2, Paystubs, và Checks trong vòng 3 tháng"}
           />
           <FormControlLabel
-            onChange={handleSponsorProfileDocumentsShowing}
-            value="sponsorProfileDocumentsShowing"
-            checked={checkedSponsorProfileDocumentsShowing}
-            control={<Checkbox />}
-            label="12. Giấy tờ thể hiện là công dân Mỹ (hộ chiếu Mỹ, giấy chứng nhận quốc tịch)"
+            control={
+              <Checkbox
+                name="sponsorProfileDocumentsShowing"
+                checked={values.sponsorProfileDocumentsShowing}
+                onChange={(e) =>
+                  handleInputChange(
+                    convertToDefEventParameter(
+                      "sponsorProfileDocumentsShowing",
+                      e.target.checked
+                    )
+                  )
+                }
+              />
+            }
+            label={
+              "12. Giấy tờ thể hiện là công dân Mỹ (hộ chiếu Mỹ, giấy chứng nhận quốc tịch)"
+            }
           />
           <FormControlLabel
-            onChange={handleSponsorProfilePassportPhotos}
-            value="sponsorProfilePassportPhotos"
-            checked={checkedSponsorProfilePassportPhotos}
-            control={<Checkbox />}
-            label="13. 02 tấm hình hộ chiếu"
+            control={
+              <Checkbox
+                name="sponsorProfilePassportPhotos"
+                checked={values.sponsorProfilePassportPhotos}
+                onChange={(e) =>
+                  handleInputChange(
+                    convertToDefEventParameter(
+                      "sponsorProfilePassportPhotos",
+                      e.target.checked
+                    )
+                  )
+                }
+              />
+            }
+            label={"13. 02 tấm hình hộ chiếu"}
           />
           <FormControlLabel
-            onChange={handleSponsorProfilePreviousDivorce}
-            value="sponsorProfilePreviousDivorce"
-            checked={checkedSponsorProfilePreviousDivorce}
-            control={<Checkbox />}
-            label="14. Giấy tờ ly hôn trước đây"
+            control={
+              <Checkbox
+                name="sponsorProfilePreviousDivorce"
+                checked={values.sponsorProfilePreviousDivorce}
+                onChange={(e) =>
+                  handleInputChange(
+                    convertToDefEventParameter(
+                      "sponsorProfilePreviousDivorce",
+                      e.target.checked
+                    )
+                  )
+                }
+              />
+            }
+            label={"14. Giấy tờ ly hôn trước đây"}
           />
         </FormGroup>
       </FormControl>
