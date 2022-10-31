@@ -1,6 +1,6 @@
 import React from "react";
-import { LocalizationProvider, MobileDatePicker } from "@mui/lab";
-import DateAdapter from "@mui/lab/AdapterMoment";
+import { LocalizationProvider, MobileDatePicker } from "@mui/x-date-pickers";
+import { AdapterMoment } from "@mui/x-date-pickers/AdapterMoment";
 import {
   Grow,
   Box,
@@ -29,35 +29,11 @@ export const BeneficiaryInformation01 = (props) => {
     <Box>
       <TextField
         variant="outlined"
-        name="beneficiary5WhenAndWhere"
-        label="Nếu có, đã khi nào và ở đâu?"
-        value={values.beneficiary5WhenAndWhere}
+        name="beneficiary05EverBeenRestrainingOrder"
+        label="Nếu có, vui lòng cung cấp thông tin"
+        value={values.beneficiary05EverBeenRestrainingOrder}
         onChange={handleInputChange}
       />
-
-      <FormControl>
-        <FormLabel id="beneficiary5Approved">
-          Đã được chấp thuận không?
-        </FormLabel>
-        <RadioGroup
-          row
-          name="beneficiary5Approved"
-          onChange={handleInputChange}
-        >
-          <FormControlLabel
-            value="beneficiary5ApprovedNo"
-            checked={values.beneficiary5ApprovedNo}
-            control={<Radio />}
-            label="Không"
-          />
-          <FormControlLabel
-            value="beneficiary5ApprovedYes"
-            checked={values.beneficiary5ApprovedYes}
-            control={<Radio />}
-            label="Có"
-          />
-        </RadioGroup>
-      </FormControl>
     </Box>
   );
 
@@ -65,9 +41,9 @@ export const BeneficiaryInformation01 = (props) => {
     <Box>
       <TextField
         variant="outlined"
-        name="beneficiary5ViolatedProvideDetails"
-        label="Nếu có, cung cấp thông tin chi tiết"
-        value={values.beneficiary5ViolatedProvideDetails}
+        name="beneficiary05HasBeenAccusedAnyCountry"
+        label="Nếu có, vui lòng cung cấp thông tin"
+        value={values.beneficiary05HasBeenAccusedAnyCountry}
         onChange={handleInputChange}
       />
     </Box>
@@ -77,9 +53,76 @@ export const BeneficiaryInformation01 = (props) => {
     <Box>
       <TextField
         variant="outlined"
-        name="beneficiary5SufferedProvideDetails"
-        label="Nếu có, cung cấp thông tin chi tiết"
-        value={values.beneficiary5SufferedProvideDetails}
+        name="beneficiary05EverBeenInUSLastTimeAs"
+        label="A. Người đó nhập cảnh lần cuối với tư cách là (ví dụ: du khách, sinh viên, người nước ngoài trao đổi, thủy thủ đoàn, người trốn
+          theo tàu, người lao động tạm thời, không cần kiểm tra)"
+        value={values.beneficiary05EverBeenInUSLastTimeAs}
+        onChange={handleInputChange}
+      />
+
+      <TextField
+        variant="outlined"
+        name="beneficiary05EverBeenInUSI94"
+        label="B. Số hồ sơ I-94 đi và đến"
+        value={values.beneficiary05EverBeenInUSI94}
+        onChange={handleInputChange}
+      />
+
+      <LocalizationProvider dateAdapter={AdapterMoment}>
+        <MobileDatePicker
+          label={"C. Ngày đến"}
+          value={values.beneficiary05EverBeenInUSArrivalDate}
+          onChange={(date) =>
+            handleInputChange(
+              convertToEventParam("beneficiary05EverBeenInUSArrivalDate", date)
+            )
+          }
+          renderInput={(params) => <TextField {...params} />}
+        />
+      </LocalizationProvider>
+
+      <LocalizationProvider dateAdapter={AdapterMoment}>
+        <MobileDatePicker
+          label={"D. Ngày hết hạn thể hiện trên đơn I-94 hoặc I-95"}
+          value={values.beneficiary05EverBeenInUSI94I95Date}
+          onChange={(date) =>
+            handleInputChange(
+              convertToEventParam("beneficiary05EverBeenInUSI94I95Date", date)
+            )
+          }
+          renderInput={(params) => <TextField {...params} />}
+        />
+      </LocalizationProvider>
+
+      <TextField
+        variant="outlined"
+        name="beneficiary05EverBeenInUSPassportNo"
+        label="E. Số hộ chiếu"
+        value={values.beneficiary05EverBeenInUSPassportNo}
+        onChange={handleInputChange}
+      />
+
+      <LocalizationProvider dateAdapter={AdapterMoment}>
+        <MobileDatePicker
+          label={"F. Ngày hết hạn của hộ chiếu"}
+          value={values.beneficiary05EverBeenInUSPassportExpireDate}
+          onChange={(date) =>
+            handleInputChange(
+              convertToEventParam(
+                "beneficiary05EverBeenInUSPassportExpireDate",
+                date
+              )
+            )
+          }
+          renderInput={(params) => <TextField {...params} />}
+        />
+      </LocalizationProvider>
+
+      <TextField
+        variant="outlined"
+        name="beneficiary05EverBeenInUSPassportCountry"
+        label="G. Quốc gia cấp hộ chiếu"
+        value={values.beneficiary05EverBeenInUSPassportCountry}
         onChange={handleInputChange}
       />
     </Box>
@@ -89,30 +132,57 @@ export const BeneficiaryInformation01 = (props) => {
     <Box>
       <TextField
         variant="outlined"
-        name="beneficiary5NameOfOrganization"
-        label="Nếu có, tên của tổ chức đó"
-        value={values.beneficiary5NameOfOrganization}
+        name="beneficiary05HaveEverMetFiance"
+        label="Nếu có, vui lòng cung cấp thông tin"
+        value={values.beneficiary05HaveEverMetFiance}
         onChange={handleInputChange}
       />
+    </Box>
+  );
 
-      <LocalizationProvider dateAdapter={DateAdapter}>
-        <MobileDatePicker
-          label={"Ngày nhập ngũ"}
-          value={values.beneficiary5EnlistmentDate}
-          onChange={(date) =>
-            handleInputChange(
-              convertToEventParam("beneficiary5EnlistmentDate", date)
-            )
-          }
-          renderInput={(params) => <TextField {...params} />}
-        />
-      </LocalizationProvider>
-
+  const extent_option_5 = (
+    <Box>
       <TextField
         variant="outlined"
-        name="beneficiary5WhereToEnlist"
-        label="Nơi nhập ngũ"
-        value={values.beneficiary5WhereToEnlist}
+        name="beneficiary05HasServicesIMB"
+        label="Nếu có, vui lòng cung cấp thông tin"
+        value={values.beneficiary05HasServicesIMB}
+        onChange={handleInputChange}
+      />
+    </Box>
+  );
+
+  const extent_option_6 = (
+    <Box>
+      <TextField
+        variant="outlined"
+        name="beneficiary05HasBeenArrestedConvictedViolence"
+        label="Nếu có, vui lòng cung cấp thông tin"
+        value={values.beneficiary05HasBeenArrestedConvictedViolence}
+        onChange={handleInputChange}
+      />
+    </Box>
+  );
+
+  const extent_option_7 = (
+    <Box>
+      <TextField
+        variant="outlined"
+        name="beneficiary05HasBeenArrestedConvictedFelon"
+        label="Nếu có, vui lòng cung cấp thông tin"
+        value={values.beneficiary05HasBeenArrestedConvictedFelon}
+        onChange={handleInputChange}
+      />
+    </Box>
+  );
+
+  const extent_option_8 = (
+    <Box>
+      <TextField
+        variant="outlined"
+        name="beneficiary05HasBeenArrestedConvictedArrested"
+        label="Nếu có, vui lòng cung cấp thông tin"
+        value={values.beneficiary05HasBeenArrestedConvictedArrested}
         onChange={handleInputChange}
       />
     </Box>
@@ -156,11 +226,32 @@ export const BeneficiaryInformation01 = (props) => {
         onChange={handleInputChange}
       />
 
+      <LocalizationProvider dateAdapter={AdapterMoment}>
+        <MobileDatePicker
+          label={"Ngày sinh"}
+          value={values.beneficiary01BirthDate}
+          onChange={(date) =>
+            handleInputChange(
+              convertToEventParam("beneficiary01BirthDate", date)
+            )
+          }
+          renderInput={(params) => <TextField {...params} />}
+        />
+      </LocalizationProvider>
+
       <TextField
         variant="outlined"
-        name="beneficiary01PlaceOfBirth"
-        label="Nơi sinh:"
-        value={values.beneficiary01PlaceOfBirth}
+        name="beneficiary01CityBirthPlace"
+        label="Thành phố:"
+        value={values.beneficiary01CityBirthPlace}
+        onChange={handleInputChange}
+      />
+
+      <TextField
+        variant="outlined"
+        name="beneficiary01CountryBirthPlace"
+        label="Quốc gia:"
+        value={values.beneficiary01CountryBirthPlace}
         onChange={handleInputChange}
       />
 
@@ -188,11 +279,29 @@ export const BeneficiaryInformation01 = (props) => {
         </RadioGroup>
       </FormControl>
 
+      <InputLabel>Tất cả tên đã sử dụng (kể cả tên trước hôn nhân)</InputLabel>
+
+      <TextField
+        variant="outlined"
+        name="beneficiary01LastNamesUsed"
+        label="Họ:"
+        value={values.beneficiary01LastNamesUsed}
+        onChange={handleInputChange}
+      />
+
       <TextField
         variant="outlined"
         name="beneficiary01FirstNamesUsed"
-        label="Tất cả tên đã sử dụng (kể cả tên trước hôn nhân)"
+        label="Tên:"
         value={values.beneficiary01FirstNamesUsed}
+        onChange={handleInputChange}
+      />
+
+      <TextField
+        variant="outlined"
+        name="beneficiary01MiddleNamesUsed"
+        label="Tên đệm:"
+        value={values.beneficiary01MiddleNamesUsed}
         onChange={handleInputChange}
       />
 
@@ -212,19 +321,21 @@ export const BeneficiaryInformation01 = (props) => {
         onChange={handleInputChange}
       />
 
+      <InputLabel>Văn phòng lãnh sự mong muốn</InputLabel>
+
       <TextField
         variant="outlined"
-        name="beneficiary01ConsularOfficeWishes"
-        label="Văn phòng lãnh sự mong muốn"
-        value={values.beneficiary01ConsularOfficeWishes}
+        name="beneficiary01CityConsularOfficeWishes"
+        label="Thành phố:"
+        value={values.beneficiary01CityConsularOfficeWishes}
         onChange={handleInputChange}
       />
 
       <TextField
         variant="outlined"
-        name="beneficiary01PrimaryLanguage"
-        label="Tên và địa chỉ bằng ngôn ngữ chính (Nếu ngôn ngữ chính không có ký tự alphabet"
-        value={values.beneficiary01PrimaryLanguage}
+        name="beneficiary01CountryConsularOfficeWishes"
+        label="Quốc gia:"
+        value={values.beneficiary01CountryConsularOfficeWishes}
         onChange={handleInputChange}
       />
 
@@ -292,13 +403,13 @@ export const BeneficiaryInformation01 = (props) => {
         onChange={handleInputChange}
       />
 
-      <LocalizationProvider dateAdapter={DateAdapter}>
+      <LocalizationProvider dateAdapter={AdapterMoment}>
         <MobileDatePicker
           label={"Ngày sinh của cha"}
-          value={values.beneficiary01FatherDateOfBirth}
+          value={values.beneficiary01FatherBirthDate}
           onChange={(date) =>
             handleInputChange(
-              convertToEventParam("beneficiary01FatherDateOfBirth", date)
+              convertToEventParam("beneficiary01FatherBirthDate", date)
             )
           }
           renderInput={(params) => <TextField {...params} />}
@@ -307,9 +418,9 @@ export const BeneficiaryInformation01 = (props) => {
 
       <TextField
         variant="outlined"
-        name="beneficiary01FatherPlaceOfBirth"
+        name="beneficiary01FatherBirthPlace"
         label="Nơi sinh của cha"
-        value={values.beneficiary01FatherPlaceOfBirth}
+        value={values.beneficiary01FatherBirthPlace}
         onChange={handleInputChange}
       />
 
@@ -353,13 +464,13 @@ export const BeneficiaryInformation01 = (props) => {
         onChange={handleInputChange}
       />
 
-      <LocalizationProvider dateAdapter={DateAdapter}>
+      <LocalizationProvider dateAdapter={AdapterMoment}>
         <MobileDatePicker
           label={"Ngày sinh của mẹ"}
-          value={values.beneficiary01MotherDateOfBirth}
+          value={values.beneficiary01MotherBirthDate}
           onChange={(date) =>
             handleInputChange(
-              convertToEventParam("beneficiary01MotherDateOfBirth", date)
+              convertToEventParam("beneficiary01MotherBirthDate", date)
             )
           }
           renderInput={(params) => <TextField {...params} />}
@@ -368,9 +479,9 @@ export const BeneficiaryInformation01 = (props) => {
 
       <TextField
         variant="outlined"
-        name="beneficiary01MotherPlaceOfBirth"
+        name="beneficiary01MotherBirthPlace"
         label="Nơi sinh của mẹ"
-        value={values.beneficiary01MotherPlaceOfBirth}
+        value={values.beneficiary01MotherBirthPlace}
         onChange={handleInputChange}
       />
 
@@ -390,10 +501,313 @@ export const BeneficiaryInformation01 = (props) => {
         onChange={handleInputChange}
       />
 
-      <TextField
+      <FormControl>
+        <FormLabel id="beneficiary05EverBeenRestrainingOrder">
+          Người thụ hưởng của bạn đã bao giờ phải chịu lệnh cấm tạm thời hoặc
+          vĩnh viễn chưa?
+        </FormLabel>
+        <RadioGroup
+          row
+          name="beneficiary05EverBeenRestrainingOrder"
+          onChange={handleInputChange}
+        >
+          <FormControlLabel
+            value="beneficiary05EverBeenRestrainingOrderNo"
+            checked={values.beneficiary05EverBeenRestrainingOrderNo}
+            control={<Radio />}
+            label="Không"
+          />
+          <FormControlLabel
+            value="beneficiary05EverBeenRestrainingOrderYes"
+            checked={values.beneficiary05EverBeenRestrainingOrderYes}
+            control={<Radio />}
+            label="Có"
+          />
+        </RadioGroup>
+      </FormControl>
+
+      <Grow
+        in={values.beneficiary05EverBeenRestrainingOrderYes}
+        style={{ transformOrigin: "0 0 0" }}
+        {...(values.beneficiary05EverBeenRestrainingOrderYes
+          ? { timeout: 400 }
+          : {})}
+        unmountOnExit
+      >
+        {extent_option_1}
+      </Grow>
+
+      <InputLabel>
+        Người thụ hưởng của bạn đã BAO GIỜ bị bắt hoặc bị kết án về bất kỳ tội
+        nào sau đây:
+      </InputLabel>
+
+      <FormControl>
+        <FormLabel id="beneficiary05HasBeenArrestedConvictedViolence">
+          A. Bạo lực gia đình, tấn công tình dục, lạm dụng trẻ em, bỏ bê trẻ em,
+          bạo lực khi hẹn hò, ngược đãi người già, theo dõi hoặc cố gắng thực
+          hiện bất kỳ tội phạm nào trong số này?
+        </FormLabel>
+        <RadioGroup
+          row
+          name="beneficiary05HasBeenArrestedConvictedViolence"
+          onChange={handleInputChange}
+        >
+          <FormControlLabel
+            value="beneficiary05HasBeenArrestedConvictedViolenceNo"
+            checked={values.beneficiary05HasBeenArrestedConvictedViolenceNo}
+            control={<Radio />}
+            label="Không"
+          />
+          <FormControlLabel
+            value="beneficiary05HasBeenArrestedConvictedViolenceYes"
+            checked={values.beneficiary05HasBeenArrestedConvictedViolenceYes}
+            control={<Radio />}
+            label="Có"
+          />
+        </RadioGroup>
+      </FormControl>
+
+      <Grow
+        in={values.beneficiary05HasBeenArrestedConvictedViolenceYes}
+        style={{ transformOrigin: "0 0 0" }}
+        {...(values.beneficiary05HasBeenArrestedConvictedViolenceYes
+          ? { timeout: 400 }
+          : {})}
+        unmountOnExit
+      >
+        {extent_option_6}
+      </Grow>
+
+      <FormControl>
+        <FormLabel id="beneficiary05HasBeenArrestedConvictedFelon">
+          B. Giết người, ngộ sát, hiếp dâm, lạm dụng tình dục, bóc lột tình dục,
+          loạn luân, tra tấn, buôn bán, bắt giữ con tin, nô lệ không tự nguyện,
+          buôn bán nô lệ, bắt cóc, bắt cóc, khống chế tội phạm trái pháp luật,
+          bỏ tù sai hoặc cố gắng thực hiện bất kỳ hành vi nào những tội ác này?
+        </FormLabel>
+        <RadioGroup
+          row
+          name="beneficiary05HasBeenArrestedConvictedFelon"
+          onChange={handleInputChange}
+        >
+          <FormControlLabel
+            value="beneficiary05HasBeenArrestedConvictedFelonNo"
+            checked={values.beneficiary05HasBeenArrestedConvictedFelonNo}
+            control={<Radio />}
+            label="Không"
+          />
+          <FormControlLabel
+            value="beneficiary05HasBeenArrestedConvictedFelonYes"
+            checked={values.beneficiary05HasBeenArrestedConvictedFelonYes}
+            control={<Radio />}
+            label="Có"
+          />
+        </RadioGroup>
+      </FormControl>
+
+      <Grow
+        in={values.beneficiary05HasBeenArrestedConvictedFelonYes}
+        style={{ transformOrigin: "0 0 0" }}
+        {...(values.beneficiary05HasBeenArrestedConvictedFelonYes
+          ? { timeout: 400 }
+          : {})}
+        unmountOnExit
+      >
+        {extent_option_7}
+      </Grow>
+
+      <FormControl>
+        <FormLabel id="beneficiary05HasBeenArrestedConvictedArrested">
+          C. Ba lần bị bắt hoặc bị kết án trở lên, không phải từ một hành vi duy
+          nhất, đối với các tội phạm liên quan đến chất kích thích hoặc rượu
+          được kiểm soát
+        </FormLabel>
+        <RadioGroup
+          row
+          name="beneficiary05HasBeenArrestedConvictedArrested"
+          onChange={handleInputChange}
+        >
+          <FormControlLabel
+            value="beneficiary05HasBeenArrestedConvictedArrestedNo"
+            checked={values.beneficiary05HasBeenArrestedConvictedArrestedNo}
+            control={<Radio />}
+            label="Không"
+          />
+          <FormControlLabel
+            value="beneficiary05HasBeenArrestedConvictedArrestedYes"
+            checked={values.beneficiary05HasBeenArrestedConvictedArrestedYes}
+            control={<Radio />}
+            label="Có"
+          />
+        </RadioGroup>
+      </FormControl>
+
+      <Grow
+        in={values.beneficiary05HasBeenArrestedConvictedArrestedYes}
+        style={{ transformOrigin: "0 0 0" }}
+        {...(values.beneficiary05HasBeenArrestedConvictedArrestedYes
+          ? { timeout: 400 }
+          : {})}
+        unmountOnExit
+      >
+        {extent_option_8}
+      </Grow>
+
+      <FormControl>
+        <FormLabel id="beneficiary05HasBeenAccusedAnyCountry">
+          Người thụ hưởng của bạn đã từng bị bắt, bị dẫn giải, bị buộc tội, bị
+          truy tố, bị kết án, bị phạt tiền hoặc bị bỏ tù vì vi phạm hoặc vi phạm
+          bất kỳ luật hoặc pháp lệnh nào ở bất kỳ quốc gia nào, ngoại trừ vi
+          phạm giao thông (trừ khi vi phạm giao thông liên quan đến rượu hoặc ma
+          túy hoặc bị phạt 500 đô la hoặc hơn)?
+        </FormLabel>
+        <RadioGroup
+          row
+          name="beneficiary05HasBeenAccusedAnyCountry"
+          onChange={handleInputChange}
+        >
+          <FormControlLabel
+            value="beneficiary05HasBeenAccusedAnyCountryNo"
+            checked={values.beneficiary05HasBeenAccusedAnyCountryNo}
+            control={<Radio />}
+            label="Không"
+          />
+          <FormControlLabel
+            value="beneficiary05HasBeenAccusedAnyCountryYes"
+            checked={values.beneficiary05HasBeenAccusedAnyCountryYes}
+            control={<Radio />}
+            label="Có"
+          />
+        </RadioGroup>
+      </FormControl>
+
+      <Grow
+        in={values.beneficiary05HasBeenAccusedAnyCountryYes}
+        style={{ transformOrigin: "0 0 0" }}
+        {...(values.beneficiary05HasBeenAccusedAnyCountryYes
+          ? { timeout: 400 }
+          : {})}
+        unmountOnExit
+      >
+        {extent_option_2}
+      </Grow>
+
+      <FormControl>
+        <FormLabel id="beneficiary05EverBeenInUS">
+          Người thụ hưởng của bạn đã từng ở Hoa Kỳ chưa?
+        </FormLabel>
+        <RadioGroup
+          row
+          name="beneficiary05EverBeenInUS"
+          onChange={handleInputChange}
+        >
+          <FormControlLabel
+            value="beneficiary05EverBeenInUSNo"
+            checked={values.beneficiary05EverBeenInUSNo}
+            control={<Radio />}
+            label="Không"
+          />
+          <FormControlLabel
+            value="beneficiary05EverBeenInUSYes"
+            checked={values.beneficiary05EverBeenInUSYes}
+            control={<Radio />}
+            label="Có"
+          />
+        </RadioGroup>
+      </FormControl>
+
+      <Grow
+        in={values.beneficiary05EverBeenInUSYes}
+        style={{ transformOrigin: "0 0 0" }}
+        {...(values.beneficiary05EverBeenInUSYes ? { timeout: 400 } : {})}
+        unmountOnExit
+      >
+        {extent_option_3}
+      </Grow>
+
+      <FormControl>
+        <FormLabel id="beneficiary05HaveEverMetFiance">
+          Bạn và vị hôn phu/ hôn thê của bạn có gặp mặt trực tiếp trong hai năm
+          ngay trước khi nộp đơn bảo lãnh này không?
+        </FormLabel>
+        <RadioGroup
+          row
+          name="beneficiary05HaveEverMetFiance"
+          onChange={handleInputChange}
+        >
+          <FormControlLabel
+            value="beneficiary05HaveEverMetFianceNo"
+            checked={values.beneficiary05HaveEverMetFianceNo}
+            control={<Radio />}
+            label="Không"
+          />
+          <FormControlLabel
+            value="beneficiary05HaveEverMetFianceYes"
+            checked={values.beneficiary05HaveEverMetFianceYes}
+            control={<Radio />}
+            label="Có"
+          />
+          <FormControlLabel
+            value="beneficiary05HaveEverMetFianceNA"
+            checked={values.beneficiary05HaveEverMetFianceNA}
+            control={<Radio />}
+            label="NA"
+          />
+        </RadioGroup>
+      </FormControl>
+
+      <Grow
+        in={values.beneficiary05HaveEverMetFianceYes}
+        style={{ transformOrigin: "0 0 0" }}
+        {...(values.beneficiary05HaveEverMetFianceYes ? { timeout: 400 } : {})}
+        unmountOnExit
+      >
+        {extent_option_4}
+      </Grow>
+
+      <FormControl>
+        <FormLabel id="beneficiary05HasServicesIMB">
+          Bạn có gặp được người thụ hưởng của mình thông qua các dịch vụ của IMB
+          không?
+        </FormLabel>
+        <RadioGroup
+          row
+          name="beneficiary05HasServicesIMB"
+          onChange={handleInputChange}
+        >
+          <FormControlLabel
+            value="beneficiary05HasServicesIMBNo"
+            checked={values.beneficiary05HasServicesIMBNo}
+            control={<Radio />}
+            label="Không"
+          />
+          <FormControlLabel
+            value="beneficiary05HasServicesIMBYes"
+            checked={values.beneficiary05HasServicesIMBYes}
+            control={<Radio />}
+            label="Có"
+          />
+        </RadioGroup>
+      </FormControl>
+
+      <Grow
+        in={values.beneficiary05HasServicesIMBYes}
+        style={{ transformOrigin: "0 0 0" }}
+        {...(values.beneficiary05HasServicesIMBYes ? { timeout: 400 } : {})}
+        unmountOnExit
+      >
+        {extent_option_5}
+      </Grow>
+
+      {/* <h1>
+        <InputLabel>Liệt kê tất cả tên của vợ/chống (nếu có)</InputLabel>
+      </h1> */}
+
+      {/* <TextField
         variant="outlined"
         name="beneficiary11ExSpouseLastName"
-        label="1. Họ của vợ/chồng cũ"
+        label="1. Họ của vợ/chồng"
         value={values.beneficiary11ExSpouseLastName}
         onChange={handleInputChange}
       />
@@ -401,7 +815,7 @@ export const BeneficiaryInformation01 = (props) => {
       <TextField
         variant="outlined"
         name="beneficiary11ExSpouseFirstName"
-        label="Tên của vợ/chồng cũ"
+        label="Tên của vợ/chồng"
         value={values.beneficiary11ExSpouseFirstName}
         onChange={handleInputChange}
       />
@@ -409,18 +823,18 @@ export const BeneficiaryInformation01 = (props) => {
       <TextField
         variant="outlined"
         name="beneficiary11ExSpouseMiddleName"
-        label="Tên đệm của vợ/chồng cũ"
+        label="Tên đệm của vợ/chồng"
         value={values.beneficiary11ExSpouseMiddleName}
         onChange={handleInputChange}
       />
 
-      <LocalizationProvider dateAdapter={DateAdapter}>
+      <LocalizationProvider dateAdapter={AdapterMoment}>
         <MobileDatePicker
-          label={"Ngày sinh của vợ/chồng cũ"}
-          value={values.beneficiary11BirthDateOfExSpouse}
+          label={"Ngày sinh của vợ/chồng"}
+          value={values.beneficiary11ExSpouseBirthDate}
           onChange={(date) =>
             handleInputChange(
-              convertToEventParam("beneficiary11BirthDateOfExSpouse", date)
+              convertToEventParam("beneficiary11ExSpouseBirthDate", date)
             )
           }
           renderInput={(params) => <TextField {...params} />}
@@ -429,19 +843,19 @@ export const BeneficiaryInformation01 = (props) => {
 
       <TextField
         variant="outlined"
-        name="beneficiary11BirthPlaceOfExSpouse"
-        label="Nơi sinh của vợ/chồng cũ"
-        value={values.beneficiary11BirthPlaceOfExSpouse}
+        name="beneficiary11ExSpouseBirthPlace"
+        label="Nơi sinh của vợ/chồng"
+        value={values.beneficiary11ExSpouseBirthPlace}
         onChange={handleInputChange}
       />
 
-      <LocalizationProvider dateAdapter={DateAdapter}>
+      <LocalizationProvider dateAdapter={AdapterMoment}>
         <MobileDatePicker
           label={"Ngày kết hôn"}
-          value={values.beneficiary11DateOfMarriage}
+          value={values.beneficiary11MarriageDate}
           onChange={(date) =>
             handleInputChange(
-              convertToEventParam("beneficiary11DateOfMarriage", date)
+              convertToEventParam("beneficiary11MarriageDate", date)
             )
           }
           renderInput={(params) => <TextField {...params} />}
@@ -450,16 +864,37 @@ export const BeneficiaryInformation01 = (props) => {
 
       <TextField
         variant="outlined"
-        name="beneficiary11PlaceOfMarriage"
+        name="beneficiary11MarriagePlace"
         label="Nơi kết hôn"
-        value={values.beneficiary11PlaceOfMarriage}
+        value={values.beneficiary11MarriagePlace}
+        onChange={handleInputChange}
+      />
+
+      <LocalizationProvider dateAdapter={AdapterMoment}>
+        <MobileDatePicker
+          label={"Ngày ly hôn"}
+          value={values.beneficiary11DivorceDate}
+          onChange={(date) =>
+            handleInputChange(
+              convertToEventParam("beneficiary11DivorceDate", date)
+            )
+          }
+          renderInput={(params) => <TextField {...params} />}
+        />
+      </LocalizationProvider>
+
+      <TextField
+        variant="outlined"
+        name="beneficiary11DivorcePlace"
+        label="Nơi ly hôn"
+        value={values.beneficiary11DivorcePlace}
         onChange={handleInputChange}
       />
 
       <TextField
         variant="outlined"
         name="beneficiary12ExSpouseLastName"
-        label="2. Họ của vợ/chồng cũ"
+        label="2. Họ của vợ/chồng"
         value={values.beneficiary12ExSpouseLastName}
         onChange={handleInputChange}
       />
@@ -467,7 +902,7 @@ export const BeneficiaryInformation01 = (props) => {
       <TextField
         variant="outlined"
         name="beneficiary12ExSpouseFirstName"
-        label="Tên của vợ/chồng cũ"
+        label="Tên của vợ/chồng"
         value={values.beneficiary12ExSpouseFirstName}
         onChange={handleInputChange}
       />
@@ -475,18 +910,18 @@ export const BeneficiaryInformation01 = (props) => {
       <TextField
         variant="outlined"
         name="beneficiary12ExSpouseMiddleName"
-        label="Tên đệm của vợ/chồng cũ"
+        label="Tên đệm của vợ/chồng"
         value={values.beneficiary12ExSpouseMiddleName}
         onChange={handleInputChange}
       />
 
-      <LocalizationProvider dateAdapter={DateAdapter}>
+      <LocalizationProvider dateAdapter={AdapterMoment}>
         <MobileDatePicker
-          label={"Ngày sinh của vợ/chồng cũ"}
-          value={values.beneficiary12BirthDateOfExSpouse}
+          label={"Ngày sinh của vợ/chồng"}
+          value={values.beneficiary12ExSpouseBirthDate}
           onChange={(date) =>
             handleInputChange(
-              convertToEventParam("beneficiary12BirthDateOfExSpouse", date)
+              convertToEventParam("beneficiary12ExSpouseBirthDate", date)
             )
           }
           renderInput={(params) => <TextField {...params} />}
@@ -495,19 +930,19 @@ export const BeneficiaryInformation01 = (props) => {
 
       <TextField
         variant="outlined"
-        name="beneficiary12BirthPlaceOfExSpouse"
-        label="Nơi sinh của vợ/chồng cũ"
-        value={values.beneficiary12BirthPlaceOfExSpouse}
+        name="beneficiary12ExSpouseBirthPlace"
+        label="Nơi sinh của vợ/chồng"
+        value={values.beneficiary12ExSpouseBirthPlace}
         onChange={handleInputChange}
       />
 
-      <LocalizationProvider dateAdapter={DateAdapter}>
+      <LocalizationProvider dateAdapter={AdapterMoment}>
         <MobileDatePicker
           label={"Ngày kết hôn"}
-          value={values.beneficiary12DateOfMarriage}
+          value={values.beneficiary12MarriageDate}
           onChange={(date) =>
             handleInputChange(
-              convertToEventParam("beneficiary12DateOfMarriage", date)
+              convertToEventParam("beneficiary12MarriageDate", date)
             )
           }
           renderInput={(params) => <TextField {...params} />}
@@ -516,16 +951,37 @@ export const BeneficiaryInformation01 = (props) => {
 
       <TextField
         variant="outlined"
-        name="beneficiary12PlaceOfMarriage"
+        name="beneficiary12MarriagePlace"
         label="Nơi kết hôn"
-        value={values.beneficiary12PlaceOfMarriage}
+        value={values.beneficiary12MarriagePlace}
+        onChange={handleInputChange}
+      />
+
+      <LocalizationProvider dateAdapter={AdapterMoment}>
+        <MobileDatePicker
+          label={"Ngày ly hôn"}
+          value={values.beneficiary12DivorceDate}
+          onChange={(date) =>
+            handleInputChange(
+              convertToEventParam("beneficiary12DivorceDate", date)
+            )
+          }
+          renderInput={(params) => <TextField {...params} />}
+        />
+      </LocalizationProvider>
+
+      <TextField
+        variant="outlined"
+        name="beneficiary12DivorcePlace"
+        label="Nơi ly hôn"
+        value={values.beneficiary12DivorcePlace}
         onChange={handleInputChange}
       />
 
       <TextField
         variant="outlined"
         name="beneficiary13ExSpouseLastName"
-        label="3. Họ của vợ/chồng cũ"
+        label="3. Họ của vợ/chồng"
         value={values.beneficiary13ExSpouseLastName}
         onChange={handleInputChange}
       />
@@ -533,7 +989,7 @@ export const BeneficiaryInformation01 = (props) => {
       <TextField
         variant="outlined"
         name="beneficiary13ExSpouseFirstName"
-        label="Tên của vợ/chồng cũ"
+        label="Tên của vợ/chồng"
         value={values.beneficiary13ExSpouseFirstName}
         onChange={handleInputChange}
       />
@@ -541,18 +997,18 @@ export const BeneficiaryInformation01 = (props) => {
       <TextField
         variant="outlined"
         name="beneficiary13ExSpouseMiddleName"
-        label="Tên đệm của vợ/chồng cũ"
+        label="Tên đệm của vợ/chồng"
         value={values.beneficiary13ExSpouseMiddleName}
         onChange={handleInputChange}
       />
 
-      <LocalizationProvider dateAdapter={DateAdapter}>
+      <LocalizationProvider dateAdapter={AdapterMoment}>
         <MobileDatePicker
-          label={"Ngày sinh của vợ/chồng cũ"}
-          value={values.beneficiary13BirthDateOfExSpouse}
+          label={"Ngày sinh của vợ/chồng"}
+          value={values.beneficiary13ExSpouseBirthDate}
           onChange={(date) =>
             handleInputChange(
-              convertToEventParam("beneficiary13BirthDateOfExSpouse", date)
+              convertToEventParam("beneficiary13ExSpouseBirthDate", date)
             )
           }
           renderInput={(params) => <TextField {...params} />}
@@ -561,19 +1017,19 @@ export const BeneficiaryInformation01 = (props) => {
 
       <TextField
         variant="outlined"
-        name="beneficiary13BirthPlaceOfExSpouse"
-        label="Nơi sinh của vợ/chồng cũ"
-        value={values.beneficiary13BirthPlaceOfExSpouse}
+        name="beneficiary13ExSpouseBirthPlace"
+        label="Nơi sinh của vợ/chồng"
+        value={values.beneficiary13ExSpouseBirthPlace}
         onChange={handleInputChange}
       />
 
-      <LocalizationProvider dateAdapter={DateAdapter}>
+      <LocalizationProvider dateAdapter={AdapterMoment}>
         <MobileDatePicker
           label={"Ngày kết hôn"}
-          value={values.beneficiary13DateOfMarriage}
+          value={values.beneficiary13MarriageDate}
           onChange={(date) =>
             handleInputChange(
-              convertToEventParam("beneficiary13DateOfMarriage", date)
+              convertToEventParam("beneficiary13MarriageDate", date)
             )
           }
           renderInput={(params) => <TextField {...params} />}
@@ -582,16 +1038,37 @@ export const BeneficiaryInformation01 = (props) => {
 
       <TextField
         variant="outlined"
-        name="beneficiary13PlaceOfMarriage"
+        name="beneficiary13MarriagePlace"
         label="Nơi kết hôn"
-        value={values.beneficiary13PlaceOfMarriage}
+        value={values.beneficiary13MarriagePlace}
+        onChange={handleInputChange}
+      />
+
+      <LocalizationProvider dateAdapter={AdapterMoment}>
+        <MobileDatePicker
+          label={"Ngày ly hôn"}
+          value={values.beneficiary13DivorceDate}
+          onChange={(date) =>
+            handleInputChange(
+              convertToEventParam("beneficiary13DivorceDate", date)
+            )
+          }
+          renderInput={(params) => <TextField {...params} />}
+        />
+      </LocalizationProvider>
+
+      <TextField
+        variant="outlined"
+        name="beneficiary13DivorcePlace"
+        label="Nơi ly hôn"
+        value={values.beneficiary13DivorcePlace}
         onChange={handleInputChange}
       />
 
       <TextField
         variant="outlined"
         name="beneficiary14ExSpouseLastName"
-        label="4. Họ của vợ/chồng cũ"
+        label="4. Họ của vợ/chồng"
         value={values.beneficiary14ExSpouseLastName}
         onChange={handleInputChange}
       />
@@ -599,7 +1076,7 @@ export const BeneficiaryInformation01 = (props) => {
       <TextField
         variant="outlined"
         name="beneficiary14ExSpouseFirstName"
-        label="Tên của vợ/chồng cũ"
+        label="Tên của vợ/chồng"
         value={values.beneficiary14ExSpouseFirstName}
         onChange={handleInputChange}
       />
@@ -607,18 +1084,18 @@ export const BeneficiaryInformation01 = (props) => {
       <TextField
         variant="outlined"
         name="beneficiary14ExSpouseMiddleName"
-        label="Tên đệm của vợ/chồng cũ"
+        label="Tên đệm của vợ/chồng"
         value={values.beneficiary14ExSpouseMiddleName}
         onChange={handleInputChange}
       />
 
-      <LocalizationProvider dateAdapter={DateAdapter}>
+      <LocalizationProvider dateAdapter={AdapterMoment}>
         <MobileDatePicker
-          label={"Ngày sinh của vợ/chồng cũ"}
-          value={values.beneficiary14BirthDateOfExSpouse}
+          label={"Ngày sinh của vợ/chồng"}
+          value={values.beneficiary14ExSpouseBirthDate}
           onChange={(date) =>
             handleInputChange(
-              convertToEventParam("beneficiary14BirthDateOfExSpouse", date)
+              convertToEventParam("beneficiary14ExSpouseBirthDate", date)
             )
           }
           renderInput={(params) => <TextField {...params} />}
@@ -627,19 +1104,19 @@ export const BeneficiaryInformation01 = (props) => {
 
       <TextField
         variant="outlined"
-        name="beneficiary14BirthPlaceOfExSpouse"
-        label="Nơi sinh của vợ/chồng cũ"
-        value={values.beneficiary14BirthPlaceOfExSpouse}
+        name="beneficiary14ExSpouseBirthPlace"
+        label="Nơi sinh của vợ/chồng"
+        value={values.beneficiary14ExSpouseBirthPlace}
         onChange={handleInputChange}
       />
 
-      <LocalizationProvider dateAdapter={DateAdapter}>
+      <LocalizationProvider dateAdapter={AdapterMoment}>
         <MobileDatePicker
           label={"Ngày kết hôn"}
-          value={values.beneficiary14DateOfMarriage}
+          value={values.beneficiary14MarriageDate}
           onChange={(date) =>
             handleInputChange(
-              convertToEventParam("beneficiary14DateOfMarriage", date)
+              convertToEventParam("beneficiary14MarriageDate", date)
             )
           }
           renderInput={(params) => <TextField {...params} />}
@@ -648,16 +1125,39 @@ export const BeneficiaryInformation01 = (props) => {
 
       <TextField
         variant="outlined"
-        name="beneficiary14PlaceOfMarriage"
+        name="beneficiary14MarriagePlace"
         label="Nơi kết hôn"
-        value={values.beneficiary14PlaceOfMarriage}
+        value={values.beneficiary14MarriagePlace}
         onChange={handleInputChange}
       />
 
-      <InputLabel>
-        Địa chỉ của người thụ hưởng trong 5 năm qua. Liệt kê địa chỉ hiện tại
-        trước
-      </InputLabel>
+      <LocalizationProvider dateAdapter={AdapterMoment}>
+        <MobileDatePicker
+          label={"Ngày ly hôn"}
+          value={values.beneficiary14DivorceDate}
+          onChange={(date) =>
+            handleInputChange(
+              convertToEventParam("beneficiary14DivorceDate", date)
+            )
+          }
+          renderInput={(params) => <TextField {...params} />}
+        />
+      </LocalizationProvider>
+
+      <TextField
+        variant="outlined"
+        name="beneficiary14DivorcePlace"
+        label="Nơi ly hôn"
+        value={values.beneficiary14DivorcePlace}
+        onChange={handleInputChange}
+      /> */}
+
+      {/* <h1>
+        <InputLabel>
+          Địa chỉ của người thụ hưởng trong 5 năm qua. Liệt kê địa chỉ hiện tại
+          trước
+        </InputLabel>
+      </h1>
 
       <TextField
         variant="outlined"
@@ -677,9 +1177,9 @@ export const BeneficiaryInformation01 = (props) => {
 
       <TextField
         variant="outlined"
-        name="beneficiary21StateCounty"
+        name="beneficiary21State"
         label="Tiểu bang/quận"
-        value={values.beneficiary21StateCounty}
+        value={values.beneficiary21State}
         onChange={handleInputChange}
       />
 
@@ -691,21 +1191,31 @@ export const BeneficiaryInformation01 = (props) => {
         onChange={handleInputChange}
       />
 
-      <TextField
-        variant="outlined"
-        name="beneficiary21FromMonthYear"
-        label="Từ Tháng/năm"
-        value={values.beneficiary21FromMonthYear}
-        onChange={handleInputChange}
-      />
+      <LocalizationProvider dateAdapter={AdapterMoment}>
+        <MobileDatePicker
+          label={"Từ Tháng/năm"}
+          value={values.beneficiary21FromMonthYear}
+          onChange={(date) =>
+            handleInputChange(
+              convertToEventParam("beneficiary21FromMonthYear", date)
+            )
+          }
+          renderInput={(params) => <TextField {...params} />}
+        />
+      </LocalizationProvider>
 
-      <TextField
-        variant="outlined"
-        name="beneficiary21ToMonthYear"
-        label="Đến Tháng/năm"
-        value={values.beneficiary21ToMonthYear}
-        onChange={handleInputChange}
-      />
+      <LocalizationProvider dateAdapter={AdapterMoment}>
+        <MobileDatePicker
+          label={"Đến Tháng/năm"}
+          value={values.beneficiary21ToMonthYear}
+          onChange={(date) =>
+            handleInputChange(
+              convertToEventParam("beneficiary21ToMonthYear", date)
+            )
+          }
+          renderInput={(params) => <TextField {...params} />}
+        />
+      </LocalizationProvider>
 
       <TextField
         variant="outlined"
@@ -725,9 +1235,9 @@ export const BeneficiaryInformation01 = (props) => {
 
       <TextField
         variant="outlined"
-        name="beneficiary22StateCounty"
+        name="beneficiary22State"
         label="Tiểu bang/quận"
-        value={values.beneficiary22StateCounty}
+        value={values.beneficiary22State}
         onChange={handleInputChange}
       />
 
@@ -739,21 +1249,31 @@ export const BeneficiaryInformation01 = (props) => {
         onChange={handleInputChange}
       />
 
-      <TextField
-        variant="outlined"
-        name="beneficiary22FromMonthYear"
-        label="Từ Tháng/năm"
-        value={values.beneficiary22FromMonthYear}
-        onChange={handleInputChange}
-      />
+      <LocalizationProvider dateAdapter={AdapterMoment}>
+        <MobileDatePicker
+          label={"Từ Tháng/năm"}
+          value={values.beneficiary22FromMonthYear}
+          onChange={(date) =>
+            handleInputChange(
+              convertToEventParam("beneficiary22FromMonthYear", date)
+            )
+          }
+          renderInput={(params) => <TextField {...params} />}
+        />
+      </LocalizationProvider>
 
-      <TextField
-        variant="outlined"
-        name="beneficiary22ToMonthYear"
-        label="Đến Tháng/năm"
-        value={values.beneficiary22ToMonthYear}
-        onChange={handleInputChange}
-      />
+      <LocalizationProvider dateAdapter={AdapterMoment}>
+        <MobileDatePicker
+          label={"Đến Tháng/năm"}
+          value={values.beneficiary22ToMonthYear}
+          onChange={(date) =>
+            handleInputChange(
+              convertToEventParam("beneficiary22ToMonthYear", date)
+            )
+          }
+          renderInput={(params) => <TextField {...params} />}
+        />
+      </LocalizationProvider>
 
       <TextField
         variant="outlined"
@@ -773,9 +1293,9 @@ export const BeneficiaryInformation01 = (props) => {
 
       <TextField
         variant="outlined"
-        name="beneficiary23StateCounty"
+        name="beneficiary23State"
         label="Tiểu bang/quận"
-        value={values.beneficiary23StateCounty}
+        value={values.beneficiary23State}
         onChange={handleInputChange}
       />
 
@@ -787,21 +1307,31 @@ export const BeneficiaryInformation01 = (props) => {
         onChange={handleInputChange}
       />
 
-      <TextField
-        variant="outlined"
-        name="beneficiary23FromMonthYear"
-        label="Từ Tháng/năm"
-        value={values.beneficiary23FromMonthYear}
-        onChange={handleInputChange}
-      />
+      <LocalizationProvider dateAdapter={AdapterMoment}>
+        <MobileDatePicker
+          label={"Từ Tháng/năm"}
+          value={values.beneficiary23FromMonthYear}
+          onChange={(date) =>
+            handleInputChange(
+              convertToEventParam("beneficiary23FromMonthYear", date)
+            )
+          }
+          renderInput={(params) => <TextField {...params} />}
+        />
+      </LocalizationProvider>
 
-      <TextField
-        variant="outlined"
-        name="beneficiary23ToMonthYear"
-        label="Đến Tháng/năm"
-        value={values.beneficiary23ToMonthYear}
-        onChange={handleInputChange}
-      />
+      <LocalizationProvider dateAdapter={AdapterMoment}>
+        <MobileDatePicker
+          label={"Đến Tháng/năm"}
+          value={values.beneficiary23ToMonthYear}
+          onChange={(date) =>
+            handleInputChange(
+              convertToEventParam("beneficiary23ToMonthYear", date)
+            )
+          }
+          renderInput={(params) => <TextField {...params} />}
+        />
+      </LocalizationProvider>
 
       <TextField
         variant="outlined"
@@ -821,9 +1351,9 @@ export const BeneficiaryInformation01 = (props) => {
 
       <TextField
         variant="outlined"
-        name="beneficiary24StateCounty"
+        name="beneficiary24State"
         label="Tiểu bang/quận"
-        value={values.beneficiary24StateCounty}
+        value={values.beneficiary24State}
         onChange={handleInputChange}
       />
 
@@ -835,21 +1365,31 @@ export const BeneficiaryInformation01 = (props) => {
         onChange={handleInputChange}
       />
 
-      <TextField
-        variant="outlined"
-        name="beneficiary24FromMonthYear"
-        label="Từ Tháng/năm"
-        value={values.beneficiary24FromMonthYear}
-        onChange={handleInputChange}
-      />
+      <LocalizationProvider dateAdapter={AdapterMoment}>
+        <MobileDatePicker
+          label={"Từ Tháng/năm"}
+          value={values.beneficiary24FromMonthYear}
+          onChange={(date) =>
+            handleInputChange(
+              convertToEventParam("beneficiary24FromMonthYear", date)
+            )
+          }
+          renderInput={(params) => <TextField {...params} />}
+        />
+      </LocalizationProvider>
 
-      <TextField
-        variant="outlined"
-        name="beneficiary24ToMonthYear"
-        label="Đến Tháng/năm"
-        value={values.beneficiary24ToMonthYear}
-        onChange={handleInputChange}
-      />
+      <LocalizationProvider dateAdapter={AdapterMoment}>
+        <MobileDatePicker
+          label={"Đến Tháng/năm"}
+          value={values.beneficiary24ToMonthYear}
+          onChange={(date) =>
+            handleInputChange(
+              convertToEventParam("beneficiary24ToMonthYear", date)
+            )
+          }
+          renderInput={(params) => <TextField {...params} />}
+        />
+      </LocalizationProvider>
 
       <TextField
         variant="outlined"
@@ -869,9 +1409,9 @@ export const BeneficiaryInformation01 = (props) => {
 
       <TextField
         variant="outlined"
-        name="beneficiary25StateCounty"
+        name="beneficiary25State"
         label="Tiểu bang/quận"
-        value={values.beneficiary25StateCounty}
+        value={values.beneficiary25State}
         onChange={handleInputChange}
       />
 
@@ -883,84 +1423,156 @@ export const BeneficiaryInformation01 = (props) => {
         onChange={handleInputChange}
       />
 
-      <TextField
-        variant="outlined"
-        name="beneficiary25FromMonthYear"
-        label="Từ Tháng/năm"
-        value={values.beneficiary25FromMonthYear}
-        onChange={handleInputChange}
-      />
+      <LocalizationProvider dateAdapter={AdapterMoment}>
+        <MobileDatePicker
+          label={"Từ Tháng/năm"}
+          value={values.beneficiary25FromMonthYear}
+          onChange={(date) =>
+            handleInputChange(
+              convertToEventParam("beneficiary25FromMonthYear", date)
+            )
+          }
+          renderInput={(params) => <TextField {...params} />}
+        />
+      </LocalizationProvider>
+
+      <LocalizationProvider dateAdapter={AdapterMoment}>
+        <MobileDatePicker
+          label={"Đến Tháng/năm"}
+          value={values.beneficiary25ToMonthYear}
+          onChange={(date) =>
+            handleInputChange(
+              convertToEventParam("beneficiary25ToMonthYear", date)
+            )
+          }
+          renderInput={(params) => <TextField {...params} />}
+        />
+      </LocalizationProvider> */}
+
+      {/* <h1>
+        <InputLabel>
+          Địa chỉ cuối cùng của người thụ hưởng bên ngoài Hoa Kỳ
+        </InputLabel>
+      </h1>
 
       <TextField
         variant="outlined"
-        name="beneficiary25ToMonthYear"
-        label="Đến Tháng/năm"
-        value={values.beneficiary25ToMonthYear}
-        onChange={handleInputChange}
-      />
-
-      <InputLabel>
-        Địa chỉ cuối cùng của người thụ hưởng bên ngoài Hoa Kỳ
-      </InputLabel>
-
-      <TextField
-        variant="outlined"
-        name="beneficiary3HouseStreetName"
+        name="beneficiary03HouseStreetName"
         label="Số nhà và tên đường"
-        value={values.beneficiary3HouseStreetName}
+        value={values.beneficiary03HouseStreetName}
         onChange={handleInputChange}
       />
 
       <TextField
         variant="outlined"
-        name="beneficiary3City"
+        name="beneficiary03City"
         label="Thành phố"
-        value={values.beneficiary3City}
+        value={values.beneficiary03City}
         onChange={handleInputChange}
       />
 
       <TextField
         variant="outlined"
-        name="beneficiary3StateCounty"
+        name="beneficiary03State"
         label="Tiểu bang/quận"
-        value={values.beneficiary3StateCounty}
+        value={values.beneficiary03State}
         onChange={handleInputChange}
       />
 
       <TextField
         variant="outlined"
-        name="beneficiary3ZipCode"
+        name="beneficiary03ZipCode"
         label="Zip Code"
-        value={values.beneficiary3ZipCode}
+        value={values.beneficiary03ZipCode}
+        onChange={handleInputChange}
+      />
+
+      <LocalizationProvider dateAdapter={AdapterMoment}>
+        <MobileDatePicker
+          label={"Từ Tháng/năm"}
+          value={values.beneficiary03FromMonthYear}
+          onChange={(date) =>
+            handleInputChange(
+              convertToEventParam("beneficiary03FromMonthYear", date)
+            )
+          }
+          renderInput={(params) => <TextField {...params} />}
+        />
+      </LocalizationProvider>
+
+      <LocalizationProvider dateAdapter={AdapterMoment}>
+        <MobileDatePicker
+          label={"Đến Tháng/năm"}
+          value={values.beneficiary03ToMonthYear}
+          onChange={(date) =>
+            handleInputChange(
+              convertToEventParam("beneficiary03ToMonthYear", date)
+            )
+          }
+          renderInput={(params) => <TextField {...params} />}
+        />
+      </LocalizationProvider> */}
+      {/* 
+      <h1>
+        <InputLabel>
+          Nơi làm việc của người thụ hưởng trong vòng 5 năm qua. Liệt kê nơi làm
+          việc hiện tại trước
+        </InputLabel>
+      </h1>
+
+      <TextField
+        variant="outlined"
+        name="beneficiary41WorkplaceName"
+        label="1. Tên nơi làm việc hiện tại"
+        value={values.beneficiary41WorkplaceName}
         onChange={handleInputChange}
       />
 
       <TextField
         variant="outlined"
-        name="beneficiary3FromMonthYear"
-        label="Từ Tháng/năm"
-        value={values.beneficiary3FromMonthYear}
+        name="beneficiary41WorkplaceAddress"
+        label="Địa chỉ nơi làm việc hiện tại"
+        value={values.beneficiary41WorkplaceAddress}
         onChange={handleInputChange}
       />
 
       <TextField
         variant="outlined"
-        name="beneficiary3ToMonthYear"
-        label="Đến Tháng/năm"
-        value={values.beneficiary3ToMonthYear}
+        name="beneficiary41WorkplaceCity"
+        label="Thành phố"
+        value={values.beneficiary41WorkplaceCity}
         onChange={handleInputChange}
       />
 
-      <InputLabel>
-        Nơi làm việc của người thụ hưởng trong vòng 5 năm qua. Liệt kê nơi làm
-        việc hiện tại trước
-      </InputLabel>
+      <TextField
+        variant="outlined"
+        name="beneficiary41WorkplaceState"
+        label="Tiểu bang/quận"
+        value={values.beneficiary41WorkplaceState}
+        onChange={handleInputChange}
+      />
 
       <TextField
         variant="outlined"
-        name="beneficiary41NameWorkplaceAddress"
-        label="1. Tên và địa chỉ nơi làm việc hện tại"
-        value={values.beneficiary41NameWorkplaceAddress}
+        name="beneficiary41WorkplaceZipCode"
+        label="Zip Code"
+        value={values.beneficiary41WorkplaceZipCode}
+        onChange={handleInputChange}
+      />
+
+      <TextField
+        variant="outlined"
+        name="beneficiary41WorkplaceProvince"
+        label="Khu vực"
+        value={values.beneficiary41WorkplaceProvince}
+        onChange={handleInputChange}
+      />
+
+      <TextField
+        variant="outlined"
+        name="beneficiary41WorkplaceCountry"
+        label="Quốc gia"
+        value={values.beneficiary41WorkplaceCountry}
         onChange={handleInputChange}
       />
 
@@ -972,27 +1584,85 @@ export const BeneficiaryInformation01 = (props) => {
         onChange={handleInputChange}
       />
 
+      <LocalizationProvider dateAdapter={AdapterMoment}>
+        <MobileDatePicker
+          label={"Từ Tháng/năm"}
+          value={values.beneficiary41FromMonthYear}
+          onChange={(date) =>
+            handleInputChange(
+              convertToEventParam("beneficiary41FromMonthYear", date)
+            )
+          }
+          renderInput={(params) => <TextField {...params} />}
+        />
+      </LocalizationProvider>
+
+      <LocalizationProvider dateAdapter={AdapterMoment}>
+        <MobileDatePicker
+          label={"Đến Tháng/năm"}
+          value={values.beneficiary41ToMonthYear}
+          onChange={(date) =>
+            handleInputChange(
+              convertToEventParam("beneficiary41ToMonthYear", date)
+            )
+          }
+          renderInput={(params) => <TextField {...params} />}
+        />
+      </LocalizationProvider>
+
       <TextField
         variant="outlined"
-        name="beneficiary41FromMonthYear"
-        label="Từ Tháng/năm"
-        value={values.beneficiary41FromMonthYear}
+        name="beneficiary42WorkplaceName"
+        label="2. Tên nơi làm việc"
+        value={values.beneficiary42WorkplaceName}
         onChange={handleInputChange}
       />
 
       <TextField
         variant="outlined"
-        name="beneficiary41ToMonthYear"
-        label="Đến Tháng/năm"
-        value={values.beneficiary41ToMonthYear}
+        name="beneficiary42WorkplaceAddress"
+        label="Địa chỉ nơi làm việc"
+        value={values.beneficiary42WorkplaceAddress}
         onChange={handleInputChange}
       />
 
       <TextField
         variant="outlined"
-        name="beneficiary42NameWorkplaceAddress"
-        label="2. Tên và địa chỉ nơi làm việc"
-        value={values.beneficiary42NameWorkplaceAddress}
+        name="beneficiary42WorkplaceCity"
+        label="Thành phố"
+        value={values.beneficiary42WorkplaceCity}
+        onChange={handleInputChange}
+      />
+
+      <TextField
+        variant="outlined"
+        name="beneficiary42WorkplaceState"
+        label="Tiểu bang/quận"
+        value={values.beneficiary42WorkplaceState}
+        onChange={handleInputChange}
+      />
+
+      <TextField
+        variant="outlined"
+        name="beneficiary42WorkplaceZipCode"
+        label="Zip Code"
+        value={values.beneficiary42WorkplaceZipCode}
+        onChange={handleInputChange}
+      />
+
+      <TextField
+        variant="outlined"
+        name="beneficiary42WorkplaceProvince"
+        label="Khu vực"
+        value={values.beneficiary42WorkplaceProvince}
+        onChange={handleInputChange}
+      />
+
+      <TextField
+        variant="outlined"
+        name="beneficiary42WorkplaceCountry"
+        label="Quốc gia"
+        value={values.beneficiary42WorkplaceCountry}
         onChange={handleInputChange}
       />
 
@@ -1004,27 +1674,85 @@ export const BeneficiaryInformation01 = (props) => {
         onChange={handleInputChange}
       />
 
+      <LocalizationProvider dateAdapter={AdapterMoment}>
+        <MobileDatePicker
+          label={"Từ Tháng/năm"}
+          value={values.beneficiary42FromMonthYear}
+          onChange={(date) =>
+            handleInputChange(
+              convertToEventParam("beneficiary42FromMonthYear", date)
+            )
+          }
+          renderInput={(params) => <TextField {...params} />}
+        />
+      </LocalizationProvider>
+
+      <LocalizationProvider dateAdapter={AdapterMoment}>
+        <MobileDatePicker
+          label={"Đến Tháng/năm"}
+          value={values.beneficiary42ToMonthYear}
+          onChange={(date) =>
+            handleInputChange(
+              convertToEventParam("beneficiary42ToMonthYear", date)
+            )
+          }
+          renderInput={(params) => <TextField {...params} />}
+        />
+      </LocalizationProvider>
+
       <TextField
         variant="outlined"
-        name="beneficiary42FromMonthYear"
-        label="Từ Tháng/năm"
-        value={values.beneficiary42FromMonthYear}
+        name="beneficiary43WorkplaceName"
+        label="3. Tên nơi làm việc"
+        value={values.beneficiary43WorkplaceName}
         onChange={handleInputChange}
       />
 
       <TextField
         variant="outlined"
-        name="beneficiary42ToMonthYear"
-        label="Đến Tháng/năm"
-        value={values.beneficiary42ToMonthYear}
+        name="beneficiary43WorkplaceAddress"
+        label="Địa chỉ nơi làm việc"
+        value={values.beneficiary43WorkplaceAddress}
         onChange={handleInputChange}
       />
 
       <TextField
         variant="outlined"
-        name="beneficiary43NameWorkplaceAddress"
-        label="3. Tên và địa chỉ nơi làm việc"
-        value={values.beneficiary43NameWorkplaceAddress}
+        name="beneficiary43WorkplaceCity"
+        label="Thành phố"
+        value={values.beneficiary43WorkplaceCity}
+        onChange={handleInputChange}
+      />
+
+      <TextField
+        variant="outlined"
+        name="beneficiary43WorkplaceState"
+        label="Tiểu bang/quận"
+        value={values.beneficiary43WorkplaceState}
+        onChange={handleInputChange}
+      />
+
+      <TextField
+        variant="outlined"
+        name="beneficiary43WorkplaceZipCode"
+        label="Zip Code"
+        value={values.beneficiary43WorkplaceZipCode}
+        onChange={handleInputChange}
+      />
+
+      <TextField
+        variant="outlined"
+        name="beneficiary43WorkplaceProvince"
+        label="Khu vực"
+        value={values.beneficiary43WorkplaceProvince}
+        onChange={handleInputChange}
+      />
+
+      <TextField
+        variant="outlined"
+        name="beneficiary43WorkplaceCountry"
+        label="Quốc gia"
+        value={values.beneficiary43WorkplaceCountry}
         onChange={handleInputChange}
       />
 
@@ -1036,27 +1764,85 @@ export const BeneficiaryInformation01 = (props) => {
         onChange={handleInputChange}
       />
 
+      <LocalizationProvider dateAdapter={AdapterMoment}>
+        <MobileDatePicker
+          label={"Từ Tháng/năm"}
+          value={values.beneficiary43FromMonthYear}
+          onChange={(date) =>
+            handleInputChange(
+              convertToEventParam("beneficiary43FromMonthYear", date)
+            )
+          }
+          renderInput={(params) => <TextField {...params} />}
+        />
+      </LocalizationProvider>
+
+      <LocalizationProvider dateAdapter={AdapterMoment}>
+        <MobileDatePicker
+          label={"Đến Tháng/năm"}
+          value={values.beneficiary43ToMonthYear}
+          onChange={(date) =>
+            handleInputChange(
+              convertToEventParam("beneficiary43ToMonthYear", date)
+            )
+          }
+          renderInput={(params) => <TextField {...params} />}
+        />
+      </LocalizationProvider>
+
       <TextField
         variant="outlined"
-        name="beneficiary43FromMonthYear"
-        label="Từ Tháng/năm"
-        value={values.beneficiary43FromMonthYear}
+        name="beneficiary44WorkplaceName"
+        label="4. Tên nơi làm việc"
+        value={values.beneficiary44WorkplaceName}
         onChange={handleInputChange}
       />
 
       <TextField
         variant="outlined"
-        name="beneficiary43ToMonthYear"
-        label="Đến Tháng/năm"
-        value={values.beneficiary43ToMonthYear}
+        name="beneficiary44WorkplaceAddress"
+        label="Địa chỉ nơi làm việc"
+        value={values.beneficiary44WorkplaceAddress}
         onChange={handleInputChange}
       />
 
       <TextField
         variant="outlined"
-        name="beneficiary44NameWorkplaceAddress"
-        label="4. Tên và địa chỉ nơi làm việc"
-        value={values.beneficiary44NameWorkplaceAddress}
+        name="beneficiary44WorkplaceCity"
+        label="Thành phố"
+        value={values.beneficiary44WorkplaceCity}
+        onChange={handleInputChange}
+      />
+
+      <TextField
+        variant="outlined"
+        name="beneficiary44WorkplaceState"
+        label="Tiểu bang/quận"
+        value={values.beneficiary44WorkplaceState}
+        onChange={handleInputChange}
+      />
+
+      <TextField
+        variant="outlined"
+        name="beneficiary44WorkplaceZipCode"
+        label="Zip Code"
+        value={values.beneficiary44WorkplaceZipCode}
+        onChange={handleInputChange}
+      />
+
+      <TextField
+        variant="outlined"
+        name="beneficiary44WorkplaceProvince"
+        label="Khu vực"
+        value={values.beneficiary44WorkplaceProvince}
+        onChange={handleInputChange}
+      />
+
+      <TextField
+        variant="outlined"
+        name="beneficiary44WorkplaceCountry"
+        label="Quốc gia"
+        value={values.beneficiary44WorkplaceCountry}
         onChange={handleInputChange}
       />
 
@@ -1068,27 +1854,85 @@ export const BeneficiaryInformation01 = (props) => {
         onChange={handleInputChange}
       />
 
+      <LocalizationProvider dateAdapter={AdapterMoment}>
+        <MobileDatePicker
+          label={"Từ Tháng/năm"}
+          value={values.beneficiary44FromMonthYear}
+          onChange={(date) =>
+            handleInputChange(
+              convertToEventParam("beneficiary44FromMonthYear", date)
+            )
+          }
+          renderInput={(params) => <TextField {...params} />}
+        />
+      </LocalizationProvider>
+
+      <LocalizationProvider dateAdapter={AdapterMoment}>
+        <MobileDatePicker
+          label={"Đến Tháng/năm"}
+          value={values.beneficiary44ToMonthYear}
+          onChange={(date) =>
+            handleInputChange(
+              convertToEventParam("beneficiary44ToMonthYear", date)
+            )
+          }
+          renderInput={(params) => <TextField {...params} />}
+        />
+      </LocalizationProvider>
+
       <TextField
         variant="outlined"
-        name="beneficiary44FromMonthYear"
-        label="Từ Tháng/năm"
-        value={values.beneficiary44FromMonthYear}
+        name="beneficiary45WorkplaceName"
+        label="5. Tên nơi làm việc"
+        value={values.beneficiary45WorkplaceName}
         onChange={handleInputChange}
       />
 
       <TextField
         variant="outlined"
-        name="beneficiary44ToMonthYear"
-        label="Đến Tháng/năm"
-        value={values.beneficiary44ToMonthYear}
+        name="beneficiary45WorkplaceAddress"
+        label="Địa chỉ nơi làm việc"
+        value={values.beneficiary45WorkplaceAddress}
         onChange={handleInputChange}
       />
 
       <TextField
         variant="outlined"
-        name="beneficiary45NameWorkplaceAddress"
-        label="5. Tên và địa chỉ nơi làm việc"
-        value={values.beneficiary45NameWorkplaceAddress}
+        name="beneficiary45WorkplaceCity"
+        label="Thành phố"
+        value={values.beneficiary45WorkplaceCity}
+        onChange={handleInputChange}
+      />
+
+      <TextField
+        variant="outlined"
+        name="beneficiary45WorkplaceState"
+        label="Tiểu bang/quận"
+        value={values.beneficiary45WorkplaceState}
+        onChange={handleInputChange}
+      />
+
+      <TextField
+        variant="outlined"
+        name="beneficiary45WorkplaceZipCode"
+        label="Zip Code"
+        value={values.beneficiary45WorkplaceZipCode}
+        onChange={handleInputChange}
+      />
+
+      <TextField
+        variant="outlined"
+        name="beneficiary45WorkplaceProvince"
+        label="Khu vực"
+        value={values.beneficiary45WorkplaceProvince}
+        onChange={handleInputChange}
+      />
+
+      <TextField
+        variant="outlined"
+        name="beneficiary45WorkplaceCountry"
+        label="Quốc gia"
+        value={values.beneficiary45WorkplaceCountry}
         onChange={handleInputChange}
       />
 
@@ -1100,241 +1944,318 @@ export const BeneficiaryInformation01 = (props) => {
         onChange={handleInputChange}
       />
 
+      <LocalizationProvider dateAdapter={AdapterMoment}>
+        <MobileDatePicker
+          label={"Từ Tháng/năm"}
+          value={values.beneficiary45FromMonthYear}
+          onChange={(date) =>
+            handleInputChange(
+              convertToEventParam("beneficiary45FromMonthYear", date)
+            )
+          }
+          renderInput={(params) => <TextField {...params} />}
+        />
+      </LocalizationProvider>
+
+      <LocalizationProvider dateAdapter={AdapterMoment}>
+        <MobileDatePicker
+          label={"Đến Tháng/năm"}
+          value={values.beneficiary45ToMonthYear}
+          onChange={(date) =>
+            handleInputChange(
+              convertToEventParam("beneficiary45ToMonthYear", date)
+            )
+          }
+          renderInput={(params) => <TextField {...params} />}
+        />
+      </LocalizationProvider>
+
+      <h1>
+        <InputLabel>
+          Chức vụ công việc ở nước ngoài nếu không có ở trên
+        </InputLabel>
+      </h1>
+
       <TextField
         variant="outlined"
-        name="beneficiary45FromMonthYear"
-        label="Từ Tháng/năm"
-        value={values.beneficiary45FromMonthYear}
+        name="beneficiary05WorkName"
+        label="Tên nơi làm việc"
+        value={values.beneficiary05WorkName}
         onChange={handleInputChange}
       />
 
       <TextField
         variant="outlined"
-        name="beneficiary45ToMonthYear"
-        label="Đến Tháng/năm"
-        value={values.beneficiary45ToMonthYear}
-        onChange={handleInputChange}
-      />
-
-      <InputLabel>
-        Chức vụ công việc ở nước ngoài nếu không có ở trên
-      </InputLabel>
-
-      <TextField
-        variant="outlined"
-        name="beneficiary5NameAddressWork"
-        label="Tên và địa chỉ nơi làm việc"
-        value={values.beneficiary5NameAddressWork}
+        name="beneficiary05WorkAddress"
+        label="Địa chỉ nơi làm việc"
+        value={values.beneficiary05WorkAddress}
         onChange={handleInputChange}
       />
 
       <TextField
         variant="outlined"
-        name="beneficiary5Position"
+        name="beneficiary05Position"
         label="Chức vụ"
-        value={values.beneficiary5Position}
+        value={values.beneficiary05Position}
+        onChange={handleInputChange}
+      />
+
+      <LocalizationProvider dateAdapter={AdapterMoment}>
+        <MobileDatePicker
+          label={"Từ Tháng/năm"}
+          value={values.beneficiary05FromMonthYear}
+          onChange={(date) =>
+            handleInputChange(
+              convertToEventParam("beneficiary05FromMonthYear", date)
+            )
+          }
+          renderInput={(params) => <TextField {...params} />}
+        />
+      </LocalizationProvider>
+
+      <LocalizationProvider dateAdapter={AdapterMoment}>
+        <MobileDatePicker
+          label={"Đến Tháng/năm"}
+          value={values.beneficiary05ToMonthYear}
+          onChange={(date) =>
+            handleInputChange(
+              convertToEventParam("beneficiary05ToMonthYear", date)
+            )
+          }
+          renderInput={(params) => <TextField {...params} />}
+        />
+      </LocalizationProvider> */}
+
+      {/* <h1>
+        <InputLabel>Liệt kê tất cả tên các con của người thụ hưởng</InputLabel>
+      </h1>
+
+      <TextField
+        variant="outlined"
+        name="beneficiary61ChildrenLastName"
+        label="1. Họ:"
+        value={values.beneficiary61ChildrenLastName}
         onChange={handleInputChange}
       />
 
       <TextField
         variant="outlined"
-        name="beneficiary5FromMonthYear"
-        label="Từ Tháng/năm"
-        value={values.beneficiary5FromMonthYear}
+        name="beneficiary61ChildrenFirstName"
+        label="Tên:"
+        value={values.beneficiary61ChildrenFirstName}
         onChange={handleInputChange}
       />
 
       <TextField
         variant="outlined"
-        name="beneficiary5ToMonthYear"
-        label="Đến Tháng/năm"
-        value={values.beneficiary5ToMonthYear}
+        name="beneficiary61ChildrenMiddleName"
+        label="Tên đệm:"
+        value={values.beneficiary61ChildrenMiddleName}
+        onChange={handleInputChange}
+      />
+
+      <LocalizationProvider dateAdapter={AdapterMoment}>
+        <MobileDatePicker
+          label={"Ngày tháng năm sinh"}
+          value={values.beneficiary61ChildrenBirthDate}
+          onChange={(date) =>
+            handleInputChange(
+              convertToEventParam("beneficiary61ChildrenBirthDate", date)
+            )
+          }
+          renderInput={(params) => <TextField {...params} />}
+        />
+      </LocalizationProvider>
+
+      <TextField
+        variant="outlined"
+        name="beneficiary61ChildrenBirthPlace"
+        label="Nơi sinh:"
+        value={values.beneficiary61ChildrenBirthPlace}
         onChange={handleInputChange}
       />
 
       <TextField
         variant="outlined"
-        name="beneficiary5AllPreviousVisaRefusals"
-        label="Liệt kê tất cả những lần bị từ chối Visa trước đây"
-        value={values.beneficiary5AllPreviousVisaRefusals}
-        onChange={handleInputChange}
-      />
-
-      <FormControl>
-        <FormLabel id="beneficiary5HasAppliedWorkPermit">
-          Người thụ hưởng đã từng nộp đơn xin giấy phép lao động trước đây?
-        </FormLabel>
-        <RadioGroup
-          row
-          name="beneficiary5HasAppliedWorkPermit"
-          onChange={handleInputChange}
-        >
-          <FormControlLabel
-            value="beneficiary5HasAppliedWorkPermitNo"
-            checked={values.beneficiary5HasAppliedWorkPermitNo}
-            control={<Radio />}
-            label="Không"
-          />
-          <FormControlLabel
-            value="beneficiary5HasAppliedWorkPermitYes"
-            checked={values.beneficiary5HasAppliedWorkPermitYes}
-            control={<Radio />}
-            label="Có"
-          />
-        </RadioGroup>
-      </FormControl>
-
-      <Grow
-        in={values.beneficiary5HasAppliedWorkPermitYes}
-        style={{ transformOrigin: "0 0 0" }}
-        {...(values.beneficiary5HasAppliedWorkPermitYes
-          ? { timeout: 400 }
-          : {})}
-        unmountOnExit
-      >
-        {extent_option_1}
-      </Grow>
-
-      <TextField
-        variant="outlined"
-        name="beneficiary5NamesOrganizationsMember"
-        label="Tên các tổ chức hoặc câu lạc bộ mà người thụ hưởng đã và đang tham gia"
-        value={values.beneficiary5NamesOrganizationsMember}
+        name="beneficiary62ChildrenLastName"
+        label="2. Họ:"
+        value={values.beneficiary62ChildrenLastName}
         onChange={handleInputChange}
       />
 
       <TextField
         variant="outlined"
-        name="beneficiary5DescribePeopleMet"
-        label="Mô tả quá trình hai người gặp nhau"
-        value={values.beneficiary5DescribePeopleMet}
+        name="beneficiary62ChildrenFirstName"
+        label="Tên:"
+        value={values.beneficiary62ChildrenFirstName}
         onChange={handleInputChange}
       />
 
-      <FormControl>
-        <FormLabel id="beneficiary5CanMatchmaking">
-          Có được mai mối hay không?
-        </FormLabel>
-        <RadioGroup
-          row
-          name="beneficiary5CanMatchmaking"
-          onChange={handleInputChange}
-        >
-          <FormControlLabel
-            value="beneficiary5CanMatchmakingNo"
-            checked={values.beneficiary5CanMatchmakingNo}
-            control={<Radio />}
-            label="Không"
-          />
-          <FormControlLabel
-            value="beneficiary5CanMatchmakingYes"
-            checked={values.beneficiary5CanMatchmakingYes}
-            control={<Radio />}
-            label="Có"
-          />
-        </RadioGroup>
-      </FormControl>
+      <TextField
+        variant="outlined"
+        name="beneficiary62ChildrenMiddleName"
+        label="Tên đệm:"
+        value={values.beneficiary62ChildrenMiddleName}
+        onChange={handleInputChange}
+      />
 
-      <FormControl>
-        <FormLabel id="beneficiary5HaveEverViolated">
-          Một trong hai người đã từng vi phạm các quy định về di trú hay không?
-        </FormLabel>
-        <RadioGroup
-          row
-          name="beneficiary5HaveEverViolated"
-          onChange={handleInputChange}
-        >
-          <FormControlLabel
-            value="beneficiary5HaveEverViolatedNo"
-            checked={values.beneficiary5HaveEverViolatedNo}
-            control={<Radio />}
-            label="Không"
-          />
-          <FormControlLabel
-            value="beneficiary5HaveEverViolatedYes"
-            checked={values.beneficiary5HaveEverViolatedYes}
-            control={<Radio />}
-            label="Có"
-          />
-        </RadioGroup>
-      </FormControl>
+      <LocalizationProvider dateAdapter={AdapterMoment}>
+        <MobileDatePicker
+          label={"Ngày tháng năm sinh"}
+          value={values.beneficiary62ChildrenBirthDate}
+          onChange={(date) =>
+            handleInputChange(
+              convertToEventParam("beneficiary62ChildrenBirthDate", date)
+            )
+          }
+          renderInput={(params) => <TextField {...params} />}
+        />
+      </LocalizationProvider>
 
-      <Grow
-        in={values.beneficiary5HaveEverViolatedYes}
-        style={{ transformOrigin: "0 0 0" }}
-        {...(values.beneficiary5HaveEverViolatedYes ? { timeout: 400 } : {})}
-        unmountOnExit
-      >
-        {extent_option_2}
-      </Grow>
+      <TextField
+        variant="outlined"
+        name="beneficiary62ChildrenBirthPlace"
+        label="Nơi sinh:"
+        value={values.beneficiary62ChildrenBirthPlace}
+        onChange={handleInputChange}
+      />
 
-      <FormControl>
-        <FormLabel id="beneficiary5HasEverSuffered">
-          Một trong hai người có từng bị các chứng về thần kinh hoặc các bệnh
-          liên quan đến sử dụng chất kích thích?
-        </FormLabel>
-        <RadioGroup
-          row
-          name="beneficiary5HasEverSuffered"
-          onChange={handleInputChange}
-        >
-          <FormControlLabel
-            value="beneficiary5HasEverSufferedNo"
-            checked={values.beneficiary5HasEverSufferedNo}
-            control={<Radio />}
-            label="Không"
-          />
-          <FormControlLabel
-            value="beneficiary5HasEverSufferedYes"
-            checked={values.beneficiary5HasEverSufferedYes}
-            control={<Radio />}
-            label="Có"
-          />
-        </RadioGroup>
-      </FormControl>
+      <TextField
+        variant="outlined"
+        name="beneficiary63ChildrenLastName"
+        label="3. Họ:"
+        value={values.beneficiary63ChildrenLastName}
+        onChange={handleInputChange}
+      />
 
-      <Grow
-        in={values.beneficiary5HasEverSufferedYes}
-        style={{ transformOrigin: "0 0 0" }}
-        {...(values.beneficiary5HasEverSufferedYes ? { timeout: 400 } : {})}
-        unmountOnExit
-      >
-        {extent_option_3}
-      </Grow>
+      <TextField
+        variant="outlined"
+        name="beneficiary63ChildrenFirstName"
+        label="Tên:"
+        value={values.beneficiary63ChildrenFirstName}
+        onChange={handleInputChange}
+      />
 
-      <FormControl>
-        <FormLabel id="beneficiary5HasInMilitary">
-          Người thụ hưởng đã từng làm việc trong quân đội?
-        </FormLabel>
-        <RadioGroup
-          row
-          name="beneficiary5HasInMilitary"
-          onChange={handleInputChange}
-        >
-          <FormControlLabel
-            value="beneficiary5HasInMilitaryNo"
-            checked={values.beneficiary5HasInMilitaryNo}
-            control={<Radio />}
-            label="Không"
-          />
-          <FormControlLabel
-            value="beneficiary5HasInMilitaryYes"
-            checked={values.beneficiary5HasInMilitaryYes}
-            control={<Radio />}
-            label="Có"
-          />
-        </RadioGroup>
-      </FormControl>
+      <TextField
+        variant="outlined"
+        name="beneficiary63ChildrenMiddleName"
+        label="Tên đệm:"
+        value={values.beneficiary63ChildrenMiddleName}
+        onChange={handleInputChange}
+      />
 
-      <Grow
-        in={values.beneficiary5HasInMilitaryYes}
-        style={{ transformOrigin: "0 0 0" }}
-        {...(values.beneficiary5HasInMilitaryYes ? { timeout: 400 } : {})}
-        unmountOnExit
-      >
-        {extent_option_4}
-      </Grow>
+      <LocalizationProvider dateAdapter={AdapterMoment}>
+        <MobileDatePicker
+          label={"Ngày tháng năm sinh"}
+          value={values.beneficiary63ChildrenBirthDate}
+          onChange={(date) =>
+            handleInputChange(
+              convertToEventParam("beneficiary63ChildrenBirthDate", date)
+            )
+          }
+          renderInput={(params) => <TextField {...params} />}
+        />
+      </LocalizationProvider>
 
+      <TextField
+        variant="outlined"
+        name="beneficiary63ChildrenBirthPlace"
+        label="Nơi sinh:"
+        value={values.beneficiary63ChildrenBirthPlace}
+        onChange={handleInputChange}
+      />
+
+      <TextField
+        variant="outlined"
+        name="beneficiary64ChildrenLastName"
+        label="4. Họ:"
+        value={values.beneficiary64ChildrenLastName}
+        onChange={handleInputChange}
+      />
+
+      <TextField
+        variant="outlined"
+        name="beneficiary64ChildrenFirstName"
+        label="Tên:"
+        value={values.beneficiary64ChildrenFirstName}
+        onChange={handleInputChange}
+      />
+
+      <TextField
+        variant="outlined"
+        name="beneficiary64ChildrenMiddleName"
+        label="Tên đệm:"
+        value={values.beneficiary64ChildrenMiddleName}
+        onChange={handleInputChange}
+      />
+
+      <LocalizationProvider dateAdapter={AdapterMoment}>
+        <MobileDatePicker
+          label={"Ngày tháng năm sinh"}
+          value={values.beneficiary64ChildrenBirthDate}
+          onChange={(date) =>
+            handleInputChange(
+              convertToEventParam("beneficiary64ChildrenBirthDate", date)
+            )
+          }
+          renderInput={(params) => <TextField {...params} />}
+        />
+      </LocalizationProvider>
+
+      <TextField
+        variant="outlined"
+        name="beneficiary64ChildrenBirthPlace"
+        label="Nơi sinh:"
+        value={values.beneficiary64ChildrenBirthPlace}
+        onChange={handleInputChange}
+      />
+
+      <TextField
+        variant="outlined"
+        name="beneficiary65ChildrenLastName"
+        label="5. Họ:"
+        value={values.beneficiary65ChildrenLastName}
+        onChange={handleInputChange}
+      />
+
+      <TextField
+        variant="outlined"
+        name="beneficiary65ChildrenFirstName"
+        label="Tên:"
+        value={values.beneficiary65ChildrenFirstName}
+        onChange={handleInputChange}
+      />
+
+      <TextField
+        variant="outlined"
+        name="beneficiary65ChildrenMiddleName"
+        label="Tên đệm:"
+        value={values.beneficiary65ChildrenMiddleName}
+        onChange={handleInputChange}
+      />
+
+      <LocalizationProvider dateAdapter={AdapterMoment}>
+        <MobileDatePicker
+          label={"Ngày tháng năm sinh"}
+          value={values.beneficiary65ChildrenBirthDate}
+          onChange={(date) =>
+            handleInputChange(
+              convertToEventParam("beneficiary65ChildrenBirthDate", date)
+            )
+          }
+          renderInput={(params) => <TextField {...params} />}
+        />
+      </LocalizationProvider>
+
+      <TextField
+        variant="outlined"
+        name="beneficiary65ChildrenBirthPlace"
+        label="Nơi sinh:"
+        value={values.beneficiary65ChildrenBirthPlace}
+        onChange={handleInputChange}
+      /> */}
+
+      {/*           
       <h5>
         <InputLabel
           style={{
@@ -1456,7 +2377,7 @@ export const BeneficiaryInformation01 = (props) => {
         onChange={handleInputChange}
       />
 
-      <LocalizationProvider dateAdapter={DateAdapter}>
+      <LocalizationProvider dateAdapter={AdapterMoment}>
         <MobileDatePicker
           label={"Ngày sinh của cha"}
           value={values.sponsor1FatherBirthDate}
@@ -1493,7 +2414,7 @@ export const BeneficiaryInformation01 = (props) => {
         onChange={handleInputChange}
       />
 
-      <LocalizationProvider dateAdapter={DateAdapter}>
+      <LocalizationProvider dateAdapter={AdapterMoment}>
         <MobileDatePicker
           label={"Ngày sinh của mẹ"}
           value={values.sponsor1MotherBirthDate}
@@ -1530,7 +2451,7 @@ export const BeneficiaryInformation01 = (props) => {
         onChange={handleInputChange}
       />
 
-      <LocalizationProvider dateAdapter={DateAdapter}>
+      <LocalizationProvider dateAdapter={AdapterMoment}>
         <MobileDatePicker
           label={"Ngày sinh của vợ/chồng cũ"}
           value={values.sponsor11BirthDateExSpouse}
@@ -1551,7 +2472,7 @@ export const BeneficiaryInformation01 = (props) => {
         onChange={handleInputChange}
       />
 
-      <LocalizationProvider dateAdapter={DateAdapter}>
+      <LocalizationProvider dateAdapter={AdapterMoment}>
         <MobileDatePicker
           label={"Ngày kết hôn"}
           value={values.sponsor11MarriageDate}
@@ -1580,7 +2501,7 @@ export const BeneficiaryInformation01 = (props) => {
         onChange={handleInputChange}
       />
 
-      <LocalizationProvider dateAdapter={DateAdapter}>
+      <LocalizationProvider dateAdapter={AdapterMoment}>
         <MobileDatePicker
           label={"Ngày sinh của vợ/chồng cũ"}
           value={values.sponsor12BirthDateExSpouse}
@@ -1601,7 +2522,7 @@ export const BeneficiaryInformation01 = (props) => {
         onChange={handleInputChange}
       />
 
-      <LocalizationProvider dateAdapter={DateAdapter}>
+      <LocalizationProvider dateAdapter={AdapterMoment}>
         <MobileDatePicker
           label={"Ngày kết hôn"}
           value={values.sponsor12MarriageDate}
@@ -1630,7 +2551,7 @@ export const BeneficiaryInformation01 = (props) => {
         onChange={handleInputChange}
       />
 
-      <LocalizationProvider dateAdapter={DateAdapter}>
+      <LocalizationProvider dateAdapter={AdapterMoment}>
         <MobileDatePicker
           label={"Ngày sinh của vợ/chồng cũ"}
           value={values.sponsor13BirthDateExSpouse}
@@ -1651,7 +2572,7 @@ export const BeneficiaryInformation01 = (props) => {
         onChange={handleInputChange}
       />
 
-      <LocalizationProvider dateAdapter={DateAdapter}>
+      <LocalizationProvider dateAdapter={AdapterMoment}>
         <MobileDatePicker
           label={"Ngày kết hôn"}
           value={values.sponsor13MarriageDate}
@@ -2440,7 +3361,7 @@ export const BeneficiaryInformation01 = (props) => {
             label={"14. Giấy tờ ly hôn trước đây"}
           />
         </FormGroup>
-      </FormControl>
+      </FormControl> */}
     </>
   );
 };
