@@ -1,0 +1,59 @@
+Django
+gunicorn
+psycopg2-binary
+redis
+django-helpdesk
+pandas
+xlrd
+openpyxl
+django-widget-tweaks
+django-import-export
+docxtpl
+xhtml2pdf
+django_xhtml2pdf
+django-admin-logs
+django-auth-ldap==2.1.0
+# python-ldap
+# python3-ldap
+django-session-timeout
+djangorestframework
+django-cors-headers
+-====================================================================================================================================================================
+'markdown_deux',  # Required for Knowledgebase item formatting
+'bootstrapform', # Required for nicer formatting of forms with the default templates
+'corsheaders',
+'lwf.apps.LWFConfig',
+'import_export',
+'django_admin_logs',
+'rest_framework',
+'rest_framework.authtoken',  # <-- Here
+'vnlist.apps.VnlistConfig',
+-====================================================================================================================================================================
+Django==2.2.12
+gunicorn
+psycopg2-binary<2.9
+redis
+django-helpdesk
+pandas
+xlrd
+openpyxl
+django-widget-tweaks
+django-import-export
+docxtpl
+xhtml2pdf
+django_xhtml2pdf
+django-admin-logs
+django-auth-ldap==2.1.0
+python-ldap
+python3-ldap
+django-session-timeout
+django-preventconcurrentlogins
+djangorestframework
+#Update 2023-03-19
+django-cors-headers
+django-markdown-deux
+django-bootstrap-form
+docx-mailmerge
+reportlab==3.6.6
+Unidecode
+-====================================================================================================================================================================
