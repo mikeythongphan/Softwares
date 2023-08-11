@@ -111,3 +111,14 @@ Xq@2002001320
 dev01@onewits.com
 =================================================================================================================================================================
 https://github.com/GeoffCox/react-splitter
+https://github.com/Elarcev/ImageSourceFromStreamMAUI
+
+private void Button_Clicked_1(object sender, EventArgs e)
+{
+    byte[] imageArray = System.IO.File.ReadAllBytes("C:\\Users\\v31327\\Downloads\\Pictures\\5819.KL-a46d3378.png");
+    string base64ImageRepresentation = Convert.ToBase64String(imageArray);
+
+    ViewModel.TestImage = ImageSource.FromStream(() => new MemoryStream(Convert.FromBase64String(base64ImageRepresentation)));
+}
+
+https://stackoverflow.com/questions/21325661/convert-an-image-selected-by-path-to-base64-string
