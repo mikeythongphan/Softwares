@@ -112,17 +112,7 @@ dev01@onewits.com
 =================================================================================================================================================================
 https://github.com/GeoffCox/react-splitter
 https://github.com/Elarcev/ImageSourceFromStreamMAUI
-
-public void MobileImageMounterUploadImage(string deviceImagePath)
-{
-    FileStream imageStream = new FileStream(deviceImagePath, FileMode.Open, FileAccess.Read, FileShare.Read);
-    const string imageType = "Developer";
-    var handle = GCHandle.Alloc(imageStream);        
-    var result = ImageMounterAPI.mobile_image_mounter_upload_image(ImageMounter, imageType, 
-        (uint)imageStream.Length, null, 0, MounterUploadCallback, GCHandle.ToIntPtr(handle));
-    if (result == MobileImageMounterError.Success) return;
-    throw new Exception($"Unable to execute mobile_image_mounter_upload_image::{result}.");
-}
+https://stackoverflow.com/questions/2093263/how-to-compare-two-sqlite-databases-on-linux
 https://docs.libimobiledevice.org/libimobiledevice/latest/mobile__image__mounter_8h_ae4833ef0e055d0af80f407f767d70e9f.html
 https://stackoverflow.com/questions/21325661/convert-an-image-selected-by-path-to-base64-string
 https://programtalk.com/vs4/csharp/master131/iFakeLocation/iFakeLocation/DeviceInformation.cs/
