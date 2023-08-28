@@ -116,3 +116,4 @@ https://stackoverflow.com/questions/2093263/how-to-compare-two-sqlite-databases-
 https://docs.libimobiledevice.org/libimobiledevice/latest/mobile__image__mounter_8h_ae4833ef0e055d0af80f407f767d70e9f.html
 https://stackoverflow.com/questions/21325661/convert-an-image-selected-by-path-to-base64-string
 https://programtalk.com/vs4/csharp/master131/iFakeLocation/iFakeLocation/DeviceInformation.cs/
+https://briancaos.wordpress.com/2022/07/04/c-list-batch-braking-an-ienumerable-into-batches-with-net/
